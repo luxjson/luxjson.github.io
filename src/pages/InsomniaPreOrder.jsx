@@ -236,11 +236,11 @@ export default function InsomniaPreOrder() {
                         margin: '0 auto',
                         lineHeight: '1.8'
                     }}>
-                        <p>✓ Exclusive in-game content</p>
-                        <p>✓ Early access to beta</p>
-                        <p>✓ Digital artbook</p>
-                        <p>✓ Original soundtrack</p>
-                        <p>✓ 20% discount on full price</p>
+                        <p>Exclusive in-game content</p>
+                        <p>Early access to beta</p>
+                        <p>Digital artbook</p>
+                        <p>Original soundtrack</p>
+                        <p>20% discount on full price</p>
                     </div>
                 </div>
             </main>

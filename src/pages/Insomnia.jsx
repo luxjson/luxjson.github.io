@@ -90,9 +90,6 @@ export default function Insomnia() {
                             <a href={downloadUrl} target="_blank" className="link-4" rel="noreferrer">
                                 <div className="border2">Download Alpha</div>
                             </a>
-                            <Link to="/games/insomnia/music" className="link-4">
-                                <div className="border2">Soundtrack</div>
-                            </Link>
                         </>    
                     )}
 
@@ -111,10 +108,6 @@ export default function Insomnia() {
                         <>
                             <Link to="/games/insomnia/download" className="link-4" rel="noreferrer">
                                 <div className="border2">Download</div>
-                            </Link>
-
-                            <Link to="/games/insomnia/music" className="link-4" rel="noreferrer">
-                                <div className="border2">Soundtrack</div>
                             </Link>
 
                             <a href="https://github.com/luxjson/INSOMNIA/releases/latest" target="_blank" className="link-4" rel="noreferrer">

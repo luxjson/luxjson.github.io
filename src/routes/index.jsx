@@ -8,7 +8,6 @@ import Insomnia from "../pages/Insomnia";
 import InsomniaPreOrder from "../pages/InsomniaPreOrder";
 import InsomniaDownload from "../pages/InsomniaDownload";
 import InsomniaSteam from "../pages/InsomniaSteam";
-import InsomniaMusic from "../pages/InsomniaMusic"
 import NotFound from "../pages/NotFound";
 
 export default function Rotas() {
@@ -24,7 +23,6 @@ export default function Rotas() {
                 <Route path="/games/INSOMNIA/preorder" element={<InsomniaPreOrder />} />
                 <Route path="/games/INSOMNIA/download" element={<InsomniaDownload />} />
                 <Route path="/games/INSOMNIA/preorder/steam" element={<InsomniaSteam />} />
-                <Route path="/games/INSOMNIA/Music" element={<InsomniaMusic />} />
                 
                 <Route path="*" element={<NotFound />} />
             </Routes>
