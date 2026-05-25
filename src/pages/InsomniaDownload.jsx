@@ -35,6 +35,12 @@ export default function InsomniaDownload() {
     if (hoje < dataLiberacao) {
         return (
             <>
+                <link rel="icon" type="image/x-icon" href="/faviconInsomnia.ico" />
+            
+                <title>
+                    Insomnia
+                </title>
+
                 <header>
                     <Link to="/games/insomnia" className="header">
                         <img className="img" src={insomniaLogo} alt="Unburied Pixels" />

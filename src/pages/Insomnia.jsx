@@ -56,6 +56,11 @@ export default function Insomnia() {
     return (
         <>
 
+            <link rel="icon" type="image/x-icon" href="/faviconInsomnia.ico" />
+            
+            <title>
+                Insomnia
+            </title>
 
             <header>
                 <Link to="/games/insomnia" className="header">

@@ -10,6 +10,11 @@
     src: url('../fonts/retropix.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'PicNic';
+    src: url('../fonts/PicNic-Regular.otf') format('opentype');
+}
+
 body {
     background-color: #fff;
     display: flex;

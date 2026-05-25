@@ -5,9 +5,8 @@ import About from "../pages/About";
 import Games from "../pages/Games";
 import Contact from "../pages/Contact";
 import Insomnia from "../pages/Insomnia";
-import InsomniaPreOrder from "../pages/InsomniaPreOrder";
 import InsomniaDownload from "../pages/InsomniaDownload";
-import InsomniaSteam from "../pages/InsomniaSteam";
+import InsomniaNotFound from "../pages/InsomniaNotFound";
 import NotFound from "../pages/NotFound";
 
 export default function Rotas() {
@@ -20,9 +19,8 @@ export default function Rotas() {
                 <Route path="/contact" element={<Contact />} />
 
                 <Route path="/games/INSOMNIA" element={<Insomnia />} />
-                <Route path="/games/INSOMNIA/preorder" element={<InsomniaPreOrder />} />
                 <Route path="/games/INSOMNIA/download" element={<InsomniaDownload />} />
-                <Route path="/games/INSOMNIA/preorder/steam" element={<InsomniaSteam />} />
+                <Route path="/games/INSOMNIA/*" element={<InsomniaNotFound />} />
                 
                 <Route path="*" element={<NotFound />} />
             </Routes>

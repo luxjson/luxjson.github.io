@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'retropix', sans-serif;
+}
+
+@font-face {
+    font-family: 'retropix';
+    src: url('../fonts/retropix.ttf') format('truetype');
+}
+
+html, body {
+    background-color: #fff;
+    color: #000;
+    min-height: 100vh;
+    cursor: url('../cursors/insomnia-cursors/Normal Select.cur') 0 0, auto;
+}
+
+a, button {
+    cursor: url('../cursors/insomnia-cursors/Select.cur') 12 0, pointer !important;
+}
+
+.insomnia-not-found {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.img {
+    max-width: 450px;
+    width: 90%;
+    height: auto;
+    image-rendering: pixelated;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+.status-title {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    letter-spacing: 5px;
+}
+
+.sketch-container {
+    border: 3px solid #000;
+    padding: 30px;
+    max-width: 500px;
+    margin-bottom: 50px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+.sketch-container p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.action {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.link, .link-4 {
+    text-decoration: none;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    background-color: #000000;
+    padding: 2px;
+    border: 2px solid #000000;
+}
+
+.link { width: 150px; }
+.link-4 { width: 200px; }
+
+.border, .border2 {
+    border: 2px solid #ffffff;
+    padding: 12px;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.link:hover, .link-4:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.link:hover .border, .link-4:hover .border2 {
+    border-color: #000;
+}
+
+.sketch-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: white;
+    border: 3px solid #000;
+    padding: 15px;
+    font-size: 24px;
+    border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+}
+
+footer {
+    padding: 40px;
+    text-align: center;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.copy {
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .action {
+        flex-direction: column;
+    }
+    .link, .link-4 {
+        width: 280px;
+    }
+    .status-title {
+        font-size: 2rem;
+    }
+}
