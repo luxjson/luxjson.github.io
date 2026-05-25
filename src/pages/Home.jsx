@@ -7,6 +7,9 @@ export default function Home() {
 
     return (
         <>
+
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
             <div className="ubp-editorial-wrapper">
                 <nav className="ubp-nav">
                     <div className="nav-container">

@@ -7,6 +7,8 @@ export default function About() {
 
     return (
         <>
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
             <div className="ubp-editorial-wrapper dark-theme">
                 <nav className="ubp-nav">
                     <div className="nav-container">

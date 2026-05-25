@@ -6,6 +6,10 @@ export default function NotFound() {
     useExternalStyle('notfound.css');
 
     return (
+        <>
+
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
         <div className="ubp-editorial-wrapper">
             <nav className="ubp-nav">
                 <div className="nav-container">
@@ -66,5 +70,7 @@ export default function NotFound() {
                 </div>
             </footer>
         </div>
+
+        </>
     );
 }
