@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import insomniaLogo from "../assets/images/i2.png";
 import trailer1 from "../assets/videos/trailer1.mp4";
-import trailer2 from "../assets/videos/trailer2.mp4";
 import useExternalStyle from "../hooks/useExternalStyle";
 // import screenshot1 from "../assets/images/screenshot1.png";
 // import screenshot2 from "../assets/images/screenshot2.png";
@@ -48,9 +47,7 @@ export default function Insomnia() {
 }, []);
 
 
-    const dataStoryTrailer = new Date('2026-10-31T12:00:00-03:00');
     const dataLaunch = new Date('2027-12-25T12:00:00-03:00');
-    const mostrarStoryTrailer = hoje >= dataStoryTrailer;
     const mostrarLaunch = hoje >= dataLaunch;
     
     return (
@@ -70,50 +67,32 @@ export default function Insomnia() {
 
             <main>
 
-                {!mostrarStoryTrailer && !mostrarLaunch && (
+                { !mostrarLaunch && (
                     <p>Coming Soon</p>
                 )}
 
-                {mostrarStoryTrailer && !mostrarLaunch && (
+                { mostrarLaunch && (
                     <p>
                         Available on December 25, 2027
                     </p>
                 )}
 
-                {mostrarLaunch && mostrarStoryTrailer && (
-                    <p>
-                        Available Now
-                    </p>
-                )}
-
                 <div className="action">
-                    {!mostrarStoryTrailer && !mostrarLaunch && (
+                    {!mostrarLaunch && (
                         <>
-                            <a href="https://UnburiedPixels.itch.io/insomnia" target="_blank" className="link" rel="noreferrer">
-                                <div className="border">itch.io</div>
+                            <a href="https://UnburiedPixels.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
+                                <div className="border2">View on store</div>
                             </a>
                             <a href={downloadUrl} target="_blank" className="link-4" rel="noreferrer">
                                 <div className="border2">Download Alpha</div>
                             </a>
                         </>    
                     )}
-
-                    {mostrarStoryTrailer && !mostrarLaunch && (
+                    {mostrarLaunch && (
                         <>
-                            <a href={downloadUrl} target="_blank" className="link-4" rel="noreferrer">
-                                <div className="border2">Download Beta</div>
+                            <a href="https://UnburiedPixels.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
+                                <div className="border2">Download Now</div>
                             </a>
-                            <Link to="/games/insomnia/preorder" className="link-4">
-                                <div className="border2">Pre-order</div>
-                            </Link>
-                        </>    
-                        
-                    )}
-                    {mostrarLaunch && mostrarStoryTrailer && (
-                        <>
-                            <Link to="/games/insomnia/download" className="link-4" rel="noreferrer">
-                                <div className="border2">Download</div>
-                            </Link>
 
                             <a href="https://github.com/luxjson/INSOMNIA/releases/latest" target="_blank" className="link-4" rel="noreferrer">
                                 <div className="border2">View Changelog</div>
@@ -131,20 +110,10 @@ export default function Insomnia() {
                         <source src={trailer1} type="video/mp4" />
                         Seu navegador não suporta vídeos.
                     </video>
-                    
-                    {mostrarStoryTrailer && (
-                        <>
-                            <h2 style={{ marginTop: '2rem' }}>Official Story Trailer</h2>
-                            <video controls width="50%">
-                                <source src={trailer2} type="video/mp4" />
-                                Seu navegador não suporta vídeos.
-                            </video>
-                        </>
-                    )}
                 </div>
 
 
-                {mostrarLaunch &&  mostrarStoryTrailer && (
+                {mostrarLaunch && (
                     <>
                         <div className="screenshots">
                             <div className="titulo-screenshot">

@@ -71,7 +71,7 @@ export default function Home() {
                         <div className="footer-col">
                             <p className="col-title">GET IN TOUCH</p>
                             <div className="links">
-                                <a href="mailto:contatosadberry@gmail.com">HELLO@UNBURIEDPIXELS.COM</a>
+                                <a href="mailto:unburiedpixels@gmail.com">HELLO@UNBURIEDPIXELS.COM</a>
                                 <a href="https://UnburiedPixels.itch.io" target="_blank" rel="noreferrer">ITCH.IO</a>
                             </div>
                         </div>

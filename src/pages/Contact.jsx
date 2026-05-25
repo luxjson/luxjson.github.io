@@ -17,12 +17,12 @@ export default function Contact() {
     };
 
     const copyEmail = () => {
-        navigator.clipboard.writeText('contatosadberry@gmail.com');
+        navigator.clipboard.writeText('unburiedpixels@gmail.com');
         alert('Email copied to clipboard!');
     };
 
     const openEmailClient = () => {
-        window.location.href = 'mailto:contatosadberry@gmail.com';
+        window.location.href = 'mailto:unburiedpixels@gmail.com';
         closePopup();
     };
 
@@ -54,7 +54,7 @@ export default function Contact() {
                             <div className="row-label">DIRECT_CHANNEL</div>
                             <div className="row-content">
                                 <span className="contact-type">EMAIL</span>
-                                <span className="contact-val">contatosadberry@gmail.com</span>
+                                <span className="contact-val">unburiedpixels@gmail.com</span>
                             </div>
                             <div className="row-arrow">↗</div>
                         </a>
@@ -101,7 +101,7 @@ export default function Contact() {
                             </div>
                             <div className="popup-body">
                                 <h3 className="popup-title">CONTACT_INITIATED</h3>
-                                <p className="popup-email-text">contatosadberry@gmail.com</p>
+                                <p className="popup-email-text">unburiedpixels@gmail.com</p>
                                 <div className="popup-actions">
                                     <button onClick={openEmailClient} className="om-btn-fill">OPEN CLIENT</button>
                                     <button onClick={copyEmail} className="om-btn-outline">COPY ADDRESS</button>

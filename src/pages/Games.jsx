@@ -78,7 +78,7 @@ export default function Games() {
                                 </div>
 
                                 <a href="https://UnburiedPixels.itch.io/light" target="_blank" rel="noreferrer" className="game-action-btn">
-                                    AVAILABLE NOW ↗
+                                    AVAILABLE NOW
                                 </a>
                             </div>
                             <div className="game-visual">

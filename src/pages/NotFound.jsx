@@ -36,7 +36,7 @@ export default function NotFound() {
                                 YOU'VE VENTURED <span className="text-magenta">BEYOND</span> THE GRID.
                             </p>
                             <Link to="/" className="cta-button">
-                                RETURN TO BASE <span>→</span>
+                                RETURN TO BASE
                             </Link>
                         </div>
                         <div className="visual-cell glitch-bg">
