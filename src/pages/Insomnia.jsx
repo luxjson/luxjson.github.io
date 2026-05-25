@@ -59,6 +59,22 @@ export default function Insomnia() {
                 Insomnia
             </title>
 
+            <button 
+                className="sketch-button" 
+                style={{ position: 'fixed', bottom: '20px', left: '20px', width: '40px', height: '40px' }}
+                onClick={() => window.open("https://instagram.com/unburiedpixels", "_blank")}
+            >
+                <i className="fa-brands fa-instagram"></i>
+            </button>
+
+            <button 
+                className="sketch-button" 
+                style={{ position: 'fixed', bottom: '20px', left: '70px', width: '40px', height: '40px' }}
+                onClick={() => window.open("https://youtube.com/@unburiedpixels", "_blank")}
+            >
+                <i className="fa-brands fa-youtube"></i>
+            </button>
+
             <header>
                 <Link to="/games/insomnia" className="header">
                     <img className="img" src={insomniaLogo} alt="Unburied Pixels" />
