@@ -71,7 +71,7 @@ export default function Insomnia() {
             </button>
 
             <header>
-                <Link to="/games/insomnia" className="header">
+                <Link to="/" className="header">
                     <img className="img" src={insomniaLogo} alt="Somiari" />
                 </Link>
             </header>

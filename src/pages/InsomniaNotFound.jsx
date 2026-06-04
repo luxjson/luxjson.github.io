@@ -7,8 +7,6 @@ export default function InsomniaNotFound() {
     return (
 
         <>
-
-        <link rel="icon" type="image/x-icon" href="/faviconInsomnia.ico" />
             
         <title>
             Page Not Found
