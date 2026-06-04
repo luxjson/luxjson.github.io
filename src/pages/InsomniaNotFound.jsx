@@ -19,11 +19,8 @@ export default function InsomniaNotFound() {
                     <p className="status-title">PAGE NOT FOUND</p>
 
                     <div className="action">
-                        <Link to="/games/insomnia" className="link">
+                        <Link to="/" className="link">
                             <div className="border">WAKE UP</div>
-                        </Link>
-                        <Link to="/" className="link-4">
-                            <div className="border2">EXIT DREAM</div>
                         </Link>
                     </div>
                 </main>

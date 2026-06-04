@@ -1,5 +1,5 @@
 {
-  "name": "unburiedpixels",
+  "name": "Somiari",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -17,6 +17,8 @@
     "@fortawesome/free-regular-svg-icons": "^7.2.0",
     "@fortawesome/free-solid-svg-icons": "^7.2.0",
     "@fortawesome/react-fontawesome": "^3.3.1",
+    "framer-motion": "^12.40.0",
+    "lucide-react": "^1.17.0",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "react-router-dom": "^7.14.2"

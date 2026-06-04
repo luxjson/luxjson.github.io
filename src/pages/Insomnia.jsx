@@ -53,16 +53,11 @@ export default function Insomnia() {
     return (
         <>
 
-            <link rel="icon" type="image/x-icon" href="/faviconInsomnia.ico" />
-            
-            <title>
-                Insomnia
-            </title>
 
             <button 
                 className="sketch-button" 
                 style={{ position: 'fixed', bottom: '20px', left: '20px', width: '40px', height: '40px' }}
-                onClick={() => window.open("https://instagram.com/unburiedpixels", "_blank")}
+                onClick={() => window.open("https://instagram.com/somiariofficial", "_blank")}
             >
                 <i className="fa-brands fa-instagram"></i>
             </button>
@@ -70,14 +65,14 @@ export default function Insomnia() {
             <button 
                 className="sketch-button" 
                 style={{ position: 'fixed', bottom: '20px', left: '70px', width: '40px', height: '40px' }}
-                onClick={() => window.open("https://youtube.com/@unburiedpixels", "_blank")}
+                onClick={() => window.open("https://youtube.com/@somiariofficial", "_blank")}
             >
                 <i className="fa-brands fa-youtube"></i>
             </button>
 
             <header>
                 <Link to="/games/insomnia" className="header">
-                    <img className="img" src={insomniaLogo} alt="Unburied Pixels" />
+                    <img className="img" src={insomniaLogo} alt="Somiari" />
                 </Link>
             </header>
 
@@ -96,7 +91,7 @@ export default function Insomnia() {
                 <div className="action">
                     {!mostrarLaunch && (
                         <>
-                            <a href="https://UnburiedPixels.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
+                            <a href="https://Somiari.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
                                 <div className="border2">View on store</div>
                             </a>
                             <a href={downloadUrl} target="_blank" className="link-4" rel="noreferrer">
@@ -106,7 +101,7 @@ export default function Insomnia() {
                     )}
                     {mostrarLaunch && (
                         <>
-                            <a href="https://UnburiedPixels.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
+                            <a href="https://Somiari.itch.io/insomnia" target="_blank" className="link-4" rel="noreferrer">
                                 <div className="border2">Download Now</div>
                             </a>
 
@@ -163,11 +158,11 @@ export default function Insomnia() {
             </main>
 
             <footer>
-                <Link to="/games" className="link-2">
-                    <p>Back to games page</p>
-                </Link>
+                <a href="https://Somiari.itch.io" className="link-2">
+                    <p>Visit store page</p>
+                </a>
                 <p className="copy">
-                    © 2026 Unburied Pixels. All rights reserved.
+                    © 2026 Somiari. All rights reserved.
                 </p>
             </footer>
         </>

@@ -5,23 +5,19 @@
       - file, You can obtain one at http://mozilla.org/MPL/2.0/.
       -->
    <!-- TODO: Get a job -->
-   <img src="./src/assets/images/aaaa.png" width="100px" height="100px" style="border-radius: 100%" align="left">
+   <img src="./src/assets/images/i.png" width="100px" height="100px" style="border-radius: 100%" align="left">
    
-   ### `Unburied Pixels Website`
+   ### `Insomnia Website`
    
    ![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-green)
    ![Version](https://img.shields.io/badge/VERSION-1.0-gold)
    ![OS](https://img.shields.io/badge/OS-WEB-red)
    
-   **Unburied Pixels** - Website of the developers behind INSOMNIA.
+   **Insomnia** - Website for Insomnia.
    
    <div flex="true">
      <a href="https://LuxJson.github.io">
        Check Out
-     </a>
-     •
-     <a href="https://LuxJson.github.io/games">
-       Games
      </a>
      •
      <a href="https://github.com/LuxJson/LuxJson.github.io/deployments">
