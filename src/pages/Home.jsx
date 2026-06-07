@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import '../assets/styles/home.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import icon from '../assets/images/icon-pink.png';
 
 export default function Home() {
   return (
@@ -30,7 +31,7 @@ export default function Home() {
         {/* LADO VISUAL (MATERIAL YOU CONTAINER) */}
         <section className="hero-visual">
           <div className="mascot-surface">
-            <img src="/src/assets/images/icon-pink.png" alt="Mascot" className="mascot-img" />
+            <img src={icon} alt="Mascot" className="mascot-img" />
           </div>
         </section>
       </main>

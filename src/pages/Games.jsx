@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import '../assets/styles/games.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import InsomniaPlaceholder from '../assets/images/i.png';
+import LightPlaceholder from '../assets/images/the light.jpg';
+
 
 export default function Games() {
   const gameList = [
@@ -10,7 +13,7 @@ export default function Games() {
       title: "INSOMNIA",
       status: "IN DEVELOPMENT",
       description: "A deep dive into atmospheric horror and psychological tension.",
-      image: "/src/assets/images/i.png",
+      image: InsomniaPlaceholder,
       tag: "PSICHOLOGY HORROR"
     },
     {
@@ -18,7 +21,7 @@ export default function Games() {
       title: "LIGHT",
       status: "RELEASED",
       description: "Immerse yourself in a mystery that tells the story of a lost world.",
-      image: "/src/assets/images/the light.jpg",
+      image: LightPlaceholder,
       tag: "HORROR"
     }
   ];

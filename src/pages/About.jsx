@@ -1,6 +1,7 @@
 import '../assets/styles/about.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import icon from '../assets/images/icon-pink.png';
 
 export default function About() {
   return (
@@ -48,7 +49,7 @@ export default function About() {
               </p>
             </div>
             <div className="spotlight-visual">
-              <img src="/src/assets/images/icon-pink.png" alt="Mascot" className="small-mascot" />
+              <img src={icon} alt="Mascot" className="small-mascot" />
             </div>
           </div>
         </section>

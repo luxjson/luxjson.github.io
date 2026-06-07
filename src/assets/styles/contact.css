@@ -136,3 +136,20 @@
 .social-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
 .social-list a { color: #fff; text-decoration: none; font-size: 14px; }
 .social-list a:hover { color: #ff0055; }
+
+@media (max-width: 1024px) {
+    .contact-grid { grid-template-columns: 1fr; }
+    .contact-info-side { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+}
+
+@media (max-width: 768px) {
+    .page-header { text-align: center; }
+    .contact-form-card { padding: 20px 10px; border-radius: 24px; }
+    .gmail-header { padding: 12px 20px; }
+    .gmail-input-row { padding: 10px 15px; flex-direction: column; align-items: flex-start; gap: 5px; }
+    .gmail-textarea { padding: 20px; min-height: 200px; }
+    .gmail-footer-bar { flex-direction: column; gap: 15px; padding: 20px; }
+    .gmail-send-btn { width: 100%; }
+    .contact-info-side { grid-template-columns: 1fr; }
+    .info-pill { padding: 24px; border-radius: 30px; }
+}
