@@ -203,7 +203,7 @@ body {
         flex-direction: row; /* Ícones na horizontal */
         width: auto;
         height: 100%;
-        justify-content: space-around;
+        justify-content: space-between;
         flex: 1;
     }
 

@@ -1,16 +1,14 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Footer from "../components/Footer";
 
 // Assets
-import logoDeitado from "../assets/images/logo-deitado-pink.png";
-import logoWhite from "../assets/images/logo-white.png";
-import iconPink from "../assets/images/icon-pink.png";
 import InsomniaPlaceholder from '../assets/images/i.png';
 import LightPlaceholder from '../assets/images/light-2.png';
 import '../assets/styles/games.css';
 
 export default function Games() {
+
 
   return (
     <div className="pixel-page">
@@ -18,16 +16,16 @@ export default function Games() {
 
       <main className="pixel-container">
         {/* HERO GAMES */}
-        <section className="games-hero">
-          <div className="hero-content">
-            <span className="hero-tag">OUR UNIVERSE</span>
+        <header className="pixel-section-purple about-header-spacing">
+          <div className="section-content">
+            <span className="hero-tag white-tag">Our Universe</span>
             <h1 className="hero-title">MISSIONS &<br/>PROJECTS</h1>
-            <p className="hero-description">
+            <p className="hero-description white-text">
               Explore the library of Somiari Studio. From released gems to 
               upcoming nightmares currently under development.
             </p>
           </div>
-        </section>
+        </header>
 
         {/* GAMES LIST - DESIGN INTEGRADO PIXEL-STYLE */}
 <section className="pixel-section-dark">
@@ -92,53 +90,7 @@ export default function Games() {
   </div>
 </section>
 
-        {/* FOOTER (Consistente com a Home) */}
-        <footer className="zen-footer">
-          <div className="footer-grid">
-            <div className="footer-brand-col">
-              <img src={logoDeitado} alt="Somiari" className="footer-logo" />
-              <p className="footer-slogan">Experience the retro-modern future.</p>
-            </div>
-            
-            <div className="footer-links-col">
-              <h5>STUDIO</h5>
-              <Link to="/about">About Us</Link>
-              <Link to="/games">Our Games</Link>
-              <Link to="/contact">Contact</Link>
-            </div>
-
-            <div className="footer-links-col">
-              <h5>GAMES</h5>
-              <a href="https://somiari.itch.io/light">LIGHT</a>
-              <Link to="/insomnia">INSOMNIA</Link>
-            </div>
-
-            <div className="footer-links-col">
-              <h5>COMMUNITY</h5>
-              <a href="https://twitter.com/SomiariOfficial">Twitter</a>
-              <a href="https://instagram/SomiariOfficial">Instagram</a>
-            </div>
-          </div>
-          
-          <div className="footer-bottom">
-            <div className="footer-legal">
-              <span>© Somiari Studio</span>
-              <Link to="#">Privacy Policy</Link>
-              <Link to="#">Terms of Service</Link>
-            </div>
-            <div className="footer-social">
-              <a href="https://x.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
-                <i className="fab fa-twitter"></i>
-              </a>
-              <a href="https://github.com/LuxJson" style={{textDecoration: 'none' , color: 'white'}}>
-                <i className="fab fa-github"></i>
-              </a>
-              <a href="https://www.instagram.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
-                <i className="fab fa-instagram"></i>
-              </a>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </main>
     </div>
   );

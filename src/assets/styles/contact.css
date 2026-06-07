@@ -1,0 +1,111 @@
+/* contact.css */
+
+.contact-header-spacing {
+    padding-top: 120px;
+    padding-bottom: 120px;
+    border-bottom: 6px solid var(--navy-surface);
+}
+
+.contact-main-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+/* CARD DE CONTATO ESTILO 3D */
+.contact-card {
+    background-color: var(--navy-surface);
+    padding: 40px;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-decoration: none;
+    border-bottom: 6px solid #14132b; /* Sombra sólida */
+    transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-card:hover {
+    border-bottom-color: var(--pink);
+}
+
+.contact-icon-box {
+    width: 60px;
+    height: 60px;
+    background-color: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    color: var(--pink);
+}
+
+.contact-info h4 {
+    font-family: var(--font-asgard);
+    font-weight: 900;
+    font-size: 1.5rem;
+    color: var(--white);
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    color: #777;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 20px;
+}
+
+.contact-link, .contact-handle {
+    font-family: var(--font-asgard);
+    font-weight: 900;
+    color: var(--pink);
+    text-decoration: none;
+    font-size: 1.2rem;
+}
+
+.contact-link:hover {
+    text-decoration: underline;
+}
+
+/* FOOTER CTA */
+.contact-footer-cta {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.contact-mini-logo {
+    width: 200px;
+    margin-bottom: 10px;
+}
+
+.display-text.small {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .contact-main-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-card {
+        padding: 30px;
+        text-align: center;
+        align-items: center;
+    }
+
+    .contact-header-spacing {
+        padding: 80px 20px;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+}
