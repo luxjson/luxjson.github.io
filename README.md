@@ -7,7 +7,7 @@
    <!-- TODO: Get a job -->
    <img src="./src/assets/images/icon.png" width="100px" height="100px" style="border-radius: 100%" align="left">
    
-   ### `Insomnia Website`
+   ### `SOMIARI Website`
    
    ![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-green)
    ![Version](https://img.shields.io/badge/VERSION-1.0-gold)
