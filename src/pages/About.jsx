@@ -1,98 +1,60 @@
-import { Link } from "react-router-dom";
-import Sidebar from "../components/Sidebar";
+import '../assets/styles/about.css';
+import Header from "../components/Header";
 import Footer from "../components/Footer";
-
-// Importação dos estilos (seguindo o padrão de reuso da home)
-import "../assets/styles/about.css";
-
-// Assets
-import logoPink from "../assets/images/logo-pink.png";
 
 export default function About() {
   return (
-    <div className="pixel-page">
-      <Sidebar />
+    <div className="material-wrapper">
+      <Header />
+      
+      <main className="studio-container">
+        {/* HERO SECTION */}
+        <section className="studio-hero">
+          <div className="badge">ABOUT US · THE STUDIO</div>
+          <h1 className="hero-title">WE ARE <br /> <span className="text-pink">SOMIARI.</span></h1>
+          <p className="hero-description">
+            BORN IN <span className="fix" style={{ fontWeight: "bold" }}>2025</span>, SOMIARI IS A BRAZILIAN INDIE STUDIO DEDICATED TO CRAFTING 
+            EXPERIENCES THAT BLEND NOSTALGIC ARCADE VIBES WITH BOLD MODERN DESIGN.
+          </p>
+        </section>
 
-      <main className="pixel-container">
-        {/* HERO ABOUT */}
-        <header className="pixel-section-purple about-header-spacing">
-          <div className="section-content">
-            <span className="hero-tag white-tag">Behind the pixels</span>
-            <h1 className="hero-title">OUR STORY &<br/>PHILOSOPHY</h1>
-            <p className="hero-description white-text">
-              We are a boutique studio located in the digital void, 
-              dedicated to the craft of high-fidelity retro gaming.
+        {/* MISSION & VALUES CARDS */}
+        <section className="studio-grid">
+          <div className="info-card">
+            <h2 className="card-title">OUR MISSION</h2>
+            <p className="card-text">
+              TO REIMAGINE THE GOLDEN ERA OF GAMES THROUGH A CONTEMPORARY LENS, 
+              FOCUSING ON POLISHED MECHANICS AND STRIKING VISUALS.
             </p>
           </div>
-        </header>
 
-        {/* SECTION 01: THE ORIGIN */}
-        <section className="pixel-section-dark">
-          <div className="section-content">
-            <h2 className="label-formal">The Studio</h2>
-            <div className="about-main-grid">
-              <div className="about-text-block">
-                <h3 className="display-text">RETRO SOUL.<br/>MODERN HEART.</h3>
-                <p className="body-text">
-                  Founded in <span className="fix">2025</span>, <strong>SOMIARI</strong> was born from a simple realization: 
-                  the most powerful gaming experiences live at the intersection of nostalgia and 
-                  innovation. We don't just "make games"—we forge digital artifacts.
-                </p>
-                <p className="body-text">
-                  Our team specializes in taking the raw, expressive power of the 16-bit era 
-                  and empowering it with modern physics, immersive narratives, and 
-                  high-fidelity performance.
-                </p>
-              </div>
-              <div className="about-visual-block">
-                <img src={logoPink} alt="Somiari Icon" className="about-big-logo" />
-              </div>
-            </div>
+          <div className="info-card pink-border">
+            <h2 className="card-title">BRAZILIAN SOUL</h2>
+            <p className="card-text">
+              BASED IN BRAZIL, WE LEVERAGE LOCAL TALENT AND GLOBAL INSPIRATION 
+              TO CREATE UNIVERSAL STORIES FOR ALL KINDS OF PLAYERS.
+            </p>
           </div>
         </section>
 
-        {/* SECTION 02: THE PILLARS (BLOCK STYLE) */}
-        <section className="pixel-section-purple">
-          <div className="section-content">
-            <h2 className="label-formal white">Core Pillars</h2>
-            <div className="pillars-grid">
-              
-              <div className="pillar-item">
-                <div className="pillar-icon">01</div>
-                <h4>NOSTALGIA</h4>
-                <p>Respecting the visual language and "feel" of classic gaming history.</p>
-              </div>
-
-              <div className="pillar-item">
-                <div className="pillar-icon">02</div>
-                <h4>INNOVATION</h4>
-                <p>Breaking technical barriers to create mechanics that feel fresh and responsive.</p>
-              </div>
-
-              <div className="pillar-item">
-                <div className="pillar-icon">03</div>
-                <h4>ATMOSPHERE</h4>
-                <p>Every pixel and sound frequency is tuned to pull the player into the world.</p>
-              </div>
-
+        {/* TEAM / MASCOT SPOTLIGHT */}
+        <section className="mascot-spotlight">
+          <div className="spotlight-card">
+            <div className="spotlight-text">
+              <h2 className="card-title">THE FACE OF THE STUDIO</h2>
+              <p className="card-text">
+                OUR MASCOT REPRESENTS OUR PHILOSOPHY: CHARISMATIC, CURIOUS, 
+                AND ALWAYS READY FOR THE NEXT ADVENTURE.
+              </p>
+            </div>
+            <div className="spotlight-visual">
+              <img src="/src/assets/images/icon-pink.png" alt="Mascot" className="small-mascot" />
             </div>
           </div>
         </section>
-
-        {/* SECTION 03: THE FUTURE */}
-        <section className="pixel-section-dark">
-          <div className="section-content cta-center">
-            <h3 className="display-text small">READY TO PLAY?</h3>
-            <p className="body-text">The journey is just beginning. Join our community and follow the development of our future titles.</p>
-            <div className="about-actions">
-              <Link to="/games" className="pixel-btn-primary">EXPLORE PROJECTS</Link>
-              <a href="https://twitter.com/SomiariOfficial" target="_blank" className="pixel-btn-secondary">FOLLOW US</a>
-            </div>
-          </div>
-        </section>
-
-        <Footer />
       </main>
+
+      <Footer />
     </div>
   );
 }

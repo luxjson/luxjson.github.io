@@ -1,0 +1,58 @@
+.main-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 40px;
+    padding-top: 20px;
+}
+
+/* A CÁPSULA (PILL) EXTERNA */
+.header-pill {
+    background-color: #1a1c1e; /* Superfície Material You */
+    padding: 6px; /* Espaço para o "botão" interno */
+    border-radius: 100px;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+
+.header-nav {
+    display: flex;
+    gap: 4px;
+}
+
+/* ITEM DE NAVEGAÇÃO BASE */
+.nav-item {
+    text-decoration: none;
+    font-family: 'Asgard', sans-serif;
+    color: #c4c6cf; /* Cor desativada sutil */
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    padding: 10px 24px;
+    border-radius: 100px;
+    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* EFEITO DE HOVER (Material You costuma usar uma cor leve de hover) */
+.nav-item:hover {
+    color: #fff;
+    background-color: #2d2f33;
+}
+
+/* --- ESTADO ATIVO (END POINT ATUAL) --- */
+.nav-item.active {
+    background-color: #ff0055; /* Rosa da Somiari */
+    color: #ffffff;
+    pointer-events: none; /* Evita clicar no link da página que já está aberta */
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 600px) {
+    .nav-item {
+        padding: 8px 16px;
+        font-size: 11px;
+    }
+    .header-pill {
+        padding: 4px;
+    }
+}
