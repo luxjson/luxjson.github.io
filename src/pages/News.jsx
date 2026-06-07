@@ -17,7 +17,7 @@ export default function News() {
 
       <main className="pixel-container">
         {/* HERO NEWS */}
-        <header className="pixel-section-purple news-header-spacing">
+        <header className="pixel-section-purple about-header-spacing">
           <div className="section-content">
             <span className="hero-tag white-tag">Development Blog</span>
             <h1 className="hero-title">STUDIO UPDATES &<br/>PATCH NOTES</h1>

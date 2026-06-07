@@ -188,6 +188,11 @@
         gap: 20px;
     }
 
+    .small {
+        font-size: 20px;
+        padding: 10px 25px;
+    }
+
     .mission-entry:hover {
         transform: translateY(-5px);
     }
@@ -199,5 +204,13 @@
 
     .mission-name {
         font-size: 2rem;
+    }
+
+    .mission-desc {
+        font-size: 0.9rem;
+    }
+    
+    .mission-data {
+        padding: 20px 10px;
     }
 }

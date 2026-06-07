@@ -97,6 +97,14 @@
         text-align: center;
     }
 
+    .about-header-spacing{
+        padding-top: 80px;
+        padding-bottom: 80px;
+        padding-left: 30px;
+        padding-right: 30px;
+        text-align: center;
+    }
+
     .about-big-logo {
         margin: 0 auto;
         max-width: 200px;

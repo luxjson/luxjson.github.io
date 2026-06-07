@@ -108,4 +108,12 @@
     .hero-title {
         font-size: 2.8rem;
     }
+
+    .contact-mini-logo {
+        margin-bottom: 5px;
+    }
+
+    .display-text.small{
+        width: 350px;
+    }
 }
