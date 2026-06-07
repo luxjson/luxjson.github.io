@@ -1,0 +1,248 @@
+/* IMPORTAÇÃO DA FONTE ASGARD */
+@font-face {
+    font-family: 'Asgard';
+    src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
+    font-weight: 900;
+}
+@font-face {
+    font-family: 'Asgard';
+    src: url('../fonts/AsgardTrial-Medium.ttf') format('truetype');
+    font-weight: 500;
+}
+
+:root {
+    --sidebar-bg: #01021d;       /* Navy Somiari */
+    --active-bg: #f8024b;        /* Pink Somiari - Cor de destaque */
+    --text-color: #ffffff;
+    --muted-color: #5826f9;      /* Roxo para estados inativos */
+    --dark-card: #0d0d0d;
+    --font-asgard: 'Asgard';
+}
+
+
+body {
+    margin-left: 100px;
+}
+
+/* SIDEBAR ESTRUTURA */
+.sidebar {
+    width: 100px;
+    height: 100vh;
+    background-color: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 30px 0;
+    position: fixed;
+    left: 0; top: 0;
+    z-index: 1000;
+}
+
+.sidebar-top, .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.sideBarLogo {
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+}
+
+.divider {
+    width: 35px;
+    height: 2px;
+    background-color: var(--muted-color);
+    margin-bottom: 30px;
+}
+
+/* LINKS - FOCO NA FONTE ASGARD */
+.side-link {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 25px;
+    position: relative;
+    transition: 0.2s ease-in-out;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.icon-box {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.4rem;
+    color: var(--muted-color);
+    transition: 0.2s;
+}
+
+.link-text {
+    font-family: var(--font-asgard);
+    font-weight: 900; /* USANDO O PESO FAT */
+    font-size: 11px;
+    margin-top: 5px;
+    color: var(--muted-color);
+    text-transform: uppercase;
+}
+
+.active-indicator {
+    width: 20px;
+    height: 4px;
+    background-color: transparent;
+    border-radius: 2px;
+    margin-top: 4px;
+}
+
+/* ESTADO ATIVO - AGRESSIVO */
+.side-link.active .icon-box {
+    background-color: var(--active-bg);
+    color: var(--sidebar-bg); /* Ícone escuro no fundo rosa */
+}
+
+.side-link:hover:not(.active) .icon-box {
+    background-color: #5826f9;
+    color: var(--sidebar-bg);
+}
+
+
+.side-link.active .link-text {
+    color: var(--active-bg);
+}
+
+.side-link.active .active-indicator {
+    background-color: var(--active-bg);
+}
+
+/* MODAL E RESTRIÇÃO - ESTILO HUD DE JOGO */
+.modal-new-overlay, .mobile-restriction-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(3, 4, 63, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+.modal-new-card, .restriction-card {
+    background-color: var(--dark-card);
+    border: 3px solid var(--active-bg); /* Borda grossa rosa */
+    width: 90%;
+    max-width: 450px;
+    padding: 50px;
+    position: relative;
+    text-align: center;
+}
+
+.modal-new-header h2, .restriction-card h2 {
+    font-family: var(--font-asgard);
+    font-weight: 900;
+    color: var(--white);
+    text-transform: uppercase;
+    font-size: 1.8rem;
+}
+
+.modal-new-text, .restriction-card p {
+    font-family: var(--font-asgard);
+    font-weight: 500;
+    color: #ccc;
+    margin: 20px 0;
+    line-height: 1.4;
+}
+
+.btn-bypass, .modal-new-close {
+    font-family: var(--font-asgard);
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-bypass {
+    background: var(--active-bg);
+    color: var(--sidebar-bg);
+    border: none;
+    padding: 15px 30px;
+    font-size: 14px;
+}
+
+.btn-bypass:hover {
+    filter: brightness(1.2);
+}
+
+/* MEDIA QUERIES ORIGINAIS */
+/* RESPONSIVE SIDEBAR MOBILE */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 80px;
+        flex-direction: row; /* Alinha os itens lado a lado */
+        top: auto;
+        bottom: 0;           /* Fixa no rodapé */
+        padding: 0 10px;
+        background-color: var(--sidebar-bg);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .sidebar-top, .sidebar-bottom {
+        flex-direction: row; /* Ícones na horizontal */
+        width: auto;
+        height: 100%;
+        justify-content: space-around;
+        flex: 1;
+    }
+
+    /* Remove elementos que ocupam muito espaço no mobile */
+    .logo-container, 
+    .divider, 
+    .link-text, 
+    .active-indicator {
+        display: none !important;
+    }
+
+    .side-link {
+        margin-bottom: 0;
+        width: auto;
+        height: 100%;
+        justify-content: center;
+        flex: 1;
+    }
+
+    .label-formal {
+        text-align: center;
+    }
+
+    .icon-box {
+        width: 45px;
+        height: 45px;
+        font-size: 1.2rem;
+        background-color: transparent;
+    }
+
+    /* No mobile, o active brilha apenas no ícone */
+    .side-link.active .icon-box {
+        background-color: var(--active-bg);
+        color: var(--sidebar-bg);
+        border-radius: 12px;
+    }
+    
+    /* Remove o body margin-left para não sobrar buraco branco no mobile */
+    body {
+        margin-left: 0 !important;
+    }
+}

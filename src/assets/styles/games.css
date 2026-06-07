@@ -1,0 +1,203 @@
+/* Importação e Variáveis */
+:root {
+    --navy: #03043f;
+    --navy-surface: #222044;
+    --pink: #f8024b;
+    --purple: #5826f9;
+    --white: #ffffff;
+    --font-asgard: 'Asgard-Combinada', 'Asgard', sans-serif;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-asgard);
+}
+
+.pixel-page {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--navy);
+}
+
+.pixel-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+/* HERO GAMES */
+.games-hero {
+    background-color: var(--purple);
+    padding: 100px 80px;
+    border-bottom: 4px solid var(--navy-surface);
+}
+
+.hero-tag {
+    color: var(--navy);
+    font-weight: 900;
+    font-size: 14px;
+    letter-spacing: 2px;
+}
+
+.hero-title {
+    font-size: clamp(3rem, 6vw, 5rem);
+    line-height: 0.9;
+    color: var(--white);
+    margin: 15px 0;
+    text-transform: uppercase;
+}
+
+.hero-description {
+    color: var(--navy);
+    font-size: 1.2rem;
+    max-width: 600px;
+    font-weight: 500;
+}
+
+/* MISSIONS LIST (Estilo Pixels.xyz Integrado) */
+.games-grid-section {
+    padding: 80px;
+    background-color: var(--navy);
+}
+
+.missions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    max-width: 1200px;
+}
+
+.mission-entry {
+    background-color: var(--navy-surface);
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    border-radius: 16px;
+    gap: 40px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 6px solid #14132b; /* Efeito 3D de bloco */
+}
+
+.mission-entry:hover {
+    border-bottom-color: var(--pink);
+}
+
+/* IMAGEM DA MISSÃO */
+.mission-visual {
+    width: 300px;
+    height: 180px;
+    background-color: #000;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mission-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+
+.mission-entry:hover .mission-visual img {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.mission-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 5px 12px;
+    font-size: 10px;
+    font-weight: 900;
+    border-radius: 4px;
+    color: white;
+    text-transform: uppercase;
+}
+
+.mission-tag.released { background-color: var(--pink); }
+.mission-tag.development { background-color: var(--purple); }
+
+/* TEXTOS DA MISSÃO */
+.mission-data {
+    flex: 1;
+}
+
+.mission-year {
+    color: var(--pink);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.mission-name {
+    font-size: 2.8rem;
+    color: var(--white);
+    text-transform: uppercase;
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.mission-desc {
+    color: #a0a0a0;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    max-width: 700px;
+}
+
+/* BOTÕES 3D */
+/* .pixel-btn-primary {
+    background-color: var(--pink);
+    color: white;
+    text-decoration: none;
+    font-weight: 900;
+    padding: 14px 28px;
+    border-radius: 8px;
+    border-bottom: 4px solid #b00135;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: 12px;
+    transition: 0.1s;
+} */
+
+.pixel-btn-primary:hover {
+    transform: translateY(2px);
+    border-bottom-width: 2px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+    .pixel-container { margin-left: 0; }
+    .games-grid-section { padding: 40px 20px; }
+}
+
+@media (max-width: 768px) {
+    .mission-entry {
+        flex-direction: column;
+        padding: 25px;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .mission-entry:hover {
+        transform: translateY(-5px);
+    }
+
+    .mission-visual {
+        width: 100%;
+        height: 200px;
+    }
+
+    .mission-name {
+        font-size: 2rem;
+    }
+}
