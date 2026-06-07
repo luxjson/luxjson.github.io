@@ -99,7 +99,7 @@ export default function Contact() {
 
             <div className="info-pill">
               <h3 className="card-title">LOCATION</h3>
-              <p className="card-text fix">QUEBEC, CA / BRAZIL, BR</p>
+              <p className="card-text fix">SÃO PAULO / BRAZIL, BR</p>
             </div>
           </aside>
         </section>
