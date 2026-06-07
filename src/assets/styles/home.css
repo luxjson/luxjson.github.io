@@ -137,10 +137,17 @@
         text-align: center; 
         margin-top: 20px;
     }
+
+    .social-capsule a {
+        font-size: 30px;
+    }
+
+    .social-capsule { justify-content: center; }
+    
     .hero-title { font-size: 42px; }
     .hero-description { margin: 20px auto; font-size: 16px; }
     .hero-btns { justify-content: center; flex-direction: column; width: 100%; }
-    .btn-primary, .social-capsule { width: 100%; justify-content: center; }
+    .btn-primary, .social-capsule { width: 80%; border-radius: 2000px; justify-content: center; }
     .hero-visual { margin-top: 40px; }
     .mascot-surface { width: 280px; height: 280px; border-radius: 40px; }
     .mascot-img { width: 180px; }
