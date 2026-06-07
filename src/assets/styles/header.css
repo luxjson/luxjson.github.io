@@ -1,11 +1,10 @@
-/* --- DESKTOP (PADRÃO) --- */
+
 .main-header {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 40px;
     padding-top: 20px;
-    /* No desktop ele segue o fluxo normal do topo */
 }
 
 .header-pill {
@@ -35,7 +34,6 @@
     transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
 }
 
-/* Esconde os ícones no Desktop */
 .nav-item i {
     display: none;
 }
@@ -50,7 +48,6 @@
     color: #ffffff;
 }
 
-/* --- MOBILE (ABAIXO DE 768px) --- */
 @media (max-width: 768px) {
     .main-header {
         position: fixed;
@@ -63,7 +60,7 @@
 
     .header-pill {
         width: 100%;
-        border-radius: 0; /* Colado nas bordas no mobile */
+        border-radius: 0;
         padding: 15px 0;
         background-color: #1a1c1e;
         border-top: 1px solid #2d2f33;
@@ -74,13 +71,10 @@
         justify-content: space-around;
         gap: 0;
     }
-
-    /* Esconde o Texto no Mobile */
     .nav-item span {
         display: none;
     }
 
-    /* Mostra apenas o Ícone no Mobile */
     .nav-item i {
         display: block;
         font-size: 22px;
@@ -93,7 +87,6 @@
         background: none;
     }
 
-    /* No mobile, a cor ativa muda apenas o ícone ou um círculo sutil */
     .nav-item.active {
         background: none;
         color: #f80950;

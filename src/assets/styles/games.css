@@ -1,4 +1,4 @@
-/* Reutilizando as fontes e base que você definiu */
+
 @font-face {
     font-family: 'Asgard';
     src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
@@ -19,17 +19,15 @@
     margin-bottom: 60px;
 }
 
-/* GRID SYSTEM */
 .games-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     gap: 32px;
 }
 
-/* GAME CARD - MATERIAL SURFACE */
 .game-card {
-    background-color: #1a1c1e; /* Mesma superfície do Mascot e Footer */
-    border-radius: 40px; /* Cantos arredondados Material */
+    background-color: #1a1c1e;
+    border-radius: 40px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -66,7 +64,6 @@
     letter-spacing: 1px;
 }
 
-/* CARD CONTENT */
 .card-content {
     padding: 32px;
     display: flex;
@@ -121,7 +118,6 @@
     background-color: #f80950;
 }
 
-/* Responsividade adicional */
 @media (max-width: 1024px) {
     .games-grid { grid-template-columns: 1fr 1fr; }
 }

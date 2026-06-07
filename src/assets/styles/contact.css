@@ -10,7 +10,6 @@
     gap: 32px;
 }
 
-/* JANELA ESTILO GMAIL */
 .gmail-card {
     background-color: #1a1c1e;
     border-radius: 32px;
@@ -45,7 +44,6 @@
     border-radius: 50%;
 }
 
-/* FORMULÁRIO INTERNO */
 .gmail-body {
     padding: 20px 0;
     display: flex;
@@ -90,7 +88,6 @@
     outline: none;
 }
 
-/* BARRA DE FERRAMENTAS INFERIOR */
 .gmail-footer-bar {
     padding: 20px 30px;
     background-color: #1a1c1e;
@@ -129,7 +126,6 @@
     color: #00ffcc;
 }
 
-/* INFO SIDE */
 .contact-info-side { display: flex; flex-direction: column; gap: 24px; }
 .info-pill { background-color: #1a1c1e; padding: 40px; border-radius: 40px; }
 .pink-pill { border: 1px solid #f8095020; }

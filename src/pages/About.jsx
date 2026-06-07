@@ -9,7 +9,6 @@ export default function About() {
       <Header />
       
       <main className="studio-container">
-        {/* HERO SECTION */}
         <section className="studio-hero">
           <div className="badge">ABOUT US · THE STUDIO</div>
           <h1 className="hero-title">WE ARE <br /> <span className="text-pink">SOMIARI.</span></h1>
@@ -19,7 +18,6 @@ export default function About() {
           </p>
         </section>
 
-        {/* MISSION & VALUES CARDS */}
         <section className="studio-grid">
           <div className="info-card">
             <h2 className="card-title">OUR MISSION</h2>
@@ -38,7 +36,6 @@ export default function About() {
           </div>
         </section>
 
-        {/* TEAM / MASCOT SPOTLIGHT */}
         <section className="mascot-spotlight">
           <div className="spotlight-card">
             <div className="spotlight-text">

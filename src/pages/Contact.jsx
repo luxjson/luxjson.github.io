@@ -11,8 +11,6 @@ export default function Contact() {
   const sendEmail = (e) => {
     e.preventDefault();
     setStatus("SENDING...");
-
-    // Usando as suas credenciais fornecidas
     emailjs.sendForm(
       'service_yygpjxx', 
       'template_tsjfeie', 
@@ -22,7 +20,6 @@ export default function Contact() {
     .then((result) => {
         setStatus("MESSAGE SENT!");
         form.current.reset();
-        // Remove a mensagem de sucesso após 5 segundos
         setTimeout(() => setStatus(""), 5000);
     }, (error) => {
         setStatus("ERROR. TRY AGAIN.");
@@ -41,7 +38,6 @@ export default function Contact() {
         </header>
 
         <section className="contact-grid">
-          {/* GMAIL COMPOSE STYLE FORM */}
           <div className="gmail-card">
             <div className="gmail-header">
               <span className="fix">NEW MESSAGE</span>
@@ -51,7 +47,6 @@ export default function Contact() {
             </div>
             
             <form ref={form} onSubmit={sendEmail} className="gmail-body">
-              {/* Note: Os names devem ser iguais aos do seu template no EmailJS */}
               <div className="gmail-input-row">
                 <label className="fix">TO:</label>
                 <input type="text" value="HELLO@SOMIARISTUDIO.COM" readOnly className="readonly-input" />
@@ -86,7 +81,6 @@ export default function Contact() {
             </form>
           </div>
 
-          {/* INFO SIDE */}
           <aside className="contact-info-side">
             <div className="info-pill pink-pill">
               <h3 className="card-title">SOCIAL MEDIA</h3>

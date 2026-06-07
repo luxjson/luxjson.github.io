@@ -28,7 +28,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* LADO VISUAL (MATERIAL YOU CONTAINER) */}
         <section className="hero-visual">
           <div className="mascot-surface">
             <img src={icon} alt="Mascot" className="mascot-img" />
