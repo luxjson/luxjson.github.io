@@ -5,7 +5,7 @@
       - file, You can obtain one at http://mozilla.org/MPL/2.0/.
       -->
    <!-- TODO: Get a job -->
-   <img src="./src/assets/images/i.png" width="100px" height="100px" style="border-radius: 100%" align="left">
+   <img src="./src/assets/images/icon.png" width="100px" height="100px" style="border-radius: 100%" align="left">
    
    ### `Insomnia Website`
    
@@ -13,10 +13,10 @@
    ![Version](https://img.shields.io/badge/VERSION-1.0-gold)
    ![OS](https://img.shields.io/badge/OS-WEB-red)
    
-   **Insomnia** - Website for Insomnia.
+   **SOMIARI** - Website for SOMIARI Studio.
    
    <div flex="true">
-     <a href="https://LuxJson.github.io">
+     <a href="https://luxjson.github.io">
        Check Out
      </a>
      •
