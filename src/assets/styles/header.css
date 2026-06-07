@@ -1,75 +1,19 @@
+/* --- DESKTOP (PADRÃO) --- */
 .main-header {
     display: flex;
     justify-content: center;
     width: 100%;
     margin-bottom: 40px;
     padding-top: 20px;
+    /* No desktop ele segue o fluxo normal do topo */
 }
 
-/* A CÁPSULA (PILL) EXTERNA */
 .header-pill {
-    background-color: #1a1c1e; /* Superfície Material You */
-    padding: 6px; /* Espaço para o "botão" interno */
-    border-radius: 100px;
-    display: flex;
-    align-items: center;
-    transition: background-color 0.3s ease;
-}
-
-.header-nav {
-    display: flex;
-    gap: 4px;
-}
-
-/* ITEM DE NAVEGAÇÃO BASE */
-.nav-item {
-    text-decoration: none;
-    font-family: 'Asgard', sans-serif;
-    color: #c4c6cf; /* Cor desativada sutil */
-    font-size: 13px;
-    letter-spacing: 1.5px;
-    padding: 10px 24px;
-    border-radius: 100px;
-    transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
-}
-
-/* EFEITO DE HOVER (Material You costuma usar uma cor leve de hover) */
-.nav-item:hover {
-    color: #fff;
-    background-color: #2d2f33;
-}
-
-/* --- ESTADO ATIVO (END POINT ATUAL) --- */
-.nav-item.active {
-    background-color: #ff0055; /* Rosa da Somiari */
-    color: #ffffff;
-    pointer-events: none; /* Evita clicar no link da página que já está aberta */
-}
-
-/* CONTAINER PRINCIPAL - AGORA FIXO EMBAIXO */
-.main-header {
-    position: fixed;
-    bottom: 24px; /* Distância do chão */
-    left: 0;
-    right: 0;
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    z-index: 1000; /* Garante que fique acima de tudo */
-    pointer-events: none; /* Deixa o clique passar para o que está atrás se não for no pill */
-}
-
-/* A CÁPSULA (PILL) */
-.header-pill {
-    background-color: rgba(26, 28, 30, 0.9); /* Transparência leve */
-    backdrop-filter: blur(12px); /* Efeito de vidro */
+    background-color: #1a1c1e;
     padding: 6px;
     border-radius: 100px;
     display: flex;
     align-items: center;
-    pointer-events: auto; /* Reativa os cliques dentro da cápsula */
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4); /* Sombra para dar profundidade sobre o conteúdo */
-    border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header-nav {
@@ -77,44 +21,81 @@
     gap: 4px;
 }
 
-/* ITEM DE NAVEGAÇÃO */
 .nav-item {
     text-decoration: none;
     font-family: 'Asgard', sans-serif;
     color: #c4c6cf;
     font-size: 13px;
     letter-spacing: 1.5px;
-    padding: 12px 24px;
+    padding: 10px 24px;
     border-radius: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: all 0.25s cubic-bezier(0.2, 0, 0, 1);
+}
+
+/* Esconde os ícones no Desktop */
+.nav-item i {
+    display: none;
 }
 
 .nav-item:hover {
     color: #fff;
-    background-color: rgba(45, 47, 51, 0.8);
+    background-color: #2d2f33;
 }
 
-/* ESTADO ATIVO */
 .nav-item.active {
     background-color: #ff0055;
     color: #ffffff;
 }
 
-/* --- RESPONSIVIDADE --- */
-@media (max-width: 1024px) {
-    .main-header { bottom: 20px; }
-    .nav-item { padding: 10px 18px; font-size: 12px; }
-}
+/* --- MOBILE (ABAIXO DE 768px) --- */
+@media (max-width: 768px) {
+    .main-header {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        z-index: 999;
+    }
 
-@media (max-width: 600px) {
-    .main-header { bottom: 16px; }
-    .header-pill { width: 90%; }
-    .header-nav { justify-content: space-around; width: 100%; }
-    .nav-item { 
-        padding: 12px 10px; 
-        font-size: 10px; 
-        letter-spacing: 0.5px;
+    .header-pill {
+        width: 100%;
+        border-radius: 0; /* Colado nas bordas no mobile */
+        padding: 15px 0;
+        background-color: #1a1c1e;
+        border-top: 1px solid #2d2f33;
+    }
+
+    .header-nav {
+        width: 100%;
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    /* Esconde o Texto no Mobile */
+    .nav-item span {
+        display: none;
+    }
+
+    /* Mostra apenas o Ícone no Mobile */
+    .nav-item i {
+        display: block;
+        font-size: 22px;
+    }
+
+    .nav-item {
+        padding: 10px;
         flex: 1;
-        text-align: center;
+        border-radius: 0;
+        background: none;
+    }
+
+    /* No mobile, a cor ativa muda apenas o ícone ou um círculo sutil */
+    .nav-item.active {
+        background: none;
+        color: #ff0055;
     }
 }

@@ -9,16 +9,23 @@ export default function Header() {
       <div className="header-pill">
         <nav className="header-nav">
           <NavLink to="/" className={checkActive}>
-            HOME
+            <i className="fas fa-home"></i>
+            <span>HOME</span>
           </NavLink>
+          
           <NavLink to="/games" className={checkActive}>
-            GAMES
+            <i className="fas fa-gamepad"></i>
+            <span>GAMES</span>
           </NavLink>
+          
           <NavLink to="/about" className={checkActive}>
-            ABOUT US
+            <i className="fas fa-user-friends"></i>
+            <span>ABOUT US</span>
           </NavLink>
+          
           <NavLink to="/contact" className={checkActive}>
-            CONTACT
+            <i className="fas fa-envelope"></i>
+            <span>CONTACT</span>
           </NavLink>
         </nav>
       </div>
