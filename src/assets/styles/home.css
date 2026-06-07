@@ -145,8 +145,7 @@
     .mascot-surface { width: 280px; height: 280px; border-radius: 40px; }
     .mascot-img { width: 180px; }
 
-    /* Adicione isso na classe que envolve o conteúdo das páginas */
 .material-wrapper {
-    padding-bottom: 110px !important; /* Abre espaço para a navbar não cobrir o texto */
+    padding-bottom: 110px !important;
 }
 }
