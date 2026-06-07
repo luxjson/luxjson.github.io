@@ -20,14 +20,14 @@ export default function Footer() {
 
             <div className="footer-links-col">
               <h5>GAMES</h5>
-              <a href="https://somiari.itch.io/light">LIGHT</a>
+              <a href="https://somiari.itch.io/light" target="_blank">LIGHT</a>
               <Link to="/insomnia">INSOMNIA</Link>
             </div>
 
             <div className="footer-links-col">
               <h5>COMMUNITY</h5>
-              <a href="https://twitter.com/SomiariOfficial">Twitter</a>
-              <a href="https://instagram/SomiariOfficial">Instagram</a>
+              <a href="https://twitter.com/SomiariOfficial" target="_blank">Twitter</a>
+              <a href="https://instagram/SomiariOfficial" target="_blank">Instagram</a>
             </div>
           </div>
           
@@ -38,13 +38,13 @@ export default function Footer() {
               <Link to="#">Terms of Service</Link>
             </div>
             <div className="footer-social">
-              <a href="https://x.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
+              <a href="https://x.com/SomiariOfficial" target="_blank" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="https://github.com/LuxJson" style={{textDecoration: 'none' , color: 'white'}}>
+              <a href="https://github.com/LuxJson" target="_blank" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://www.instagram.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
+              <a href="https://www.instagram.com/SomiariOfficial" target="_blank" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-instagram"></i>
               </a>
             </div>
