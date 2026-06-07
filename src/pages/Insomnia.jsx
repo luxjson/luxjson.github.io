@@ -158,9 +158,9 @@ export default function Insomnia() {
             </main>
 
             <footer>
-                <a href="https://Somiari.itch.io" className="link-2">
-                    <p>Visit store page</p>
-                </a>
+                <Link to="/games" className="link-2">
+                    <p>Back to Games Page</p>
+                </Link>
                 <p className="copy">
                     © 2026 Somiari. All rights reserved.
                 </p>
