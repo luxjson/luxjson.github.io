@@ -3,7 +3,7 @@ import '../assets/styles/games.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import InsomniaPlaceholder from '../assets/images/i.png';
-import LightPlaceholder from '../assets/images/the light.jpg';
+import LightPlaceholder from '../assets/images/The_light.jpg';
 
 
 export default function Games() {
