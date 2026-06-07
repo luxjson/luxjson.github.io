@@ -4,245 +4,173 @@
     src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
     font-weight: 900;
 }
-@font-face {
-    font-family: 'Asgard';
-    src: url('../fonts/AsgardTrial-Medium.ttf') format('truetype');
-    font-weight: 500;
-}
 
 :root {
-    --sidebar-bg: #01021d;       /* Navy Somiari */
-    --active-bg: #f8024b;        /* Pink Somiari - Cor de destaque */
+    --sidebar-bg: #01021d;
+    --active-bg: #f8024b;
     --text-color: #ffffff;
-    --muted-color: #5826f9;      /* Roxo para estados inativos */
-    --dark-card: #0d0d0d;
+    --muted-color: #5826f9;
     --font-asgard: 'Asgard';
+    --header-height: 80px;
 }
 
-
+/* PC: HEADER NO TOPO */
 body {
-    margin-left: 100px;
+    margin-left: 0;
+    margin-top: var(--header-height); /* Empurra o conteúdo para baixo do header */
 }
 
-/* SIDEBAR ESTRUTURA */
 .sidebar {
-    width: 100px;
-    height: 100vh;
+    width: 100%;
+    height: var(--header-height);
     background-color: var(--sidebar-bg);
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Horizontal no PC */
     justify-content: space-between;
-    padding: 30px 0;
+    align-items: center;
+    padding: 0 40px;
     position: fixed;
-    left: 0; top: 0;
+    left: 0; 
+    top: 0;
     z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.sidebar-top, .sidebar-bottom {
+.sidebar-top {
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Itens lado a lado */
     align-items: center;
-    width: 100%;
+    height: 100%;
+}
+
+.nav-items {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
 }
 
 .logo-container {
-    margin-bottom: 20px;
+    margin-bottom: 0;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .sideBarLogo {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
+    width: 50px;
+    height: 50px;
 }
 
+/* No Header horizontal, o divider vira uma linha vertical */
 .divider {
-    width: 35px;
-    height: 2px;
+    width: 2px;
+    height: 30px;
     background-color: var(--muted-color);
-    margin-bottom: 30px;
+    margin: 0 20px;
 }
 
-/* LINKS - FOCO NA FONTE ASGARD */
 .side-link {
     text-decoration: none;
     display: flex;
-    flex-direction: column;
+    flex-direction: row; /* Ícone e texto lado a lado no PC */
     align-items: center;
-    width: 100%;
-    margin-bottom: 25px;
-    position: relative;
+    padding: 0 15px;
+    height: 50px;
+    border-radius: 12px;
     transition: 0.2s ease-in-out;
-    background: transparent;
-    border: none;
-    cursor: pointer;
+    gap: 5px;
 }
 
 .icon-box {
-    width: 50px;
-    height: 50px;
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    font-size: 1.4rem;
+    font-size: 1.1rem;
     color: var(--muted-color);
-    transition: 0.2s;
 }
 
 .link-text {
     font-family: var(--font-asgard);
-    font-weight: 900; /* USANDO O PESO FAT */
-    font-size: 11px;
-    margin-top: 5px;
+    font-weight: bold;
+    font-size: 12px;
     color: var(--muted-color);
     text-transform: uppercase;
 }
 
+/* Indicador ativo no PC (barra embaixo do link) */
 .active-indicator {
-    width: 20px;
-    height: 4px;
+    position: absolute;
+    bottom: -5px;
+    width: 0%;
+    height: 3px;
     background-color: transparent;
-    border-radius: 2px;
-    margin-top: 4px;
+    transition: 0.3s;
 }
 
-/* ESTADO ATIVO - AGRESSIVO */
+/* ESTADOS ATIVOS */
 .side-link.active .icon-box {
-    background-color: var(--active-bg);
-    color: var(--sidebar-bg); /* Ícone escuro no fundo rosa */
+    color: var(--active-bg);
 }
-
-.side-link:hover:not(.active) .icon-box {
-    background-color: #5826f9;
-    color: var(--sidebar-bg);
-}
-
 
 .side-link.active .link-text {
     color: var(--active-bg);
 }
 
-.side-link.active .active-indicator {
-    background-color: var(--active-bg);
+.side-link.active {
+    background-color: rgba(248, 2, 75, 0.1);
 }
 
-/* MODAL E RESTRIÇÃO - ESTILO HUD DE JOGO */
-.modal-new-overlay, .mobile-restriction-overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: rgba(3, 4, 63, 0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-}
-
-.modal-new-card, .restriction-card {
-    background-color: var(--dark-card);
-    border: 3px solid var(--active-bg); /* Borda grossa rosa */
-    width: 90%;
-    max-width: 450px;
-    padding: 50px;
-    position: relative;
-    text-align: center;
-}
-
-.modal-new-header h2, .restriction-card h2 {
-    font-family: var(--font-asgard);
-    font-weight: 900;
-    color: var(--white);
-    text-transform: uppercase;
-    font-size: 1.8rem;
-}
-
-.modal-new-text, .restriction-card p {
-    font-family: var(--font-asgard);
-    font-weight: 500;
-    color: #ccc;
-    margin: 20px 0;
-    line-height: 1.4;
-}
-
-.btn-bypass, .modal-new-close {
-    font-family: var(--font-asgard);
-    font-weight: 900;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-bypass {
-    background: var(--active-bg);
-    color: var(--sidebar-bg);
-    border: none;
-    padding: 15px 30px;
-    font-size: 14px;
-}
-
-.btn-bypass:hover {
-    filter: brightness(1.2);
-}
-
-/* MEDIA QUERIES ORIGINAIS */
-/* RESPONSIVE SIDEBAR MOBILE */
+/* MOBILE: BARRA NO RODAPÉ */
 @media screen and (max-width: 768px) {
+    body {
+        margin-top: 0;
+        margin-bottom: 70px; /* Espaço para a barra inferior */
+    }
+
     .sidebar {
-        width: 100%;
-        height: 80px;
-        flex-direction: row; /* Alinha os itens lado a lado */
+        height: 70px;
         top: auto;
-        bottom: 0;           /* Fixa no rodapé */
+        bottom: 0; /* Fixa embaixo */
         padding: 0 10px;
-        background-color: var(--sidebar-bg);
+        flex-direction: row;
+        justify-content: space-around;
+        border-bottom: none;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
-        box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
     }
 
-    .sidebar-top, .sidebar-bottom {
-        flex-direction: row; /* Ícones na horizontal */
-        width: auto;
-        height: 100%;
-        justify-content: space-between;
-        flex: 1;
+    .sidebar-top {
+        width: 100%;
+        justify-content: space-around;
     }
 
-    /* Remove elementos que ocupam muito espaço no mobile */
-    .logo-container, 
-    .divider, 
-    .link-text, 
-    .active-indicator {
+    .nav-items {
+        width: 100%;
+        justify-content: space-around;
+        gap: 0;
+    }
+
+    .logo-container, .divider, .link-text, .active-indicator, .sidebar-bottom {
         display: none !important;
     }
 
     .side-link {
-        margin-bottom: 0;
-        width: auto;
+        flex-direction: column;
+        padding: 0;
         height: 100%;
         justify-content: center;
-        flex: 1;
-    }
-
-    .label-formal {
-        text-align: center;
     }
 
     .icon-box {
         width: 45px;
         height: 45px;
-        font-size: 1.2rem;
-        background-color: transparent;
+        font-size: 1.3rem;
     }
 
-    /* No mobile, o active brilha apenas no ícone */
     .side-link.active .icon-box {
         background-color: var(--active-bg);
         color: var(--sidebar-bg);
         border-radius: 12px;
-    }
-    
-    /* Remove o body margin-left para não sobrar buraco branco no mobile */
-    body {
-        margin-left: 0 !important;
     }
 }

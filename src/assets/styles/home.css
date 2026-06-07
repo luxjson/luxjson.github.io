@@ -6,6 +6,43 @@
     unicode-range: U+0030-0039; 
 }
 
+/* --- ANIMAÇÃO DE CARREGAMENTO SOMIARI --- */
+
+@keyframes pageReveal {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+        filter: blur(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+}
+
+/* Classe para aplicar na tag <main> ou na <div> principal de cada página */
+.animate-in {
+    animation: pageReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Efeito Cascata (Stagger): 
+   Isso faz com que os blocos dentro da página carreguem um depois do outro */
+.pixel-section-dark, 
+.hero-banner,
+.mission-entry,
+.hero-text {
+    opacity: 0; /* Começa invisível */
+    animation: pageReveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Delays para o efeito cascata ficar bonito */
+.pixel-hero, .hero-banner { animation-delay: 0.1s; }
+.stats-strip { animation-delay: 0.2s; }
+.pixel-section-dark { animation-delay: 0.3s; }
+.pixel-section-purple { animation-delay: 0.4s; }
+.zen-footer { animation-delay: 0.5s; }
+
 /* RESET */
 * {
     margin: 0;
