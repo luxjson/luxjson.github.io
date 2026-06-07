@@ -53,23 +53,6 @@ export default function Insomnia() {
     return (
         <>
 
-
-            <button 
-                className="sketch-button" 
-                style={{ position: 'fixed', bottom: '20px', left: '20px', width: '40px', height: '40px' }}
-                onClick={() => window.open("https://instagram.com/somiariofficial", "_blank")}
-            >
-                <i className="fa-brands fa-instagram"></i>
-            </button>
-
-            <button 
-                className="sketch-button" 
-                style={{ position: 'fixed', bottom: '20px', left: '70px', width: '40px', height: '40px' }}
-                onClick={() => window.open("https://youtube.com/@somiariofficial", "_blank")}
-            >
-                <i className="fa-brands fa-youtube"></i>
-            </button>
-
             <header>
                 <Link to="/" className="header">
                     <img className="img" src={insomniaLogo} alt="Somiari" />

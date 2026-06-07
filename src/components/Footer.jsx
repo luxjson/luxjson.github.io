@@ -27,7 +27,7 @@ export default function Footer() {
             <div className="footer-links-col">
               <h5>COMMUNITY</h5>
               <a href="https://twitter.com/SomiariOfficial" target="_blank">Twitter</a>
-              <a href="https://instagram/SomiariOfficial" target="_blank">Instagram</a>
+              <a href="https://instagram.com/SomiariOfficial" target="_blank">Instagram</a>
             </div>
           </div>
           
