@@ -19,7 +19,7 @@ export default function Header() {
           </NavLink>
           
           <NavLink to="/about" className={checkActive}>
-            <i className="fas fa-user-friends"></i>
+            <i className="fas fa-info-circle"></i>
             <span>ABOUT US</span>
           </NavLink>
           
