@@ -59,7 +59,7 @@
     top: 20px;
     right: 20px;
     background-color: #0d0e10;
-    color: #ff0055;
+    color: #f80950;
     padding: 6px 14px;
     border-radius: 100px;
     font-size: 10px;
@@ -118,7 +118,7 @@
 }
 
 .card-btn:hover {
-    background-color: #ff0055;
+    background-color: #f80950;
 }
 
 /* Responsividade adicional */

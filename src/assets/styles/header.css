@@ -46,7 +46,7 @@
 }
 
 .nav-item.active {
-    background-color: #ff0055;
+    background-color: #f80950;
     color: #ffffff;
 }
 
@@ -96,6 +96,6 @@
     /* No mobile, a cor ativa muda apenas o ícone ou um círculo sutil */
     .nav-item.active {
         background: none;
-        color: #ff0055;
+        color: #f80950;
     }
 }

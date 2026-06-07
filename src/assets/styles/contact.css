@@ -62,7 +62,7 @@
 
 .gmail-input-row label {
     font-size: 11px;
-    color: #ff0055;
+    color: #f80950;
     min-width: 70px;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .gmail-send-btn {
-    background-color: #ff0055;
+    background-color: #f80950;
     color: #fff;
     border: none;
     padding: 12px 30px;
@@ -132,10 +132,10 @@
 /* INFO SIDE */
 .contact-info-side { display: flex; flex-direction: column; gap: 24px; }
 .info-pill { background-color: #1a1c1e; padding: 40px; border-radius: 40px; }
-.pink-pill { border: 1px solid #ff005520; }
+.pink-pill { border: 1px solid #f8095020; }
 .social-list { display: flex; flex-direction: column; gap: 15px; margin-top: 15px; }
 .social-list a { color: #fff; text-decoration: none; font-size: 14px; }
-.social-list a:hover { color: #ff0055; }
+.social-list a:hover { color: #f80950; }
 
 @media (max-width: 1024px) {
     .contact-grid { grid-template-columns: 1fr; }

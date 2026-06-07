@@ -3,7 +3,7 @@ import "../assets/styles/header.css";
 
 export default function Header() {
   const checkActive = ({ isActive }) => (isActive ? "nav-item active" : "nav-item");
-
+  
   return (
     <header className="main-header">
       <div className="header-pill">
@@ -19,7 +19,7 @@ export default function Header() {
           </NavLink>
           
           <NavLink to="/about" className={checkActive}>
-            <i className="fas fa-info-circle"></i>
+            <i class="fa-solid fa-circle-info"></i>
             <span>ABOUT US</span>
           </NavLink>
           
