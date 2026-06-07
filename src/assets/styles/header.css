@@ -18,6 +18,7 @@
 .header-nav {
     display: flex;
     gap: 4px;
+    height: 40px;
 }
 
 .nav-item {
