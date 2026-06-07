@@ -127,13 +127,13 @@ export default function Games() {
               <Link to="#">Terms of Service</Link>
             </div>
             <div className="footer-social">
-              <a href="https://x.com/SomiariOfficial" className="social-icon">
+              <a href="https://x.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-twitter"></i>
               </a>
-              <a href="https://github.com/LuxJson" className="social-icon">
+              <a href="https://github.com/LuxJson" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://www.instagram.com/SomiariOfficial" className="social-icon">
+              <a href="https://www.instagram.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
                 <i className="fab fa-instagram"></i>
               </a>
             </div>

@@ -125,9 +125,15 @@ export default function About() {
               <Link to="#">Terms of Service</Link>
             </div>
             <div className="footer-social">
-              <i className="fab fa-twitter"></i>
-              <i className="fab fa-github"></i>
-              <i className="fab fa-instagram"></i>
+              <a href="https://x.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
+                <i className="fab fa-twitter"></i>
+              </a>
+              <a href="https://github.com/LuxJson" style={{textDecoration: 'none' , color: 'white'}}>
+                <i className="fab fa-github"></i>
+              </a>
+              <a href="https://www.instagram.com/SomiariOfficial" style={{textDecoration: 'none' , color: 'white'}}>
+                <i className="fab fa-instagram"></i>
+              </a>
             </div>
           </div>
         </footer>
