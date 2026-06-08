@@ -105,7 +105,7 @@ export default function LuxJson() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <div className="sh-project-image-wrap">
+                  <div className="sh-project-image-wrap" style={{ backgroundImage: `url(https://opengraph.githubassets.com/1/luxjson/${repo.name})` }}>
                     <div className="sh-project-overlay">
                        <div className="sh-project-title">
                           <span className="sh-arrow"><i className="material-icons">arrow_forward</i></span>
