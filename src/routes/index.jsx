@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 import Games from "../pages/Games";
 import About from "../pages/About";
 import Contact from "../pages/Contact";
-import Portfolio from "../pages/luxjson";
+import LuxJson from "../pages/luxjson";
 import Insomnia from "../pages/Insomnia";
 import InsomniaNotFound from "../pages/InsomniaNotFound";
 
@@ -16,7 +16,7 @@ export default function Rotas() {
                 <Route path="/games" element={<Games />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
-                <Route path="/portfolio" element={<Portfolio />} />
+                <Route path="/portfolio" element={<LuxJson />} />
                 <Route path="/insomnia" element={<Insomnia />} />
                 <Route path="*" element={<InsomniaNotFound />} />
             </Routes>
