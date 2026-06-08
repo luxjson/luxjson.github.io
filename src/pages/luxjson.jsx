@@ -17,7 +17,7 @@ export default function LuxJson() {
 
     fetch('https://api.github.com/users/luxjson/repos?per_page=100&sort=pushed')
       .then(res => res.json()).then(data => {
-        const targets = ['analisai-express', 'react', 'light', 'insomnia'];
+        const targets = ['analisai-express', 'react', 'light', 'insomnia', 'SENAI-MaryCario'];
         const blacklist = ['lightoldwebsite'];
         const filtered = data.filter(repo => 
           targets.some(t => repo.name.toLowerCase().includes(t)) &&
@@ -91,7 +91,7 @@ export default function LuxJson() {
           <div className="sh-container">
             <span className="sh-section-tag fix">WORK</span>
             <h2 className="sh-description-text">
-              I AM A <span className="sh-h-word">DILIGENT</span> ENGINEER, PASSIONATE ABOUT TURNING IDEAS INTO REALITIES.
+              I AM A JUNIOR <span className="sh-h-word">WEB DEVELOPER</span>, PASSIONATE ABOUT TURNING IDEAS INTO REALITIES.
             </h2>
 
             <div className="sh-projects-grid">
@@ -120,7 +120,7 @@ export default function LuxJson() {
           </div>
         </section>
 
-        <section className="sh-services">
+        <section className="sh-services fundo-escuro">
           <div className="sh-container">
             <div className="sh-service-card">
                <h2 className="sh-service-title">
@@ -128,8 +128,7 @@ export default function LuxJson() {
                   <span className="text-grey">DEVELOPMENT</span>
                </h2>
                <p className="sh-service-desc">
-                 Specialized in building high-performance systems and digital experiences 
-                 that surpass expectations.
+                 Specialized in Building High-Performance Systems and Digital Experiences That Surpass Expectations.
                </p>
             </div>
           </div>
@@ -138,8 +137,8 @@ export default function LuxJson() {
 
       <footer className="sh-footer">
         <div className="sh-footer-bg-text">{renderMixedText("LUXJSON")}</div>
-        <div className="sh-footer-main">
-           <h2 className="sh-footer-title">© LUXJSON DIGITAL</h2>
+        <div className="sh-footer-main fundo-escuro">
+           <h2 className="sh-footer-title">© LUXJSON</h2>
            <span className="sh-footer-sub fix">YOUR VISION BUILDS OUR HISTORY</span>
            <div className="sh-footer-socials">
               <a href="https://github.com/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-github"></i></a>

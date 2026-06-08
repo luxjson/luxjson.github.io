@@ -348,3 +348,9 @@
     .sh-description-text { font-size: 34px; }
     .sh-service-title { font-size: 50px; }
 }
+
+.fundo-escuro ::selection, 
+[style*="background-color: var(--sohub-black)"] ::selection {
+    background-color: var(--sohub-white);
+    color: var(--sohub-black);
+}
