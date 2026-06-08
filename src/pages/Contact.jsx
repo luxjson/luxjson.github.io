@@ -1,8 +1,37 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
+import { motion } from 'framer-motion';
 import '../assets/styles/contact.css';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+
+const containerVariants = {
+  initial: { opacity: 0 },
+  animate: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+      delayChildren: 0.1,
+    },
+  },
+  exit: { 
+    opacity: 0,
+    transition: { duration: 0.3 }
+  }
+};
+
+const itemVariants = {
+  initial: { opacity: 0, y: 30, scale: 0.98 },
+  animate: { 
+    opacity: 1, 
+    y: 0, 
+    scale: 1,
+    transition: { 
+      duration: 0.8, 
+      ease: [0.16, 1, 0.3, 1] 
+    } 
+  }
+};
 
 export default function Contact() {
   const form = useRef();
@@ -23,22 +52,27 @@ export default function Contact() {
         setTimeout(() => setStatus(""), 5000);
     }, (error) => {
         setStatus("ERROR. TRY AGAIN.");
-        console.log("FAILED...", error.text);
     });
   };
 
   return (
-    <div className="material-wrapper">
+    <motion.div 
+      className="material-wrapper"
+      variants={containerVariants}
+      initial="initial"
+      animate="animate"
+      exit="exit"
+    >
       <Header />
       
       <main className="contact-container">
-        <header className="page-header">
+        <motion.header variants={itemVariants} className="page-header">
           <div className="badge">COMMUNICATIONS · CONNECT</div>
           <h1 className="hero-title">TALK TO <span className="text-pink">US.</span></h1>
-        </header>
+        </motion.header>
 
         <section className="contact-grid">
-          <div className="gmail-card">
+          <motion.div variants={itemVariants} className="gmail-card">
             <div className="gmail-header">
               <span className="fix">NEW MESSAGE</span>
               <div className="window-dots">
@@ -79,9 +113,9 @@ export default function Contact() {
                 </div>
               </div>
             </form>
-          </div>
+          </motion.div>
 
-          <aside className="contact-info-side">
+          <motion.aside variants={itemVariants} className="contact-info-side">
             <div className="info-pill pink-pill">
               <h3 className="card-title">SOCIAL MEDIA</h3>
               <div className="social-list">
@@ -95,11 +129,11 @@ export default function Contact() {
               <h3 className="card-title">LOCATION</h3>
               <p className="card-text fix">SÃO PAULO / BRAZIL, BR</p>
             </div>
-          </aside>
+          </motion.aside>
         </section>
       </main>
 
       <Footer />
-    </div>
+    </motion.div>
   );
 }
