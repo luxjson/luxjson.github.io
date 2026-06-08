@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import emailjs from '@emailjs/browser';
 import '../assets/styles/luxjson.css';
 
 export default function LuxJson() {
   const [projects, setProjects] = useState([]);
   const [user, setUser] = useState(null);
+  
+  const [isChatOpen, setIsChatOpen] = useState(false);
+  const [status, setStatus] = useState("");
+  const form = useRef();
 
   useEffect(() => {
     fetch('https://api.github.com/users/luxjson')
@@ -22,6 +27,20 @@ export default function LuxJson() {
       });
   }, []);
 
+  const sendEmail = (e) => {
+    e.preventDefault();
+    setStatus("SENDING...");
+    emailjs.sendForm('service_2agyezv', 'template_keoux04', form.current, '-7mi-fOFqFgasG8qS')
+      .then(() => {
+        setStatus("SENT SUCCESSFULLY.");
+        setTimeout(() => {
+          setIsChatOpen(false);
+          setStatus("");
+          form.current.reset();
+        }, 2000);
+      }, () => setStatus("ERROR. TRY AGAIN."));
+  };
+
   const renderMixedText = (text) => {
     if (!text) return "";
     const parts = text.toUpperCase().split(/(\d+)/);
@@ -32,22 +51,20 @@ export default function LuxJson() {
 
   return (
     <div className="sohub-root selection:bg-black selection:text-white">
-      {/* FLOATING HEADER PILL */}
       <header className="sh-header">
         <div className="sh-nav-pill">
           <span className="sh-logo-nav">LUXJSON</span>
           <div className="sh-nav-links">
              <a href="#work">WORK</a>
-             <a href="mailto:lucaseduarte60gmail.com" className="sh-chat-btn">
+             <button onClick={() => setIsChatOpen(true)} className="sh-chat-btn" style={{border:'none', cursor:'pointer'}}>
                 <span>LET'S CHAT</span>
                 <div className="sh-circle-icon"><i className="material-icons">mail</i></div>
-             </a>
+             </button>
           </div>
         </div>
       </header>
 
       <main id="main-content">
-        {/* HERO SECTION */}
         <section className="sh-hero">
           <div className="sh-hero-container">
              <div className="sh-hero-text">
@@ -64,19 +81,17 @@ export default function LuxJson() {
                   YOUR VISION BUILDS OUR HISTORY.
                 </motion.p>
              </div>
-             {/* ELEMENTO 3D FLUTUANTE */}
              <div className="sh-hero-render">
                 <span className="material-icons sh-float-icon">polymer</span>
              </div>
           </div>
         </section>
 
-        {/* WORK SECTION */}
         <section id="work" className="sh-work">
           <div className="sh-container">
             <span className="sh-section-tag fix">WORK</span>
             <h2 className="sh-description-text">
-              WE ARE A <span className="sh-h-word">DILIGENT</span> TEAM, PASSIONATE ABOUT TURNING IDEAS INTO REALITIES.
+              I AM A <span className="sh-h-word">DILIGENT</span> ENGINEER, PASSIONATE ABOUT TURNING IDEAS INTO REALITIES.
             </h2>
 
             <div className="sh-projects-grid">
@@ -105,7 +120,6 @@ export default function LuxJson() {
           </div>
         </section>
 
-        {/* EXPERIENCE / SERVICE CARD */}
         <section className="sh-services">
           <div className="sh-container">
             <div className="sh-service-card">
@@ -117,27 +131,73 @@ export default function LuxJson() {
                  Specialized in building high-performance systems and digital experiences 
                  that surpass expectations.
                </p>
-               <div className="sh-tags">
-                  <span className="fix">SYSTEM_ARCHITECT</span>
-                  <span className="fix">PIXEL_PERFECT</span>
-               </div>
             </div>
           </div>
         </section>
       </main>
 
-      {/* FOOTER LAYERED */}
       <footer className="sh-footer">
         <div className="sh-footer-bg-text">{renderMixedText("LUXJSON")}</div>
         <div className="sh-footer-main">
            <h2 className="sh-footer-title">© LUXJSON DIGITAL</h2>
-           <span className="sh-footer-sub fix">AWARD-WINNING ENGINEER</span>
+           <span className="sh-footer-sub fix">YOUR VISION BUILDS OUR HISTORY</span>
            <div className="sh-footer-socials">
-              <a href="https://github.com/luxjson" className="sh-social-link"><i className="fab fa-github"></i></a>
-              <a href="https://twitter.com" className="sh-social-link"><i className="fab fa-twitter"></i></a>
+              <a href="https://github.com/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-github"></i></a>
+              <a href="https://instagram.com/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-instagram"></i></a>
+              <a href="https://linkedin.com/in/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-linkedin"></i></a>
            </div>
         </div>
       </footer>
+
+      <AnimatePresence>
+        {isChatOpen && (
+          <>
+            <motion.div 
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
+              onClick={() => setIsChatOpen(false)}
+              className="sh-modal-overlay"
+            />
+            <motion.div 
+              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="sh-chat-modal"
+            >
+              <div className="sh-modal-header">
+                <h2 className="asgard">GET IN TOUCH</h2>
+                <button onClick={() => setIsChatOpen(false)} className="sh-close-btn">
+                  <i className="material-icons">close</i>
+                </button>
+              </div>
+
+              <form ref={form} onSubmit={sendEmail} className="sh-modal-form">
+                <div className="sh-input-group">
+                  <label className="fix">NAME</label>
+                  <input type="text" name="user_name" placeholder="Your name" required />
+                </div>
+                <div className="sh-input-group">
+                  <label className="fix">EMAIL</label>
+                  <input type="email" name="user_email" placeholder="your@email.com" required />
+                </div>
+                <div className="sh-input-group">
+                  <label className="fix">SUBJECT</label>
+                  <input type="text" name="subject" placeholder="What is this about?" required />
+                </div>
+                <div className="sh-input-group">
+                  <label className="fix">MESSAGE</label>
+                  <textarea name="message" placeholder="Your message..." rows="5" required></textarea>
+                </div>
+
+                <div className="sh-modal-footer">
+                  <button type="submit" className="sh-submit-pill">
+                    <span>{status || "SEND MESSAGE"}</span>
+                    <div className="sh-circle-icon"><i className="material-icons">arrow_forward</i></div>
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
