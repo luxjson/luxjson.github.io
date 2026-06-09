@@ -8,6 +8,7 @@ export default function LuxJson() {
   const [user, setUser] = useState(null);
   
   const [isChatOpen, setIsChatOpen] = useState(false);
+  const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [status, setStatus] = useState("");
   const form = useRef();
 
@@ -53,7 +54,7 @@ export default function LuxJson() {
     <div className="sohub-root selection:bg-black selection:text-white">
       <header className="sh-header">
         <div className="sh-nav-pill">
-          <span className="sh-logo-nav">LUXJSON</span>
+          <a href="#home" className="sh-logo-nav">LUXJSON</a>
           <div className="sh-nav-links">
              <a href="#work">WORK</a>
              <button onClick={() => setIsChatOpen(true)} className="sh-chat-btn" style={{border:'none', cursor:'pointer'}}>
@@ -65,7 +66,7 @@ export default function LuxJson() {
       </header>
 
       <main id="main-content">
-        <section className="sh-hero">
+        <section id="home" className="sh-hero">
           <div className="sh-hero-container">
              <div className="sh-hero-text">
                 <motion.h1 
@@ -144,6 +145,9 @@ export default function LuxJson() {
               <a href="https://github.com/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-github"></i></a>
               <a href="https://instagram.com/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-instagram"></i></a>
               <a href="https://linkedin.com/in/luxjson" target="_blank" className="sh-social-link"><i className="fab fa-linkedin"></i></a>
+                <button onClick={() => setIsInfoOpen(true)} className="sh-social-link" style={{ background: '#1e232c', border: 'none', cursor: 'pointer' }}>
+                  <i className="material-icons">info</i>
+                </button>
            </div>
         </div>
       </footer>
@@ -193,6 +197,60 @@ export default function LuxJson() {
                   </button>
                 </div>
               </form>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
+      
+      <AnimatePresence>
+        {isInfoOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsInfoOpen(false)}
+              className="sh-modal-overlay"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="sh-info-drawer-simple"
+            >
+              <div className="sh-info-drawer-header">
+                <h2>INFO</h2>
+                <button onClick={() => setIsInfoOpen(false)} className="sh-close-btn">
+                  <i className="material-icons">close</i>
+                </button>
+              </div>
+              <div className="sh-info-drawer-body-simple">
+                <div className="sh-simple-version">
+                  <span className="sh-simple-badge">v1.000001</span>
+                </div>
+                <div className="sh-simple-heart">
+                  Made by luxjson
+                </div>
+              </div>
+              <div className="sh-drawer-buttons">
+                  <a
+                    href="https://github.com/luxjson/luxjson.github.io"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sh-drawer-btn"
+                  >
+                    <i className="fab fa-github"></i> View website repository
+                  </a>
+                  <a
+                    href="https://somiaristudio.github.io/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sh-drawer-btn"
+                  >
+                    <i className="material-icons">public</i> SOMIARI Website
+                  </a>
+                </div>
             </motion.div>
           </>
         )}

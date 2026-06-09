@@ -1,0 +1,34 @@
+.not-found-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #f0f6f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.not-found-container i {
+  font-size: 100px;
+  color: #0c1016;
+}
+
+.back-home-btn {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 12px 28px;
+  background-color: #0c1016;
+  color: #f0f6f8;
+  border: none;
+  border-radius: 40px;
+  font-family: 'fix', sans-serif;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.back-home-btn:hover {
+  background-color: #2a2f36;
+}
