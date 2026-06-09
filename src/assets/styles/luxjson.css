@@ -432,6 +432,10 @@
   padding: 0 32px 32px 32px;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 .sh-drawer-btn {
   background: var(--sohub-black);
   color: white;
