@@ -9,7 +9,7 @@ export default function Rotas() {
         <>
             <Routes>
                 <Route path="/" element={<LuxJson />} />
-                <Route path="/*" element={<NotFound />} />
+                <Route path="*" element={<NotFound />} />
             </Routes>
         </>
     )    
