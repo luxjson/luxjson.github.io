@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
 import '../assets/styles/luxjson.css';
 
@@ -54,9 +55,9 @@ export default function LuxJson() {
     <div className="sohub-root selection:bg-black selection:text-white">
       <header className="sh-header">
         <div className="sh-nav-pill">
-          <a href="#home" className="sh-logo-nav">LUXJSON</a>
+          <Link to="#home" className="sh-logo-nav">LUXJSON</Link>
           <div className="sh-nav-links">
-             <a href="#work">WORK</a>
+             <Link to="#work">WORK</Link>
              <button onClick={() => setIsChatOpen(true)} className="sh-chat-btn" style={{border:'none', cursor:'pointer'}}>
                 <span>LET'S CHAT</span>
                 <div className="sh-circle-icon"><i className="material-icons">mail</i></div>
