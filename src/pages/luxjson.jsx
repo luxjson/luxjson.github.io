@@ -240,7 +240,7 @@ export default function LuxJson() {
                     rel="noopener noreferrer"
                     className="sh-drawer-btn"
                   >
-                    <i className="fab fa-github"></i> View website repository
+                    <i className="fab fa-github"></i> View repository
                   </a>
                   <a
                     href="https://somiaristudio.github.io/"
@@ -248,7 +248,7 @@ export default function LuxJson() {
                     rel="noopener noreferrer"
                     className="sh-drawer-btn"
                   >
-                    <i className="material-icons">public</i> SOMIARI Website
+                    <i className="material-icons">public</i> My Game Studio Website
                   </a>
                 </div>
             </motion.div>
