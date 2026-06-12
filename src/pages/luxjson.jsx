@@ -227,7 +227,7 @@ export default function LuxJson() {
               </div>
               <div className="sh-info-drawer-body-simple">
                 <div className="sh-simple-version">
-                  <span className="sh-simple-badge">v1.000001</span>
+                  <span className="sh-simple-badge">v1.000101</span>
                 </div>
                 <div className="sh-simple-heart">
                   Made by luxjson
