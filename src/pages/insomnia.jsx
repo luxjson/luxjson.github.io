@@ -141,6 +141,10 @@ export default function Insomnia() {
     }, [state]);
 
     return (
+    <>
+        <div class="mobile-banner">
+            Acesse este site no computador para melhor experiência.
+        </div>
         <div className={`game-container ${isShake ? 'shake' : ''}`}>
             <div className="crt-overlay" />
             <div className="noise" />
@@ -263,5 +267,9 @@ export default function Insomnia() {
                 </p>
             </footer>
         </div>
+    </>
+        
     );
+    
+
 }
