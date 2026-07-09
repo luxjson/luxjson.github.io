@@ -381,6 +381,8 @@ body {
         height: auto;
         min-height: 100vh;
         overflow-y: auto;
+        touch-action: manipulation; 
+        -webkit-tap-highlight-color: transparent;
     }
     .sketch-frame, .diary-box {
         width: 95% !important;

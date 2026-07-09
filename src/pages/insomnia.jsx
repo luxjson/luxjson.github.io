@@ -99,25 +99,44 @@ export default function Insomnia() {
         return () => clearInterval(interval);
     }, [state, currentLine, drawnChars]);
 
-    const handleKeyDown = useCallback((e) => {
-        if (e.key.toLowerCase() === 'z' && state === 2) {
-            if (currentLine < INTRO_TEXTS.length - 1) {
-                setCurrentLine(prev => prev + 1);
-                setDrawnChars(0);
-                setDisplayedText("");
-                setIsShake(true);
-                setTimeout(() => setIsShake(false), 200);
-                setState(1);
-            } else {
-                setState(3);
-            }
+    const handleInteraction = useCallback((e) => {
+    // Evita disparar em elementos interativos como inputs ou botões
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
+        return;
+    }
+
+    // Verifica se é a tecla Z ou um evento de clique/toque
+    const isZKey = e.key && e.key.toLowerCase() === 'z';
+    const isClickOrTouch = e.type === 'mousedown' || e.type === 'touchstart';
+
+    if ((isZKey || isClickOrTouch) && state === 2) {
+        // Previne comportamento padrão (como scroll em touch)
+        e.preventDefault();
+
+        if (currentLine < INTRO_TEXTS.length - 1) {
+            setCurrentLine(prev => prev + 1);
+            setDrawnChars(0);
+            setDisplayedText("");
+            setIsShake(true);
+            setTimeout(() => setIsShake(false), 200);
+            setState(1);
+        } else {
+            setState(3);
         }
-    }, [state, currentLine]);
+    }
+}, [state, currentLine]);
 
     useEffect(() => {
-        window.addEventListener('keydown', handleKeyDown);
-        return () => window.removeEventListener('keydown', handleKeyDown);
-    }, [handleKeyDown]);
+    window.addEventListener('keydown', handleInteraction);
+    window.addEventListener('mousedown', handleInteraction);
+    window.addEventListener('touchstart', handleInteraction, { passive: false });
+
+    return () => {
+        window.removeEventListener('keydown', handleInteraction);
+        window.removeEventListener('mousedown', handleInteraction);
+        window.removeEventListener('touchstart', handleInteraction);
+    };
+}, [handleInteraction]);
 
     useEffect(() => {
         if (state === 3) {
@@ -179,7 +198,8 @@ export default function Insomnia() {
                                 <input
                                     key={i}
                                     id={`digit-${i}`}
-                                    type="text"
+                                    type="number"
+                                    pattern="\d*"
                                     maxLength="1"
                                     className="digit-input"
                                     onChange={(e) => {
