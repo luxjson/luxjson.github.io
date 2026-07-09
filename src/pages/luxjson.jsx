@@ -9,6 +9,7 @@ export default function Luxjson() {
   const [user, setUser] = useState(null);
   useExternalStyle('luxjson.css');
   
+  
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [status, setStatus] = useState("");
