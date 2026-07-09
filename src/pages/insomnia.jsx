@@ -100,17 +100,13 @@ export default function Insomnia() {
     }, [state, currentLine, drawnChars]);
 
     const handleInteraction = useCallback((e) => {
-    // Evita disparar em elementos interativos como inputs ou botões
     if (e.target.tagName === 'INPUT' || e.target.tagName === 'BUTTON' || e.target.tagName === 'A') {
         return;
     }
-
-    // Verifica se é a tecla Z ou um evento de clique/toque
     const isZKey = e.key && e.key.toLowerCase() === 'z';
     const isClickOrTouch = e.type === 'mousedown' || e.type === 'touchstart';
 
     if ((isZKey || isClickOrTouch) && state === 2) {
-        // Previne comportamento padrão (como scroll em touch)
         e.preventDefault();
 
         if (currentLine < INTRO_TEXTS.length - 1) {
