@@ -13,6 +13,29 @@
     font-family: 'Asgard', sans-serif;
 }
 
+* {
+    cursor: none !important;
+}
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 18px;
+    height: 18px;
+    background-color: #fff; 
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    mix-blend-mode: difference;
+    transition: transform 0.1s ease-out, width 0.2s, height 0.2s;
+}
+
+.custom-cursor.active {
+    width: 30px;
+    height: 30px;
+    transform: translate(-9px, -9px);
+}
+
 :root {
     --sohub-white: #f0f6f8;
     --sohub-black: #0c1016;

@@ -9,11 +9,38 @@ export default function Luxjson() {
   const [user, setUser] = useState(null);
   useExternalStyle('luxjson.css');
   
-  
+
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [status, setStatus] = useState("");
   const form = useRef();
+  
+  useEffect(() => {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    };
+
+    const handleHover = () => cursor.classList.add('active');
+    const handleLeave = () => cursor.classList.remove('active');
+
+    window.addEventListener('mousemove', moveCursor);
+    
+    // Adiciona o efeito de "aumentar" em links e botões
+    document.querySelectorAll('a, button, .sh-project-card').forEach(el => {
+        el.addEventListener('mouseenter', handleHover);
+        el.addEventListener('mouseleave', handleLeave);
+    });
+
+    return () => {
+        window.removeEventListener('mousemove', moveCursor);
+        document.body.removeChild(cursor);
+    };
+}, []);
 
   useEffect(() => {
     fetch('https://api.github.com/users/luxjson')
