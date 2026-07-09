@@ -11,7 +11,7 @@ export default function Rotas() {
             <Routes>
                 <Route path="/" element={<Luxjson />} />
                 <Route path="/insomnia" element={<Insomnia />} />
-                <Route path="*" element={<NotFound />} />
+                <Route path="/*" element={<NotFound />} />
             </Routes>
         </>
     )    
