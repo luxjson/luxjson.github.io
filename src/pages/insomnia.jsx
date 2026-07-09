@@ -143,7 +143,7 @@ export default function Insomnia() {
     return (
     <>
         <div class="mobile-banner">
-            Acesse este site no computador para melhor experiência.
+            Access via computer for the best experience.
         </div>
         <div className={`game-container ${isShake ? 'shake' : ''}`}>
             <div className="crt-overlay" />
