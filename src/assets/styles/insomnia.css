@@ -17,6 +17,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Insomnia', sans-serif;
     cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><circle cx="5" cy="5" r="3" fill="red"/></svg>') 5 5, auto !important;
 }
 
@@ -29,7 +30,6 @@ button,
 
 body {
     background-color: var(--col-bg-dark);
-    font-family: 'Insomnia', sans-serif;
     color: var(--col-paper);
     overflow: hidden;
     height: 100vh;
