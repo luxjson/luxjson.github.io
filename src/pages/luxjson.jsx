@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import '../assets/styles/luxjson.css';
+import { Link } from 'react-router-dom';
+import useExternalStyle from '../hooks/useExternalStyle';
 
-export default function LuxJson() {
+export default function Luxjson() {
   const [projects, setProjects] = useState([]);
   const [user, setUser] = useState(null);
+  useExternalStyle('luxjson.css');
   
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
@@ -96,27 +98,36 @@ export default function LuxJson() {
             </h2>
 
             <div className="sh-projects-grid">
-              {projects.map((repo, i) => (
-                <motion.a 
-                  key={repo.id}
-                  href={repo.html_url}
-                  target="_blank"
-                  className="sh-project-card group"
-                  initial={{ opacity: 0, y: 50 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                >
-                  <div className="sh-project-image-wrap" style={{ backgroundImage: `url(https://opengraph.githubassets.com/1/luxjson/${repo.name})` }}>
-                    <div className="sh-project-overlay">
-                       <div className="sh-project-title">
-                          <span className="sh-arrow"><i className="material-icons">arrow_forward</i></span>
-                          <h3>{renderMixedText(repo.name.replace(/-/g, ' '))}</h3>
-                       </div>
-                    </div>
-                    <div className="sh-placeholder-img"></div>
-                  </div>
-                </motion.a>
-              ))}
+              {projects.map((repo, i) => {
+                const isInsomnia = repo.name.toLowerCase() === 'insomnia';
+                const href = isInsomnia ? '/insomnia' : repo.html_url;
+
+                return (
+                  <motion.div
+                    key={repo.id}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    className="sh-project-card group"
+                  >
+                    <Link 
+                      to={href} 
+                      target={isInsomnia ? "_self" : "_blank"}
+                      style={{ textDecoration: 'none', display: 'block' }}
+                    >
+                      <div className="sh-project-image-wrap" style={{ backgroundImage: `url(https://opengraph.githubassets.com/1/luxjson/${repo.name})` }}>
+                        <div className="sh-project-overlay">
+                          <div className="sh-project-title">
+                              <span className="sh-arrow"><i className="material-icons">arrow_forward</i></span>
+                              <h3>{renderMixedText(repo.name.replace(/-/g, ' '))}</h3>
+                          </div>
+                        </div>
+                        <div className="sh-placeholder-img"></div>
+                      </div>
+                    </Link>
+                  </motion.div>
+                );
+              })}
             </div>
           </div>
         </section>

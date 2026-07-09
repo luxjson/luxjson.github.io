@@ -303,7 +303,6 @@
 
 .sh-submit-pill:hover { transform: scale(1.05) translateX(10px); }
 
-/* Drawer lateral simples (info) */
 .sh-info-drawer-simple {
   position: fixed;
   top: 0;
@@ -392,7 +391,6 @@
   50% { transform: scale(1.2); }
 }
 
-/* Responsivo mobile */
 @media (max-width: 768px) {
   .sh-info-drawer-simple {
     margin: 0;
@@ -422,7 +420,6 @@
     font-size: 20px;
   }
 }
-/* Botões dentro do drawer */
 .sh-drawer-buttons {
   display: flex;
   flex-direction: column;

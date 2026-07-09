@@ -6,7 +6,7 @@ export default function NotFound() {
     <div className="not-found-container">
       <i className="fa-solid fa-ban"></i>
       <Link to="/" className="back-home-btn">
-        Voltar para o início
+        Back to home
       </Link>
     </div>
   );

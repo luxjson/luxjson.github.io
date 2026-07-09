@@ -1,6 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 
-import LuxJson from "../pages/luxjson";
+import Luxjson from "../pages/luxjson";
+import Insomnia from "../pages/insomnia";
 import NotFound from "../pages/NotFound";
 
 
@@ -8,7 +9,8 @@ export default function Rotas() {
     return (
         <>
             <Routes>
-                <Route path="/" element={<LuxJson />} />
+                <Route path="/" element={<Luxjson />} />
+                <Route path="/insomnia" element={<Insomnia />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </>
