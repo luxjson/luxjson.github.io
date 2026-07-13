@@ -2,6 +2,9 @@
   font-family: 'Asgard';
   src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
 }
+
+@import 'flag-icons/css/flag-icons.min.css';
+
 @font-face {
   font-family: 'fix';
   src: url('../fonts/Poppins-Medium.ttf') format('truetype');
@@ -94,6 +97,22 @@
 .sh-theme-toggle {
   position: fixed;
   top: 30px;
+  right: 30px;
+  z-index: 1100;
+  background: var(--sohub-black);
+  color: var(--sohub-white);
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s cubic-bezier(.22, .68, 0, 1.5);
+}
+.sh-lang-toggle {
+  position: fixed;
+  top: 90px;
   right: 30px;
   z-index: 1100;
   background: var(--sohub-black);
@@ -730,9 +749,6 @@
   transform: scale(1.1);
 }
 
-.sh-lang-toggle{
-    margin-top:60px;
-} 
 
 .sh-lang-text {
   font-family: 'fix', sans-serif;
@@ -741,10 +757,9 @@
 }
 
 @media (max-width: 768px) {
-  .sh-theme-toggle,
-  .sh-lang-toggle {
-    width: 42px;
-    height: 42px;
+  .sh-float-buttons {
+    top: 20px;
+    right: 20px;
   }
 }
 .sh-services {
@@ -1411,4 +1426,15 @@ html {
   * {
     cursor: auto !important;
   }
+}
+.sh-lang-flag-img {
+  display: block;
+  width: 32px;
+  height: 32px;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+}
+
+[data-theme='light'] .sh-lang-flag-img {
+  filter: invert(1)
 }

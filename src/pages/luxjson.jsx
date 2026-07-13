@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import useExternalStyle from '../hooks/useExternalStyle';
+import brFlag from '../assets/images/br.svg';
+import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
 export default function Luxjson() {
   const [projects, setProjects] = useState([]);
@@ -44,8 +46,8 @@ export default function Luxjson() {
       chatMessage: 'MENSAGEM',
       chatSend: 'ENVIAR MENSAGEM',
       chatSending: 'ENVIANDO...',
-      chatSent: '✅ ENVIADO COM SUCESSO.',
-      chatError: '❌ ERRO. TENTE NOVAMENTE.',
+      chatSent: 'ENVIADO COM SUCESSO.',
+      chatError: 'ERRO. TENTE NOVAMENTE.',
       infoTitle: 'INFORMAÇÕES',
       infoMade: 'Feito por',
       infoRepo: 'Ver repositório',
@@ -80,8 +82,8 @@ export default function Luxjson() {
       chatMessage: 'MESSAGE',
       chatSend: 'SEND MESSAGE',
       chatSending: 'SENDING...',
-      chatSent: '✅ SENT SUCCESSFULLY.',
-      chatError: '❌ ERROR. TRY AGAIN.',
+      chatSent: 'SENT SUCCESSFULLY.',
+      chatError: 'ERROR. TRY AGAIN.',
       infoTitle: 'INFO',
       infoMade: 'Made by',
       infoRepo: 'View repository',
@@ -298,7 +300,11 @@ useEffect(() => {
           whileTap={{ scale: 0.9 }}
           aria-label="Alternar idioma"
         >
-          <span className="sh-lang-text">{language === 'pt' ? 'PT' : 'EN'}</span>
+          <img
+            src={language === 'pt' ? brFlag : ukFlag}
+            alt={language === 'pt' ? 'Português' : 'English'}
+            className="sh-lang-flag-img"
+          />
         </motion.button>
       </div>
 
