@@ -1403,3 +1403,12 @@ html {
     opacity: 0.85;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .custom-cursor {
+    display: none !important;
+  }
+  * {
+    cursor: auto !important;
+  }
+}
