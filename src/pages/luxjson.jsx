@@ -67,6 +67,7 @@ export default function Luxjson() {
       headerAbout: 'SOBRE',
       headerContact: 'CONTATO',
       headerChat: 'VAMOS CONVERSAR',
+      headerBlog: 'BLOG',
     },
     en: {
       heroTitle: 'YOUR VISION BUILDS OUR HISTORY.',
@@ -103,6 +104,7 @@ export default function Luxjson() {
       headerAbout: 'ABOUT',
       headerContact: 'CONTACT',
       headerChat: "LET'S CHAT",
+      headerBlog: 'BLOG',
     },
   };
 
@@ -194,12 +196,10 @@ export default function Luxjson() {
   const [isLoading, setIsLoading] = useState(true);
 const [progress, setProgress] = useState(0);
 
-// Simula o carregamento e sincroniza com a API
 useEffect(() => {
   let interval;
   let timeout;
 
-  // Se a API já terminou de carregar, acelera o progresso
   if (!loading) {
     setProgress(100);
     timeout = setTimeout(() => {
@@ -208,7 +208,6 @@ useEffect(() => {
     return;
   }
 
-  // Simula progresso enquanto carrega
   interval = setInterval(() => {
     setProgress(prev => {
       if (prev >= 95) {
@@ -219,7 +218,6 @@ useEffect(() => {
     });
   }, 150);
 
-  // Força o fim do boot após 2.5s mesmo se a API não tiver carregado
   timeout = setTimeout(() => {
     setIsLoading(false);
     clearInterval(interval);
@@ -335,6 +333,9 @@ useEffect(() => {
       >
         {t('headerWork')}
       </a>
+
+        <Link to="/blog">{t('headerBlog')}</Link>
+
       <button
         onClick={() => setIsChatOpen(true)}
         className="sh-chat-btn"

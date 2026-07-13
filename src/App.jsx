@@ -1,4 +1,5 @@
 import Rotas from "./routes"
+import AuthProvider from "./context/AuthContext"
 import { useEffect } from "react"
 
 function App() {
@@ -12,10 +13,11 @@ function App() {
   
 
   return (
-    <>
-      <Rotas />
-    </>
-  )
+      <AuthProvider>
+        <Rotas />
+      </AuthProvider>
+  );
+
 }
 
 export default App
