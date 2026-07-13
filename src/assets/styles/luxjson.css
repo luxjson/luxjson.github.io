@@ -3,8 +3,6 @@
   src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
 }
 
-@import 'flag-icons/css/flag-icons.min.css';
-
 @font-face {
   font-family: 'fix';
   src: url('../fonts/Poppins-Medium.ttf') format('truetype');
@@ -1162,8 +1160,8 @@ html {
     padding: 10px 10px 10px 25px;
     justify-content: space-between;
   }
-  .sh-nav-links a {
-    display: none;
+  .sh-nav-links {
+    gap: 15px;
   }
   .sh-logo-nav {
     font-size: 16px;
