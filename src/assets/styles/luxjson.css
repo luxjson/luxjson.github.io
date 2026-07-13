@@ -1159,6 +1159,7 @@ html {
     width: 100%;
     padding: 10px 10px 10px 25px;
     justify-content: space-between;
+    gap: 10px;
   }
   .sh-nav-links {
     gap: 15px;

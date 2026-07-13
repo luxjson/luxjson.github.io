@@ -312,16 +312,16 @@ export default function BlogPost() {
           <h1 className="sh-blog-post-title">{post.title}</h1>
 
           <div className="sh-blog-post-meta">
-            <span className="sh-blog-post-meta-item">
+            <span className="sh-blog-post-meta-item fix">
               <i className="material-icons">calendar_today</i>
               {formatDate(post.published_at || post.created_at)}
             </span>
-            <span className="sh-blog-post-meta-item">
+            <span className="sh-blog-post-meta-item fix">
               <i className="material-icons">schedule</i>
               {readingTime} {t('readingTime')}
             </span>
             {post.views > 0 && (
-              <span className="sh-blog-post-meta-item">
+              <span className="sh-blog-post-meta-item fix">
                 <i className="material-icons">visibility</i>
                 {post.views} {t('views')}
               </span>
@@ -341,7 +341,7 @@ export default function BlogPost() {
           )}
 
           <div
-            className="sh-blog-post-content"
+            className="sh-blog-post-content fix"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
