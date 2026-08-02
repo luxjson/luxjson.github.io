@@ -698,7 +698,7 @@ useEffect(() => {
                       </a>
                     )}
                     <a 
-                      href={`https://somiari.itch.io/${selectedProject.name}`} 
+                      href={`https://DEADSML.itch.io/${selectedProject.name}`} 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="sh-modal-btn-secondary"

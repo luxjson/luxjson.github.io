@@ -15,9 +15,9 @@ export default function Blog() {
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [isInfoOpen, setIsInfoOpen] = useState(false);
   const [status, setStatus] = useState('');
-const [isLoading, setIsLoading] = useState(true);
-    const [progress, setProgress] = useState(0);
-      const [user, setUser] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+  const [user, setUser] = useState(null);
   const form = useRef();
 
   useExternalStyle('luxjson.css');
@@ -36,21 +36,12 @@ const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const [userRes, reposRes] = await Promise.all([
+          const [userRes] = await Promise.all([
             fetch('https://api.github.com/users/luxjson'),
             fetch('https://api.github.com/users/luxjson/repos?per_page=100&sort=pushed')
           ]);
           const userData = await userRes.json();
-          const reposData = await reposRes.json();
           setUser(userData);
-  
-          const targets = ['analisai-express', 'react', 'light', 'insomnia', 'SENAI-MaryCario'];
-          const blacklist = ['lightoldwebsite'];
-          const filtered = reposData.filter(repo =>
-            targets.some(t => repo.name.toLowerCase().includes(t)) &&
-            !blacklist.some(b => repo.name.toLowerCase() === b)
-          );
-          setProjects(filtered);
         } catch (error) {
           console.error('Erro ao buscar dados do GitHub:', error);
         } finally {

@@ -273,7 +273,7 @@ export default function Insomnia() {
             {fadeAlpha > 0 && <div className="fade-out" style={{ opacity: fadeAlpha }} />}
 
             <footer className="countdown-footer">
-                <p>© 2026 SOMIARI GAMES</p>
+                <p>© 2026 DEADSMILE</p>
                 <p style={{ color: 'var(--col-blood-pencil)', marginTop: '5px' }}>
                     {new Date().getTime() >= targetDate ? (
                         <span>CHAPTER 1 IS WAITING FOR YOU.<br/>{countdown}</span>
