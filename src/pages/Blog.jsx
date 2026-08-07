@@ -6,6 +6,7 @@ import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import '../assets/styles/blog.css';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -548,17 +549,6 @@ export default function Blog() {
           </motion.div>
         )}
       </AnimatePresence>
-
-      <style>{`
-        @keyframes spin {
-          from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
-        }
-        @keyframes pulse {
-          0%, 100% { opacity: 0.6; }
-          50% { opacity: 0.3; }
-        }
-      `}</style>
     </div>
   );
 }
