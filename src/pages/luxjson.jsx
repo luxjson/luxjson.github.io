@@ -5,6 +5,7 @@ import useExternalStyle from '../hooks/useExternalStyle';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
+import svgLogo from '../assets/images/logo.svg';
 export default function Luxjson() {
   const [projects, setProjects] = useState([]);
   const [user, setUser] = useState(null);

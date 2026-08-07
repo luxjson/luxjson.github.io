@@ -167,7 +167,7 @@
   font-size: 20px;
   letter-spacing: -1px;
   text-decoration: none;
-  font-family: "Asgard-2";
+  font-family: "Asgard";
 }
 
 .sh-nav-links {
@@ -183,7 +183,9 @@
 .sh-nav-links a {
   text-decoration: none;
   color: var(--sohub-white);
+  font-family: 'fix-bold', sans-serif;
   font-size: 13px;
+ 
 }
 
 .sh-chat-btn {
@@ -238,7 +240,7 @@
   font-size: clamp(100px, 22vw, 450px);
   line-height: 0.8;
   text-align: left;
-  letter-spacing: -28px;
+  letter-spacing: -10px;
   margin: 0;
 }
 
@@ -799,6 +801,7 @@
   font-size: clamp(50px, 10vw, 150px);
   line-height: 0.85;
   letter-spacing: -8px;
+  text-wrap: wrap;
 }
 
 .text-grey {
@@ -1127,9 +1130,6 @@ html {
 }
 
 @media (max-width: 900px) {
-  .span {
-    font-size: 3rem;
-  }
 
   .sh-giant-title {
     letter-spacing: -5px;
@@ -1180,27 +1180,42 @@ html {
 
   .sh-header {
     top: auto;
-    bottom: 25px;
-    padding: 0 20px;
+    bottom: 0px;
   }
   .sh-nav-pill {
     width: 100%;
     padding: 10px 10px 10px 25px;
+    border-radius: 0px;
+    height: 80px;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
     gap: 10px;
   }
   .sh-nav-links {
     gap: 15px;
   }
+
+  .sh-nav-links a {
+    font-size: 12px;
+  }
+
   .sh-logo-nav {
     font-size: 16px;
   }
+
+
   .sh-chat-btn {
-    padding: 6px 6px 6px 18px;
+    padding: 6px 12px;
     gap: 10px;
   }
   .sh-chat-btn span {
     font-size: 11px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    height: 32px;
   }
   .sh-circle-icon {
     width: 32px;
@@ -1349,9 +1364,6 @@ html {
 }
 
 @media (max-width: 400px) {
-  .sh-giant-title {
-    font-size: 82px;
-  }
   .sh-description-text {
     font-size: 34px;
   }
