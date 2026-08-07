@@ -2,6 +2,10 @@
   font-family: 'Asgard';
   src: url("../fonts/BOLD.ttf") format('truetype');
 }
+@font-face {
+  font-family: 'Asgard-2';
+  src: url("../fonts/AsgardTrial-Bold.ttf") format('truetype');
+}
 
 @font-face {
   font-family: 'fix';
@@ -54,6 +58,8 @@
   --sohub-grey: #a5abad;
   --sohub-soft-grey: #d9e0e3;
   --transition-speed: 0.4s ease-in-out;
+  --close-btn: #141b2b;
+  --close-btn-text: #e8edf5;
 
   --sohub-cursor-bg: #ffffff;
   --sohub-circle-bg: #ffffff;
@@ -71,6 +77,8 @@
 [data-theme='dark'] {
   --sohub-white: #0a0e17;
   --sohub-soft-grey: #141b2b;
+  --close-btn: #e8edf5;
+  --close-btn-text: #141b2b;
   --sohub-black: #e8edf5;
   --sohub-grey: #8896a8;
   --sohub-cursor-bg: #ffffff;
@@ -159,12 +167,17 @@
   font-size: 20px;
   letter-spacing: -1px;
   text-decoration: none;
+  font-family: "Asgard-2";
 }
 
 .sh-nav-links {
   display: flex;
   align-items: center;
   gap: 30px;
+}
+
+.sh-circle-icon-chat {
+  color: #0c1016
 }
 
 .sh-nav-links a {
@@ -192,7 +205,7 @@
 .sh-circle-icon {
   width: 35px;
   height: 35px;
-  background: var(--sohub-circle-bg);
+  background: var(--close-btn);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -201,7 +214,7 @@
 
 .sh-circle-icon i {
   font-size: 18px;
-  color: var(--sohub-black);
+  color: var(--close-btn-text);
 }
 
 .sh-hero {
@@ -218,6 +231,14 @@
   line-height: 0.8;
   text-align: left;
   letter-spacing: -48px;
+  margin: 0;
+}
+
+.sh-giant-title-1 {
+  font-size: clamp(100px, 22vw, 450px);
+  line-height: 0.8;
+  text-align: left;
+  letter-spacing: -28px;
   margin: 0;
 }
 
@@ -505,7 +526,8 @@
   position: absolute;
   top: 20px;
   right: 24px;
-  background: var(--sohub-soft-grey);
+  background: var(--close-btn);
+  color: var(--close-btn-text);
   border: none;
   width: 48px;
   height: 48px;
@@ -916,12 +938,13 @@
 }
 
 .sh-close-btn {
-  background: var(--sohub-soft-grey);
+  background: var(--close-btn);
   border: none;
   width: 50px;
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
+  color: var(--close-btn-text);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1014,7 +1037,7 @@
 }
 
 .sh-info-drawer-simple .sh-close-btn {
-  background: var(--sohub-soft-grey);
+  background: var(--close-btn);
   border: none;
   width: 44px;
   height: 44px;

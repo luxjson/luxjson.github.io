@@ -286,7 +286,7 @@ export default function Blog() {
                 initial={{ y: '100%' }}
                 animate={{ y: 0 }}
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-                className="sh-giant-title"
+                className="sh-giant-title-1"
                 style={{ fontSize: 'clamp(80px, 15vw, 250px)' }}
               >
                 {renderMixedText(t('heroTitle'))}

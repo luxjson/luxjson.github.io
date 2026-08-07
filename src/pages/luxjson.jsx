@@ -343,7 +343,7 @@ useEffect(() => {
         aria-label="Abrir chat"
       >
         <span>{t('headerChat')}</span>
-        <div className="sh-circle-icon"><i className="material-icons">mail</i></div>
+        <div className="sh-circle-icon sh-circle-icon-chat"><i className="material-icons">mail</i></div>
       </button>
     </div>
   </div>
