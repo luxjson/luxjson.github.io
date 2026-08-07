@@ -90,7 +90,7 @@ export default function Blog() {
       infoTitle: 'INFORMAÇÕES',
       infoMade: 'Feito por',
       infoRepo: 'Ver repositório',
-      headerChat: 'VAMOS CONVERSAR',
+      headerChat: 'FALE COMIGO',
       headerBlog: 'BLOG',
       headerWork: 'TRABALHO',
     },

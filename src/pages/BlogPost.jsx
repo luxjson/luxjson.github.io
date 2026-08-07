@@ -42,7 +42,7 @@ export default function BlogPost() {
       footerSub: 'SUA VISÃO CONSTRÓI NOSSA HISTÓRIA',
       headerBlog: 'BLOG',
       headerWork: 'TRABALHO',
-      headerChat: 'VAMOS CONVERSAR',
+      headerChat: 'FALE COMIGO',
       chatTitle: 'ENTRE EM CONTATO',
       chatName: 'NOME',
       chatEmail: 'EMAIL',
