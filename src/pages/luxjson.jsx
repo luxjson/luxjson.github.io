@@ -67,7 +67,7 @@ export default function Luxjson() {
       headerWork: 'TRABALHO',
       headerAbout: 'SOBRE',
       headerContact: 'CONTATO',
-      headerChat: 'VAMOS CONVERSAR',
+      headerChat: 'CONTATO',
       headerBlog: 'BLOG',
     },
     en: {
