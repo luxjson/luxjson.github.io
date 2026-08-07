@@ -470,7 +470,7 @@ useEffect(() => {
             <div className="sh-service-card">
               <h2 className="sh-service-title">
                 {t('aboutTitle').split(' ')[0]} <br />
-                <span className="text-grey">{t('aboutTitle').split(' ').slice(1).join(' ')}</span>
+                <span className="text-grey span">{t('aboutTitle').split(' ').slice(1).join(' ')}</span>
               </h2>
               <p className="sh-service-desc">{t('aboutDesc')}</p>
               {user && (

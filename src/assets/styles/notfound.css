@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-@font-face { font-family: 'Asgard'; src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype'); }
+@font-face { font-family: 'Asgard'; src: url('../fonts/BOLD.ttf') format('truetype'); }
 @font-face { font-family: 'fix'; src: url('../fonts/Poppins-Medium.ttf') format('truetype'); }
 
 ::selection {

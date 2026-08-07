@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Asgard';
-  src: url('../fonts/AsgardTrial-Bold.ttf') format('truetype');
+  src: url("../fonts/BOLD.ttf") format('truetype');
 }
 
 @font-face {
@@ -216,7 +216,8 @@
 .sh-giant-title {
   font-size: clamp(100px, 22vw, 450px);
   line-height: 0.8;
-  letter-spacing: -18px;
+  text-align: left;
+  letter-spacing: -48px;
   margin: 0;
 }
 
@@ -1103,6 +1104,10 @@ html {
 }
 
 @media (max-width: 900px) {
+  .span {
+    font-size: 3rem;
+  }
+
   .sh-giant-title {
     letter-spacing: -5px;
   }
@@ -1238,7 +1243,7 @@ html {
     text-align: left;
   }
   .sh-service-title {
-    font-size: 50px;
+    font-size: 60px;
     letter-spacing: -4px;
     line-height: 0.85;
     max-width: 400px;
