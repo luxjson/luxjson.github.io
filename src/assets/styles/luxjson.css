@@ -1219,6 +1219,7 @@ html {
   }
   .sh-circle-icon {
     width: 32px;
+    display:none;
     height: 32px;
   }
 
