@@ -66,6 +66,15 @@ export default function Login() {
               <button type="submit" className="sh-login-btn" disabled={loading}>
                 {loading ? 'ENTRANDO...' : 'ENTRAR'}
               </button>
+
+              <button
+                type="button"
+                onClick={() => navigate('/')}
+                className="sh-btn-secondary"
+                style={{ width: '100%', marginTop: '12px', textAlign: 'center', justifyContent: 'center' }}
+              >
+                VOLTAR AO INÍCIO
+              </button>
             </form>
           </motion.div>
         </div>
