@@ -47,7 +47,7 @@
             gap: 24px;
             margin-bottom: 32px;
             font-size: 14px;
-            color: #141b2b4f
+            color: var(--sohub-grey);
         }
 
         .sh-blog-post-meta-item {
@@ -101,7 +101,7 @@
         }
 
         .sh-blog-post-content blockquote {
-            border-left: 4px solid var(--sohub-black);
+            border-left: 4px solid var(--close-btn-text);
             padding-left: 24px;
             color: var(--sohub-grey);
             font-style: italic;
@@ -118,7 +118,7 @@
         }
 
         .sh-blog-post-content a {
-            color: var(--sohub-black);
+            color: var(--close-btn-text);
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -132,8 +132,8 @@
         }
 
         .sh-blog-post-content pre {
-            background: var(--sohub-black);
-            color: var(--sohub-white);
+            background: var(--close-btn);
+            color: var(--close-btn-text);
             padding: 20px;
             border-radius: 16px;
             overflow-x: auto;
