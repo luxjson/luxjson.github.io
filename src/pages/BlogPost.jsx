@@ -194,7 +194,7 @@ export default function BlogPost() {
               <h1 className="sh-giant-title" style={{ fontSize: 'clamp(60px, 10vw, 120px)' }}>
                 {renderMixedText('404')}
               </h1>
-              <p className="sh-hero-sub fix" style={{ fontSize: 'clamp(18px, 2.5vw, 32px)' }}>
+              <p className="sh-hero-sub" style={{ fontSize: 'clamp(18px, 2.5vw, 32px)' }}>
                 {error || t('notFound')}
               </p>
               <button
@@ -313,16 +313,16 @@ export default function BlogPost() {
           <h1 className="sh-blog-post-title">{post.title}</h1>
 
           <div className="sh-blog-post-meta">
-            <span className="sh-blog-post-meta-item fix">
+            <span className="sh-blog-post-meta-item">
               <i className="material-icons">calendar_today</i>
               {formatDate(post.published_at || post.created_at)}
             </span>
-            <span className="sh-blog-post-meta-item fix">
+            <span className="sh-blog-post-meta-item">
               <i className="material-icons">schedule</i>
               {readingTime} {t('readingTime')}
             </span>
             {post.views > 0 && (
-              <span className="sh-blog-post-meta-item fix">
+              <span className="sh-blog-post-meta-item">
                 <i className="material-icons">visibility</i>
                 {post.views} {t('views')}
               </span>
@@ -342,7 +342,7 @@ export default function BlogPost() {
           )}
 
           <div
-            className="sh-blog-post-content fix"
+            className="sh-blog-post-content"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
 
@@ -384,19 +384,19 @@ export default function BlogPost() {
             
                           <form ref={form} onSubmit={sendEmail} className="sh-modal-form">
                             <div className="sh-input-group">
-                              <label className="fix" htmlFor="name">{t('chatName')}</label>
+                              <label className="" htmlFor="name">{t('chatName')}</label>
                               <input type="text" id="name" name="user_name" placeholder={language === 'pt' ? 'Seu nome' : 'Your name'} required />
                             </div>
                             <div className="sh-input-group">
-                              <label className="fix" htmlFor="email">{t('chatEmail')}</label>
+                              <label className="" htmlFor="email">{t('chatEmail')}</label>
                               <input type="email" id="email" name="user_email" placeholder="your@email.com" required />
                             </div>
                             <div className="sh-input-group">
-                              <label className="fix" htmlFor="subject">{t('chatSubject')}</label>
+                              <label className="" htmlFor="subject">{t('chatSubject')}</label>
                               <input type="text" id="subject" name="subject" placeholder={language === 'pt' ? 'Sobre o que é?' : 'What is this about?'} required />
                             </div>
                             <div className="sh-input-group">
-                              <label className="fix" htmlFor="message">{t('chatMessage')}</label>
+                              <label className="" htmlFor="message">{t('chatMessage')}</label>
                               <textarea id="message" name="message" placeholder={language === 'pt' ? 'Sua mensagem...' : 'Your message...'} rows="5" required />
                             </div>
             
