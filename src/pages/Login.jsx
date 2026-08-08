@@ -38,12 +38,11 @@ export default function Login() {
             className="sh-login-card"
           >
             <div className="sh-login-header">
-              <h1>LUXJSON</h1>
-              <p>Painel Administrativo</p>
+              <h1 style={{ fontSize: '4rem' }}>LUXJSON</h1>
             </div>
             <form onSubmit={handleSubmit} className="sh-login-form">
               <div className="sh-input-group">
-                <label className="fix">USUÁRIO</label>
+                <label className="fix">USERNAME</label>
                 <input
                   type="text"
                   value={username}
@@ -53,7 +52,7 @@ export default function Login() {
                 />
               </div>
               <div className="sh-input-group">
-                <label className="fix">SENHA</label>
+                <label className="fix">PASSWORD</label>
                 <input
                   type="password"
                   value={password}
@@ -64,7 +63,7 @@ export default function Login() {
               </div>
               {error && <div className="sh-login-error">{error}</div>}
               <button type="submit" className="sh-login-btn" disabled={loading}>
-                {loading ? 'ENTRANDO...' : 'ENTRAR'}
+                {loading ? 'ACESSING...' : 'LOGIN'}
               </button>
 
               <button
@@ -73,7 +72,7 @@ export default function Login() {
                 className="sh-btn-secondary"
                 style={{ width: '100%', marginTop: '12px', textAlign: 'center', justifyContent: 'center' }}
               >
-                VOLTAR AO INÍCIO
+                BACK TO HOME
               </button>
             </form>
           </motion.div>
@@ -88,7 +87,7 @@ export default function Login() {
             className="sh-login-right-content"
           >
             <img src={svgLogo} alt="DEADSMILE Logo" className="sh-login-right-logo" />
-            <p className="fix" style={{ color: '#ffd900', fontSize: '14px', letterSpacing: '2px' }}>
+            <p className="fix" style={{ color: '#ffd900', fontSize: '2rem', letterSpacing: '2px', maxWidth: '400px' }}>
               Create worlds. Explore beyond.
             </p>
           </motion.div>
