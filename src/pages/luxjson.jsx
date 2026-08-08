@@ -5,7 +5,7 @@ import useExternalStyle from '../hooks/useExternalStyle';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
-import svgLogo from '../assets/images/logo.svg';
+import svgLogo from '../assets/images/logo.jpg';
 export default function Luxjson() {
   const [projects, setProjects] = useState([]);
   const [user, setUser] = useState(null);
@@ -69,6 +69,10 @@ export default function Luxjson() {
       headerContact: 'CONTATO',
       headerChat: 'FALE COMIGO',
       headerBlog: 'BLOG',
+      deadsmileTitle: 'DEADSMILE',
+      deadsmileSlogan: 'Create worlds. Explore beyond.',
+      deadsmileDesc: 'Estúdio de desenvolvimento de jogos indie focado em criar mundos imersivos e experiências marcantes para os jogadores.',
+      deadsmileBtn: 'Ver Organização',
     },
     en: {
       heroTitle: 'YOUR VISION BUILDS OUR HISTORY.',
@@ -106,6 +110,10 @@ export default function Luxjson() {
       headerContact: 'CONTACT',
       headerChat: "LET'S CHAT",
       headerBlog: 'BLOG',
+      deadsmileTitle: 'DEADSMILE',
+      deadsmileSlogan: 'Create worlds. Explore beyond.',
+      deadsmileDesc: 'Indie game development studio focused on building immersive worlds and memorable experiences for players.',
+      deadsmileBtn: 'View Organization',
     },
   };
 
@@ -376,6 +384,8 @@ useEffect(() => {
           </div>
         </section>
 
+        
+
         <section id="work" className="sh-work">
           <div className="sh-container">
             <span className="sh-section-tag fix">{t('workTag')}</span>
@@ -465,6 +475,47 @@ useEffect(() => {
             </div>
           </div>
         </section>
+
+        <section id="deadsmile" className="sh-services fundo-escuro" style={{ paddingTop: '0px' }}>
+          <div className="sh-container">
+            <div 
+              className="sh-service-card deadsmile-card" 
+              style={{ background: '#ff0000', color: '#ffd900' }}
+            >
+              <div className="deadsmile-content">
+                <h2 className="sh-service-title" style={{ fontSize: 'clamp(40px, 6vw, 100px)' }}>
+                  {t('deadsmileTitle')}
+                </h2>
+                <p className="fix" style={{ color: '#ffd900', fontSize: 'clamp(16px, 2vw, 24px)', marginTop: '15px', letterSpacing: '1px' }}>
+                  {t('deadsmileSlogan')}
+                </p>
+                <p className="sh-service-desc" style={{ color: '#ffd900' }}>
+                  {t('deadsmileDesc')}
+                </p>
+                <div style={{ marginTop: '40px' }}>
+                  <a
+                    href="https://github.com/teamdeadsmile"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sh-modal-btn-primary"
+                    style={{ background: '#ffd900', color: '#ff0000' }}
+                  >
+                    <i className="fab fa-github"></i> {t('deadsmileBtn')}
+                  </a>
+                </div>
+              </div>
+
+              <div className="deadsmile-logo-container">
+                <img 
+                  src={svgLogo} 
+                  alt="DEADSMILE Logo" 
+                  className="deadsmile-logo-img"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
 
         <section id="about" className="sh-services fundo-escuro">
           <div className="sh-container">
@@ -603,7 +654,7 @@ useEffect(() => {
                   <img src={user.avatar_url} alt="Avatar" style={{ width: '80px', borderRadius: '50%', marginBottom: '10px' }} />
                 )}
                 <div className="sh-simple-version">
-                  <span className="sh-simple-badge">v1.2</span>
+                  <span className="sh-simple-badge">v1.7</span>
                 </div>
                 <div className="sh-simple-heart">
                   {t('infoMade')} {user?.name || user?.login || 'luxjson'}
