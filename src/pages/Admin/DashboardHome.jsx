@@ -67,19 +67,35 @@ export default function DashboardHome() {
         {recentPosts.length === 0 ? (
           <p>Nenhum post encontrado.</p>
         ) : (
-          <ul>
-            {recentPosts.map((post) => (
-              <li key={post.id}>
-                <span>{post.title}</span>
-                <span className="sh-post-status">
-                  {post.published ? 'Publicado' : 'Rascunho'}
-                </span>
-                <span className="sh-post-date">
-                  {new Date(post.created_at).toLocaleDateString('pt-BR')}
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="sh-table-wrapper" style={{ marginTop: '20px' }}>
+            <table className="sh-table">
+              <thead>
+                <tr>
+                  <th>Título</th>
+                  <th>Status</th>
+                  <th>Data</th>
+                </tr>
+              </thead>
+              <tbody>
+                {recentPosts.map((post) => (
+                  <motion.tr
+                    key={post.id}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <td>{post.title}</td>
+                    <td>
+                      <span className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}>
+                        {post.published ? 'Publicado' : 'Rascunho'}
+                      </span>
+                    </td>
+                    <td className="fix">{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
+                  </motion.tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         )}
       </motion.div>
     </motion.div>

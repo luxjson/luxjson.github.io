@@ -115,7 +115,7 @@ export default function PostForm() {
         </div>
         <div className="sh-form-actions">
           <button type="submit" className="sh-btn-primary" disabled={saving}>
-            {saving ? 'CRIANDO...' : 'CRIAR POST'}
+            <span>{saving ? 'CRIANDO...' : 'CRIAR POST'}</span>
           </button>
           <button
             type="button"

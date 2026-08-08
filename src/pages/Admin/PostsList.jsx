@@ -54,7 +54,10 @@ export default function PostsList() {
         </Link>
       </div>
       {posts.length === 0 ? (
-        <p>Nenhum post criado ainda.</p>
+        <div className="sh-empty-state">
+          <i className="material-icons">article</i>
+          <p>Nenhum post criado ainda.</p>
+        </div>
       ) : (
         <div className="sh-table-wrapper">
           <table className="sh-table">
@@ -75,16 +78,22 @@ export default function PostsList() {
                   transition={{ duration: 0.3 }}
                 >
                   <td>{post.title}</td>
-                  <td>{post.published ? 'Publicado' : 'Rascunho'}</td>
+                  <td>
+                    <span className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}>
+                      {post.published ? 'Publicado' : 'Rascunho'}
+                    </span>
+                  </td>
                   <td className="fix">{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
                   <td>
-                    <button
-                      onClick={() => handleDelete(post.id)}
-                      className="sh-btn-sm sh-btn-danger"
-                      disabled={deleting === post.id}
-                    >
-                      {deleting === post.id ? '...' : 'Excluir'}
-                    </button>
+                    <div className="sh-actions">
+                      <button
+                        onClick={() => handleDelete(post.id)}
+                        className="sh-btn-sm sh-btn-danger"
+                        disabled={deleting === post.id}
+                      >
+                        {deleting === post.id ? '...' : 'Excluir'}
+                      </button>
+                    </div>
                   </td>
                 </motion.tr>
               ))}

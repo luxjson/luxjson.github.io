@@ -20,12 +20,20 @@ export default function AdminLayout() {
     { path: '/admin/posts/new', icon: 'add_circle', label: 'Novo Post' },
   ];
 
+  // Identifica dinamicamente o título da página atual com base na rota
+  const getPageTitle = () => {
+    if (location.pathname === '/admin') return 'Dashboard';
+    if (location.pathname === '/admin/posts') return 'Posts';
+    if (location.pathname === '/admin/posts/new') return 'Novo Post';
+    return 'Painel';
+  };
+
   return (
     <div className="sh-admin-layout">
       <aside className={`sh-admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
         <div className="sh-admin-sidebar-header">
           <h2>{sidebarOpen && 'LUXJSON'}</h2>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="sh-sidebar-toggle">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="sh-sidebar-toggle" aria-label="Menu">
             <i className="material-icons">{sidebarOpen ? 'chevron_left' : 'chevron_right'}</i>
           </button>
         </div>
@@ -43,8 +51,8 @@ export default function AdminLayout() {
         </nav>
         <div className="sh-admin-sidebar-footer">
           <div className="sh-admin-user">
-            {sidebarOpen && <span>{admin?.username}</span>}
-            <button onClick={handleLogout} className="sh-admin-logout">
+            {sidebarOpen && <span>{admin?.username || 'Admin'}</span>}
+            <button onClick={handleLogout} className="sh-admin-logout" aria-label="Sair">
               <i className="material-icons">logout</i>
             </button>
           </div>
@@ -58,11 +66,7 @@ export default function AdminLayout() {
         transition={{ duration: 0.4 }}
       >
         <div className="sh-admin-topbar">
-          <h1>
-            {location.pathname === '/admin' && 'Dashboard'}
-            {location.pathname === '/admin/posts' && 'Posts'}
-            {location.pathname === '/admin/posts/new' && 'Novo Post'}
-          </h1>
+          <h1>{getPageTitle()}</h1>
         </div>
         <div className="sh-admin-content">
           <Outlet />
