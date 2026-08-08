@@ -297,7 +297,7 @@
 }
 
 .sh-project-card {
-  background: var(--close-btn);
+  background: var(--sohub-soft-grey);
   border-radius: 24px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -374,7 +374,7 @@
 .sh-project-card-title {
   font-size: 20px;
   letter-spacing: -0.5px;
-  color: var(--close-btn-text);
+  color: var(--sohub-black);
   margin: 0;
   flex: 1;
   transition: color var(--transition-speed);
@@ -394,7 +394,7 @@
 .sh-project-card-desc {
   font-size: 14px;
   line-height: 1.5;
-  color: var(--close-btn-text) 0.5;
+  color: var(--sohub-grey);
   margin: 4px 0 8px;
   transition: color var(--transition-speed);
   display: -webkit-box;
@@ -415,7 +415,7 @@
   align-items: center;
   gap: 4px;
   font-size: 13px;
-  color: var(--close-btn-text) 0.5;
+  color: var(--sohub-grey);
   font-family: 'fix', sans-serif;
 }
 
