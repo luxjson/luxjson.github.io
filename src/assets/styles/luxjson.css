@@ -798,10 +798,12 @@
 }
 
 .sh-service-title {
-  font-size: clamp(50px, 10vw, 150px);
-  line-height: 0.85;
-  letter-spacing: -8px;
-  text-wrap: wrap;
+  font-size: clamp(40px, 7vw, 150px);
+  line-height: 0.9;
+  letter-spacing: -4px;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
 
 .text-grey {
@@ -1137,6 +1139,10 @@ html {
   .sh-projects-grid {
     grid-template-columns: 1fr;
   }
+
+  .sh-service-title {
+    font-size: 4.5rem;
+  }
   .sh-service-card {
     padding: 60px 30px;
   }
@@ -1274,22 +1280,22 @@ html {
   }
 
   .sh-services {
-    padding: 0 24px 100px;
+    padding: 0 16px 100px;
   }
   .sh-service-card {
-    padding: 80px 25px;
-    border-radius: 40px;
-    text-align: left;
+    padding: 60px 20px;
+    border-radius: 30px;
   }
+
   .sh-service-title {
-    font-size: 60px;
-    letter-spacing: -4px;
-    line-height: 0.85;
-    max-width: 400px;
+    letter-spacing: -2px;
+    line-height: 0.9;
+    max-width: 100%;
+    word-break: break-word;
   }
   .sh-service-desc {
     font-size: 18px;
-    margin-top: 30px;
+    margin-top: 20px;
   }
   .sh-tags {
     gap: 8px;
@@ -1369,7 +1375,12 @@ html {
     font-size: 34px;
   }
   .sh-service-title {
-    font-size: 50px;
+    font-size: 2.1rem;
+  }
+
+  .sh-service-desc {
+    font-size: 12px;
+    margin-top: 10px;
   }
 }
 
