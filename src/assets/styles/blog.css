@@ -101,7 +101,7 @@
         }
 
         .sh-blog-post-content blockquote {
-            border-left: 4px solid var(--close-btn-text);
+            border-left: 4px solid var(--sohub-black);
             padding-left: 24px;
             color: var(--sohub-grey);
             font-style: italic;
@@ -118,7 +118,7 @@
         }
 
         .sh-blog-post-content a {
-            color: var(--close-btn-text);
+            color: var(--sohub-black);
             text-decoration: underline;
             text-underline-offset: 2px;
         }
@@ -132,8 +132,8 @@
         }
 
         .sh-blog-post-content pre {
-            background: var(--close-btn);
-            color: var(--close-btn-text);
+            background: var(--sohub-black);
+            color: var(--sohub-white);
             padding: 20px;
             border-radius: 16px;
             overflow-x: auto;
