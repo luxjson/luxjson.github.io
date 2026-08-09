@@ -392,6 +392,7 @@ body {
   padding: 32px 40px 40px;
   transition: margin-left 0.3s ease;
   min-height: 100vh;
+  overflow-x: hidden;
 }
 
 .sh-admin-sidebar.closed ~ .sh-admin-main {
@@ -418,7 +419,7 @@ body {
 }
 
 .sh-admin-content {
-  padding: 0 16px;
+  padding: 0;
   max-width: 100%;
   overflow-x: hidden;
 }
@@ -922,8 +923,24 @@ body {
     background: rgba(255,255,255,0.05);
     transform: none !important;
   }
-  .sh-admin-sidebar .sh-admin-nav-link:last-child {
-    margin-left: 4px;
+  .sh-admin-sidebar .sh-admin-logout {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--sh-text-secondary);
+    padding: 8px 12px;
+    min-width: 44px;
+    min-height: 44px;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s, background 0.3s;
+    border-radius: 30px;
+  }
+  .sh-admin-sidebar .sh-admin-logout:hover {
+    color: var(--sh-danger);
+    background: rgba(255,77,77,0.1);
   }
   .sh-admin-main {
     margin-left: 0 !important;
@@ -933,9 +950,13 @@ body {
   .sh-sidebar-toggle {
     display: none;
   }
+  .sh-admin-content {
+    padding: 0;
+  }
   .sh-dashboard-stats {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     gap: 12px;
+    padding: 0;
   }
   .sh-stat-card {
     padding: 16px 12px;
@@ -1004,32 +1025,6 @@ body {
   .sh-recent-posts li span:last-child {
     font-size: 12px;
   }
-  .sh-admin-sidebar .sh-admin-nav-link:last-child {
-    display: none;
-  }
-
-  .sh-dashboard-stats {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .sh-mobile-logout {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    min-width: 44px;
-    min-height: 44px;
-    color: var(--sh-text-secondary);
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    transition: color 0.3s;
-    padding: 0;
-  }
-  .sh-mobile-logout:hover {
-    color: var(--sh-danger);
-  }
 }
 
 @media (max-width: 480px) {
@@ -1061,12 +1056,24 @@ body {
     font-size: 13px;
     padding: 10px 20px;
   }
-  .sh-admin-sidebar .sh-admin-nav-link:last-child {
-    display: none;
+  .sh-admin-sidebar {
+    height: 56px;
+    padding: 0 12px;
+    bottom: 12px;
+    border-radius: 32px;
   }
-  .sh-mobile-logout {
+  .sh-admin-sidebar .sh-admin-nav-link {
     min-width: 38px;
     min-height: 38px;
+    padding: 6px 8px;
+  }
+  .sh-admin-sidebar .sh-admin-nav-link i {
+    font-size: 18px;
+  }
+  .sh-admin-sidebar .sh-admin-logout {
+    min-width: 38px;
+    min-height: 38px;
+    padding: 6px 8px;
     font-size: 18px;
   }
 }
@@ -1083,24 +1090,21 @@ body {
     min-height: 32px;
     padding: 4px 8px;
   }
+  .sh-admin-sidebar .sh-admin-logout {
+    min-width: 32px;
+    min-height: 32px;
+    padding: 4px 8px;
+    font-size: 16px;
+  }
   .sh-stat-card h3 {
     font-size: 20px;
   }
   .sh-admin-sidebar {
     height: 48px;
     padding: 0 10px;
-    bottom: 12px;
+    bottom: 8px;
     border-radius: 24px;
   }
-  .sh-mobile-logout {
-    min-width: 32px;
-    min-height: 32px;
-    font-size: 16px;
-  }
-}
-
-.sh-mobile-logout {
-  display: none;
 }
 
 @keyframes slideIn {
