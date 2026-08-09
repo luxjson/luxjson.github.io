@@ -452,11 +452,6 @@ body {
   margin: 0 auto;
 }
 
-.sh-stat-card:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--sh-shadow);
-}
-
 .sh-stat-card h3 {
   font-size: 36px;
   color: var(--sh-text-primary);
