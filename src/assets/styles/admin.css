@@ -1029,19 +1029,6 @@ body {
   .sh-admin-main {
     padding: 12px 12px 90px;
   }
-  .sh-dashboard-stats {
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-  }
-  .sh-stat-card {
-    padding: 14px 10px;
-  }
-  .sh-stat-card h3 {
-    font-size: 22px;
-  }
-  .sh-stat-card p {
-    font-size: 11px;
-  }
   .sh-table th,
   .sh-table td {
     padding: 6px 8px;
