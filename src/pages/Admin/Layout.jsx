@@ -1,4 +1,4 @@
-import {  useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
@@ -9,34 +9,34 @@ export default function AdminLayout() {
   const navigate = useNavigate();
   const location = useLocation();
 
-   useEffect(() => {
-      const cursor = document.createElement('div');
-      cursor.className = 'custom-cursor';
-      document.body.appendChild(cursor);
-  
-      const moveCursor = (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      const handleMouseOver = (e) => {
-        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-        if (target) {
-          cursor.classList.add('active');
-        } else {
-          cursor.classList.remove('active');
-        }
-      };
-  
-      window.addEventListener('mousemove', moveCursor);
-      document.addEventListener('mouseover', handleMouseOver);
-  
-      return () => {
-        window.removeEventListener('mousemove', moveCursor);
-        document.removeEventListener('mouseover', handleMouseOver);
-        if (document.body.contains(cursor)) document.body.removeChild(cursor);
-      };
-    }, []);
+  useEffect(() => {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
+      if (target) {
+        cursor.classList.add('active');
+      } else {
+        cursor.classList.remove('active');
+      }
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseover', handleMouseOver);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseover', handleMouseOver);
+      if (document.body.contains(cursor)) document.body.removeChild(cursor);
+    };
+  }, []);
 
   const handleLogout = () => {
     logout();
@@ -53,6 +53,7 @@ export default function AdminLayout() {
     if (location.pathname === '/admin') return 'Dashboard';
     if (location.pathname === '/admin/posts') return 'Posts';
     if (location.pathname === '/admin/posts/new') return 'Novo Post';
+    if (location.pathname.startsWith('/admin/posts/edit/')) return 'Editar Post';
     return 'Painel';
   };
 
@@ -76,13 +77,20 @@ export default function AdminLayout() {
               {sidebarOpen && <span>{item.label}</span>}
             </Link>
           ))}
+          {/* Botão de logout como item da nav (visível em todas as telas) */}
+          <button
+            onClick={handleLogout}
+            className="sh-admin-nav-link"
+            style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
+          >
+            <i className="material-icons">logout</i>
+            {sidebarOpen && <span>Sair</span>}
+          </button>
         </nav>
         <div className="sh-admin-sidebar-footer">
           <div className="sh-admin-user">
             {sidebarOpen && <span>{admin?.username || 'Admin'}</span>}
-            <button onClick={handleLogout} className="sh-admin-logout" aria-label="Sair">
-              <i class="fa-solid fa-right-from-bracket"></i>
-            </button>
+            {/* Logout duplicado para desktop, mas mantido para fallback */}
           </div>
         </div>
       </aside>
