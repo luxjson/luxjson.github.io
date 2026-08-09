@@ -17,8 +17,8 @@
 }
 
 ::selection {
-  background-color: var(--sohub-black);
-  color: var(--sohub-white);
+  background-color: var(--close-btn);
+  color: var(--close-btn-text);
 }
 
 * {

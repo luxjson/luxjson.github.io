@@ -20,6 +20,11 @@
             }
         }
 
+        ::selection {
+            background-color: var(--close-btn-text);
+            color: var(--close-btn);
+        }
+
         .sh-blog-post-main {
             padding: 140px 5% 80px;
             max-width: 860px;
