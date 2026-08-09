@@ -866,7 +866,7 @@ body {
     height: 64px;
     flex-direction: row;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 10px;
     background: var(--sh-bg-secondary);
     border: 1px solid var(--sh-border);
     border-radius: 40px;
