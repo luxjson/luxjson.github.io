@@ -512,6 +512,7 @@ export default function Blog() {
                       </div>
                       <div className="sh-simple-heart">
                         {t('infoMade')} {user?.name || user?.login || 'luxjson'}
+                        
                       </div>
                     </div>
                     <div className="sh-drawer-buttons">
