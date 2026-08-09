@@ -291,6 +291,7 @@ body {
   letter-spacing: -1px;
   margin: 0;
   transition: opacity 0.2s;
+  font-weight: normal;
 }
 
 .sh-sidebar-toggle {
