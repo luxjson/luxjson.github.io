@@ -395,7 +395,7 @@ body {
 }
 
 .sh-admin-sidebar.closed ~ .sh-admin-main {
-  margin-left: 72px;
+  margin-left: 80px;
 }
 
 .sh-admin-topbar {
@@ -827,7 +827,7 @@ body {
     padding: 20px;
   }
   .sh-admin-sidebar {
-    width: 72px;
+    width: 80px;
   }
   .sh-admin-sidebar .sh-admin-nav-link span,
   .sh-admin-sidebar .sh-admin-user span,
@@ -839,7 +839,7 @@ body {
     padding: 16px 12px;
   }
   .sh-admin-main {
-    margin-left: 72px;
+    margin-left: 80px;
     padding: 20px 24px 28px;
   }
   .sh-dashboard-stats {
