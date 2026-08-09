@@ -1023,20 +1023,6 @@ body {
   .sh-admin-main {
     padding: 12px 12px 90px;
   }
-  .sh-admin-sidebar {
-    height: 56px;
-    padding: 0 14px;
-    bottom: 16px;
-    border-radius: 30px;
-  }
-  .sh-admin-sidebar .sh-admin-nav-link {
-    min-width: 38px;
-    min-height: 38px;
-    padding: 6px 10px;
-  }
-  .sh-admin-sidebar .sh-admin-nav-link i {
-    font-size: 18px;
-  }
   .sh-dashboard-stats {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
