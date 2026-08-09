@@ -658,7 +658,7 @@ body {
 .sh-form .sh-input-group input,
 .sh-form .sh-input-group textarea {
   background: var(--sohub-black);
-  border: 2px solid transparent;
+  border: 2px solid var(--sohub-soft-grey);
   border-radius: 16px;
   padding: 14px 18px;
   font-family: 'Asgard', sans-serif;
