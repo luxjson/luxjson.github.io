@@ -1,42 +1,51 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function PostsList() {
   const { api } = useAuth();
+  const navigate = useNavigate();
+
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(null);
+  const [editing, setEditing] = useState(null);
 
-   useEffect(() => {
-      const cursor = document.createElement('div');
-      cursor.className = 'custom-cursor';
-      document.body.appendChild(cursor);
-  
-      const moveCursor = (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      const handleMouseOver = (e) => {
-        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-        if (target) {
-          cursor.classList.add('active');
-        } else {
-          cursor.classList.remove('active');
-        }
-      };
-  
-      window.addEventListener('mousemove', moveCursor);
-      document.addEventListener('mouseover', handleMouseOver);
-  
-      return () => {
-        window.removeEventListener('mousemove', moveCursor);
-        document.removeEventListener('mouseover', handleMouseOver);
-        if (document.body.contains(cursor)) document.body.removeChild(cursor);
-      };
-    }, []);
+  useEffect(() => {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target.closest(
+        'a, button, .sh-project-card, .sh-social-link, .card, [role="button"]'
+      );
+
+      if (target) {
+        cursor.classList.add('active');
+      } else {
+        cursor.classList.remove('active');
+      }
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseover', handleMouseOver);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseover', handleMouseOver);
+
+      if (document.body.contains(cursor)) {
+        document.body.removeChild(cursor);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     fetchPosts();
@@ -44,31 +53,88 @@ export default function PostsList() {
 
   const fetchPosts = async () => {
     setLoading(true);
+
     try {
-      const res = await api.get('/blog/posts?publishedOnly=false&limit=100');
+      const res = await api.get(
+        '/blog/posts?publishedOnly=false&limit=100'
+      );
+
       setPosts(res.data.posts || []);
     } catch (error) {
       console.error('Erro ao buscar posts:', error);
+
+      alert(
+        error.response?.data?.message ||
+        'Não foi possível carregar os posts.'
+      );
     } finally {
       setLoading(false);
     }
   };
 
+  const handleEdit = async (id) => {
+    if (editing === id) return;
+
+    setEditing(id);
+
+    try {
+      // Busca o post pelo ID no backend.
+      // O backend consulta o PostgreSQL e devolve os dados.
+      const res = await api.get(`/blog/posts/id/${id}`);
+
+      if (!res.data?.success || !res.data?.post) {
+        throw new Error('Post não encontrado.');
+      }
+
+      // Guarda o post no sessionStorage para a página
+      // de edição poder carregar os dados sem precisar
+      // fazer outra busca imediatamente.
+      sessionStorage.setItem(
+        'editingPost',
+        JSON.stringify(res.data.post)
+      );
+
+      navigate(`/admin/posts/edit/${id}`);
+    } catch (error) {
+      console.error('Erro ao buscar post para edição:', error);
+
+      alert(
+        error.response?.data?.message ||
+        'Não foi possível carregar o post para edição.'
+      );
+    } finally {
+      setEditing(null);
+    }
+  };
+
   const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja excluir este post?')) return;
+    if (!window.confirm('Tem certeza que deseja excluir este post?')) {
+      return;
+    }
+
     setDeleting(id);
+
     try {
       await api.delete(`/blog/posts/${id}`);
-      setPosts(posts.filter((p) => p.id !== id));
+
+      setPosts((currentPosts) =>
+        currentPosts.filter((post) => post.id !== id)
+      );
     } catch (error) {
-      console.error('Erro ao excluir:', error);
-      alert('Erro ao excluir post.');
+      console.error('Erro ao excluir post:', error);
+
+      alert(
+        error.response?.data?.message ||
+        'Não foi possível excluir o post.'
+      );
     } finally {
       setDeleting(null);
     }
   };
 
-  if (loading) return <div className="sh-loading">Carregando posts...</div>;
+  if (loading) {
+    return <div>Carregando posts...</div>;
+  }
 
   return (
     <motion.div
@@ -78,14 +144,27 @@ export default function PostsList() {
     >
       <div className="sh-list-header">
         <h2>Todos os Posts</h2>
-        <Link to="/admin/posts/new" className="sh-btn-primary">
-          <i className="material-icons">add</i> Novo Post
+
+        <Link
+          to="/admin/posts/new"
+          className="sh-btn-primary"
+        >
+          Adicionar Novo Post
         </Link>
       </div>
+
       {posts.length === 0 ? (
         <div className="sh-empty-state">
           <i className="material-icons">article</i>
+
           <p>Nenhum post criado ainda.</p>
+
+          <Link
+            to="/admin/posts/new"
+            className="sh-btn-primary"
+          >
+            Criar Primeiro Post
+          </Link>
         </div>
       ) : (
         <div className="sh-table-wrapper">
@@ -98,6 +177,7 @@ export default function PostsList() {
                 <th>Ações</th>
               </tr>
             </thead>
+
             <tbody>
               {posts.map((post) => (
                 <motion.tr
@@ -107,20 +187,47 @@ export default function PostsList() {
                   transition={{ duration: 0.3 }}
                 >
                   <td>{post.title}</td>
+
                   <td>
-                    <span className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}>
-                      {post.published ? 'Publicado' : 'Rascunho'}
+                    <span
+                      className={`sh-status-badge ${
+                        post.published
+                          ? 'published'
+                          : 'draft'
+                      }`}
+                    >
+                      {post.published
+                        ? 'Publicado'
+                        : 'Rascunho'}
                     </span>
                   </td>
-                  <td className="fix">{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
+
+                  <td>
+                    {new Date(
+                      post.created_at
+                    ).toLocaleDateString('pt-BR')}
+                  </td>
+
                   <td>
                     <div className="sh-actions">
+                      <button
+                        onClick={() => handleEdit(post.id)}
+                        className="sh-btn-sm sh-btn-primary"
+                        disabled={editing === post.id}
+                      >
+                        {editing === post.id
+                          ? 'Carregando...'
+                          : 'Editar'}
+                      </button>
+
                       <button
                         onClick={() => handleDelete(post.id)}
                         className="sh-btn-sm sh-btn-danger"
                         disabled={deleting === post.id}
                       >
-                        {deleting === post.id ? '...' : 'Excluir'}
+                        {deleting === post.id
+                          ? 'Excluindo...'
+                          : 'Excluir'}
                       </button>
                     </div>
                   </td>
