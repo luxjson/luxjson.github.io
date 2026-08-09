@@ -418,16 +418,19 @@ body {
 }
 
 .sh-admin-content {
-  display: flex;
-  flex-direction: column;
+  padding: 0 16px;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .sh-dashboard-stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+  grid-template-columns: 1fr;
+  gap: 16px;
   margin-bottom: 40px;
   width: 100%;
+  max-width: 100%;
+  padding: 0;
 }
 
 .sh-stat-card {
@@ -437,6 +440,10 @@ body {
   text-align: center;
   border: 1px solid var(--sh-border);
   transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  margin: 0 auto;
 }
 
 .sh-stat-card:hover {
