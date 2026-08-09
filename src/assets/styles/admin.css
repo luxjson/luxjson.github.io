@@ -196,7 +196,7 @@ body {
 }
 
 .sh-login-right {
-  background: var(--sh-bg-secondary);
+  background: #ff0101;
   display: flex;
   align-items: center;
   justify-content: center;
