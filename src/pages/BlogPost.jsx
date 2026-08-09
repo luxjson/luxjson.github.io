@@ -21,8 +21,6 @@ export default function BlogPost() {
   const [status, setStatus] = useState('');
   const form = useRef();
 
-  useExternalStyle('luxjson.css');
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('lux-theme', theme);

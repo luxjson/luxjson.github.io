@@ -7,6 +7,7 @@ import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import '../assets/styles/blog.css';
+import '../assets/styles/luxjson.css';
 
 export default function Blog() {
   const [posts, setPosts] = useState([]);
@@ -21,7 +22,6 @@ export default function Blog() {
   const [user, setUser] = useState(null);
   const form = useRef();
 
-  useExternalStyle('luxjson.css');
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('lux-theme', theme);

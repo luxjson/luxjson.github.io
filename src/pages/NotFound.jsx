@@ -7,8 +7,6 @@ export default function NotFound() {
   const navigate = useNavigate();
   const [theme, setTheme] = useState(localStorage.getItem('lux-theme') || 'light');
 
-  useExternalStyle('luxjson.css');
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('lux-theme', theme);

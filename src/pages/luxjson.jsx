@@ -18,8 +18,6 @@ export default function Luxjson() {
   const [selectedProject, setSelectedProject] = useState(null);
   const form = useRef();
 
-  useExternalStyle('luxjson.css');
-
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem('lux-theme', theme);
