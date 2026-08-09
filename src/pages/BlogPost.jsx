@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import axios from 'axios';
 import emailjs from '@emailjs/browser';
-import useExternalStyle from '../hooks/useExternalStyle';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import '../assets/styles/blog.css';

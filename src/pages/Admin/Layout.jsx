@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import {  useEffect, useState } from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
@@ -8,6 +8,35 @@ export default function AdminLayout() {
   const { admin, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
+
+   useEffect(() => {
+      const cursor = document.createElement('div');
+      cursor.className = 'custom-cursor';
+      document.body.appendChild(cursor);
+  
+      const moveCursor = (e) => {
+        cursor.style.left = `${e.clientX}px`;
+        cursor.style.top = `${e.clientY}px`;
+      };
+  
+      const handleMouseOver = (e) => {
+        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
+        if (target) {
+          cursor.classList.add('active');
+        } else {
+          cursor.classList.remove('active');
+        }
+      };
+  
+      window.addEventListener('mousemove', moveCursor);
+      document.addEventListener('mouseover', handleMouseOver);
+  
+      return () => {
+        window.removeEventListener('mousemove', moveCursor);
+        document.removeEventListener('mouseover', handleMouseOver);
+        if (document.body.contains(cursor)) document.body.removeChild(cursor);
+      };
+    }, []);
 
   const handleLogout = () => {
     logout();

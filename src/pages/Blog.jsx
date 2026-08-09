@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import useExternalStyle from '../hooks/useExternalStyle';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';

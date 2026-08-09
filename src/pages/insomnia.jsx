@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import useExternalStyle from "../hooks/useExternalStyle";
 import wl1 from '../assets/images/wl1.png';
 import wl2 from '../assets/images/wl2.png';

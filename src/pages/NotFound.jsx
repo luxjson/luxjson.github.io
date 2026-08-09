@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useExternalStyle from '../hooks/useExternalStyle';
 import '../assets/styles/blog.css';
 
 export default function NotFound() {
