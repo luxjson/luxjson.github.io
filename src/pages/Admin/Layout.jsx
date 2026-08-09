@@ -49,7 +49,6 @@ export default function AdminLayout() {
     { path: '/admin/posts/new', icon: 'add_circle', label: 'Novo Post' },
   ];
 
-  // Identifica dinamicamente o título da página atual com base na rota
   const getPageTitle = () => {
     if (location.pathname === '/admin') return 'Dashboard';
     if (location.pathname === '/admin/posts') return 'Posts';

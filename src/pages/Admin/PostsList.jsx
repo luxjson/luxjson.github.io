@@ -78,17 +78,11 @@ export default function PostsList() {
     setEditing(id);
 
     try {
-      // Busca o post pelo ID no backend.
-      // O backend consulta o PostgreSQL e devolve os dados.
       const res = await api.get(`/blog/posts/id/${id}`);
 
       if (!res.data?.success || !res.data?.post) {
         throw new Error('Post não encontrado.');
       }
-
-      // Guarda o post no sessionStorage para a página
-      // de edição poder carregar os dados sem precisar
-      // fazer outra busca imediatamente.
       sessionStorage.setItem(
         'editingPost',
         JSON.stringify(res.data.post)
@@ -210,7 +204,7 @@ export default function PostsList() {
 
                   <td>
                     <div className="sh-actions">
-                      <button
+                      {/* <button
                         onClick={() => handleEdit(post.id)}
                         className="sh-btn-sm sh-btn-primary"
                         disabled={editing === post.id}
@@ -218,7 +212,7 @@ export default function PostsList() {
                         {editing === post.id
                           ? 'Carregando...'
                           : 'Editar'}
-                      </button>
+                      </button> */}
 
                       <button
                         onClick={() => handleDelete(post.id)}

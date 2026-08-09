@@ -11,7 +11,6 @@ export default function NotFound() {
     localStorage.setItem('lux-theme', theme);
   }, [theme]);
 
-  // Efeito do cursor personalizado
   useEffect(() => {
     const cursor = document.createElement('div');
     cursor.className = 'custom-cursor';
