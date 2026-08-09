@@ -21,16 +21,16 @@ html {
 }
 
 body {
-  background-color: var(--sohub-white);
-  color: var(--sohub-black);
-  transition: background-color var(--transition-speed), color var(--transition-speed);
+  background-color: #f0f6f8;
+  color: #0c1016;
+  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   min-height: 100vh;
   overflow-x: hidden;
 }
 
 ::selection {
-  background-color: var(--sohub-black);
-  color: var(--sohub-white);
+  background-color: #0c1016;
+  color: #f0f6f8;
 }
 
 :root {
@@ -69,7 +69,7 @@ body {
   min-height: 200px;
   font-family: 'fix', sans-serif;
   font-size: 14px;
-  color: var(--sohub-grey);
+  color: #a5abad;
   letter-spacing: 2px;
   animation: pulseText 1.5s ease-in-out infinite;
 }
@@ -79,17 +79,14 @@ body {
   50% { opacity: 1; }
 }
 
-/* ==========================================
-   NOVO LOGIN MODERNO (DUAS COLUNAS)
-========================================== */
 .sh-login-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--sohub-black);
+  background: #0c1016;
   padding: 0;
-  transition: background var(--transition-speed);
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-login-wrapper {
@@ -97,7 +94,7 @@ body {
   grid-template-columns: 1fr 1fr;
   width: 100%;
   min-height: 100vh;
-  background: var(--sohub-white);
+  background: #f0f6f8;
   overflow: hidden;
 }
 
@@ -120,12 +117,12 @@ body {
 .sh-login-header h1 {
   font-size: 48px;
   letter-spacing: -2px;
-  color: var(--sohub-black);
-  transition: color var(--transition-speed);
+  color: #0c1016;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-login-header p {
-  color: var(--sohub-grey);
+  color: #a5abad;
   margin-top: 6px;
   font-family: 'fix', sans-serif;
   letter-spacing: 1px;
@@ -147,18 +144,18 @@ body {
 
 .sh-login-form .sh-input-group label {
   font-size: 12px;
-  color: var(--sohub-grey);
+  color: #a5abad;
   letter-spacing: 2px;
   font-family: 'fix', sans-serif;
 }
 
 .sh-login-form .sh-input-group input {
-  background: var(--sohub-soft-grey);
+  background: #d9e0e3;
   border: 2px solid transparent;
   border-radius: 20px;
   padding: 18px 22px;
   font-size: 18px;
-  color: var(--sohub-black);
+  color: #0c1016;
   outline: none;
   transition: all 0.3s ease;
   width: 100%;
@@ -166,25 +163,25 @@ body {
 }
 
 .sh-login-form .sh-input-group input::placeholder {
-  color: var(--sohub-grey);
+  color: #a5abad;
   opacity: 0.6;
 }
 
 .sh-login-form .sh-input-group input:focus {
-  border-color: var(--sohub-black);
-  background: var(--sohub-white);
+  border-color: #0c1016;
+  background: #f0f6f8;
 }
 
 .sh-login-btn {
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   border: none;
   padding: 18px;
   border-radius: 40px;
   font-size: 16px;
   font-family: 'fix', sans-serif;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition-speed);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   letter-spacing: 2px;
   margin-top: 10px;
 }
@@ -199,7 +196,7 @@ body {
 }
 
 .sh-login-error {
-  color: var(--sohub-danger);
+  color: #ff4d4d;
   font-size: 14px;
   text-align: center;
   font-family: 'fix', sans-serif;
@@ -238,23 +235,20 @@ body {
   75% { transform: translateX(8px); }
 }
 
-/* ==========================================
-   PAINEL ADMINISTRATIVO (SIDEBAR E LAYOUT)
-========================================== */
 .sh-admin-layout {
   display: flex;
   min-height: 100vh;
-  background: var(--sohub-white);
-  transition: background var(--transition-speed);
+  background: #f0f6f8;
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-admin-sidebar {
   width: 260px;
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   display: flex;
   flex-direction: column;
-  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background var(--transition-speed), transform 0.3s ease;
+  transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s ease;
   position: fixed;
   top: 0;
   left: 0;
@@ -298,7 +292,7 @@ body {
 .sh-sidebar-toggle {
   background: none;
   border: none;
-  color: var(--sohub-grey);
+  color: #a5abad;
   cursor: pointer;
   padding: 4px;
   transition: transform 0.3s, color 0.3s;
@@ -308,7 +302,7 @@ body {
 }
 
 .sh-sidebar-toggle:hover {
-  color: var(--sohub-white);
+  color: #f0f6f8;
   transform: scale(1.1);
 }
 
@@ -331,7 +325,7 @@ body {
   gap: 14px;
   padding: 12px 16px;
   border-radius: 12px;
-  color: var(--sohub-grey);
+  color: #a5abad;
   text-decoration: none;
   transition: background 0.3s, color 0.3s, transform 0.2s;
   font-size: 15px;
@@ -341,13 +335,13 @@ body {
 
 .sh-admin-nav-link:hover {
   background: rgba(255,255,255,0.06);
-  color: var(--sohub-white);
+  color: #f0f6f8;
   transform: translateX(4px);
 }
 
 .sh-admin-nav-link.active {
   background: rgba(255,255,255,0.08);
-  color: var(--sohub-white);
+  color: #f0f6f8;
 }
 
 .sh-admin-nav-link i {
@@ -388,7 +382,7 @@ body {
 .sh-admin-logout {
   background: none;
   border: none;
-  color: var(--sohub-grey);
+  color: #a5abad;
   cursor: pointer;
   padding: 4px;
   transition: color 0.3s, transform 0.3s;
@@ -398,7 +392,7 @@ body {
 }
 
 .sh-admin-logout:hover {
-  color: var(--sohub-danger);
+  color: #ff4d4d;
   transform: scale(1.1);
 }
 
@@ -423,8 +417,8 @@ body {
   justify-content: space-between;
   align-items: center;
   padding-bottom: 24px;
-  border-bottom: 1px solid var(--sohub-soft-grey);
-  transition: border-color var(--transition-speed);
+  border-bottom: 1px solid #d9e0e3;
+  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   flex-wrap: wrap;
   gap: 12px;
 }
@@ -432,14 +426,13 @@ body {
 .sh-admin-topbar h1 {
   font-size: 28px;
   letter-spacing: -1px;
-  color: var(--sohub-black);
-  transition: color var(--transition-speed);
+  color: #0c1016;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   margin: 0;
 }
 
 .sh-admin-content {
   padding-top: 28px;
-  
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -453,11 +446,11 @@ body {
 }
 
 .sh-stat-card {
-  background: var(--sohub-soft-grey);
+  background: #d9e0e3;
   border-radius: 24px;
   padding: 28px 24px;
   text-align: center;
-  transition: background var(--transition-speed), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
 }
 
 .sh-stat-card:hover {
@@ -466,14 +459,14 @@ body {
 
 .sh-stat-card h3 {
   font-size: 40px;
-  color: var(--sohub-black);
+  color: #0c1016;
   margin: 0 0 4px 0;
-  transition: color var(--transition-speed);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   letter-spacing: -2px;
 }
 
 .sh-stat-card p {
-  color: var(--sohub-grey);
+  color: #a5abad;
   margin: 0;
   font-family: 'fix', sans-serif;
   font-size: 13px;
@@ -481,17 +474,17 @@ body {
 }
 
 .sh-recent-posts {
-  background: var(--sohub-soft-grey);
+  background: #d9e0e3;
   border-radius: 24px;
   padding: 28px 32px;
-  transition: background var(--transition-speed);
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-recent-posts h2 {
   font-size: 22px;
-  color: var(--sohub-black);
+  color: #0c1016;
   margin: 0 0 20px 0;
-  transition: color var(--transition-speed);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   letter-spacing: -1px;
 }
 
@@ -507,7 +500,7 @@ body {
   align-items: center;
   padding: 14px 0;
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  transition: border-color var(--transition-speed);
+  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-recent-posts li:last-child {
@@ -515,13 +508,13 @@ body {
 }
 
 .sh-recent-posts li span:first-child {
-  color: var(--sohub-black);
-  transition: color var(--transition-speed);
+  color: #0c1016;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-recent-posts li span:last-child {
   font-size: 13px;
-  color: var(--sohub-grey);
+  color: #a5abad;
   font-family: 'fix', sans-serif;
 }
 
@@ -537,16 +530,16 @@ body {
 .sh-list-header h2 {
   font-size: 24px;
   letter-spacing: -1px;
-  color: var(--sohub-black);
-  transition: color var(--transition-speed);
+  color: #0c1016;
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   margin: 0;
 }
 
 .sh-table-wrapper {
   overflow-x: auto;
   border-radius: 20px;
-  background: var(--sohub-soft-grey);
-  transition: background var(--transition-speed);
+  background: #d9e0e3;
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-table {
@@ -558,20 +551,20 @@ body {
 .sh-table th {
   padding: 16px 20px;
   text-align: left;
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   font-family: 'fix', sans-serif;
   font-size: 12px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  transition: background var(--transition-speed), color var(--transition-speed);
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-table td {
   padding: 14px 20px;
   border-bottom: 1px solid rgba(0,0,0,0.06);
-  color: var(--sohub-black);
-  transition: border-color var(--transition-speed), color var(--transition-speed);
+  color: #0c1016;
+  transition: border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   vertical-align: middle;
 }
 
@@ -593,13 +586,13 @@ body {
 }
 
 .sh-table .sh-status-badge.published {
-  background: var(--sohub-success);
+  background: #22c55e;
   color: #fff;
 }
 
 .sh-table .sh-status-badge.draft {
-  background: var(--sohub-grey);
-  color: var(--sohub-white);
+  background: #a5abad;
+  color: #f0f6f8;
 }
 
 .sh-table .sh-actions {
@@ -609,24 +602,24 @@ body {
 }
 
 .sh-form-container {
-  background: var(--sohub-black);
+  background: #0c1016;
   border-radius: 28px;
   padding: 40px 48px;
-  transition: background var(--transition-speed);
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   width: 90%;
 }
 
 .sh-form-title {
   font-size: 28px;
   letter-spacing: -1px;
-  color: var(--sohub-white);
+  color: #f0f6f8;
   margin: 0 0 8px 0;
-  transition: color var(--transition-speed);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-form-error {
   background: rgba(255,77,77,0.1);
-  color: var(--sohub-danger);
+  color: #ff4d4d;
   padding: 12px 20px;
   border-radius: 12px;
   font-size: 14px;
@@ -649,35 +642,35 @@ body {
 
 .sh-form .sh-input-group label {
   font-size: 11px;
-  color: var(--sohub-grey);
+  color: #a5abad;
   letter-spacing: 2px;
-  transition: color var(--transition-speed);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
   font-family: 'fix', sans-serif;
 }
 
 .sh-form .sh-input-group input,
 .sh-form .sh-input-group textarea {
-  background: var(--sohub-black);
-  border: 2px solid var(--sohub-soft-grey);
+  background: #0c1016;
+  border: 2px solid #d9e0e3;
   border-radius: 16px;
   padding: 14px 18px;
   font-family: 'Asgard', sans-serif;
   font-size: 17px;
-  color: var(--sohub-white);
+  color: #f0f6f8;
   outline: none;
-  transition: background var(--transition-speed), border-color 0.3s, color var(--transition-speed), box-shadow 0.3s;
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s, color 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
   width: 100%;
 }
 
 .sh-form .sh-input-group input::placeholder,
 .sh-form .sh-input-group textarea::placeholder {
-  color: var(--sohub-grey);
+  color: #a5abad;
   opacity: 0.5;
 }
 
 .sh-form .sh-input-group input:focus,
 .sh-form .sh-input-group textarea:focus {
-  border-color: var(--sohub-white);
+  border-color: #f0f6f8;
 }
 
 .sh-form .sh-input-group textarea {
@@ -700,15 +693,15 @@ body {
   gap: 10px;
   font-family: 'fix', sans-serif;
   font-size: 14px;
-  color: var(--sohub-white);
+  color: #f0f6f8;
   cursor: pointer;
-  transition: color var(--transition-speed);
+  transition: color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-checkbox input[type="checkbox"] {
   width: 20px;
   height: 20px;
-  accent-color: var(--sohub-white);
+  accent-color: #f0f6f8;
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -724,15 +717,15 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: var(--sohub-white);
-  color: var(--sohub-black);
+  background: #f0f6f8;
+  color: #0c1016;
   padding: 12px 28px;
   border-radius: 40px;
   text-decoration: none;
   font-size: 15px;
   font-family: 'fix', sans-serif;
   letter-spacing: 1px;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition-speed), color var(--transition-speed), box-shadow 0.3s;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s;
   border: none;
   cursor: pointer;
 }
@@ -751,8 +744,8 @@ body {
   padding: 12px 28px;
   border-radius: 40px;
   background: transparent;
-  border: 2px solid var(--sohub-black);
-  color: var(--sohub-black);
+  border: 2px solid #0c1016;
+  color: #0c1016;
   text-decoration: none;
   font-size: 15px;
   font-family: 'fix', sans-serif;
@@ -763,8 +756,8 @@ body {
 }
 
 .sh-btn-secondary:hover {
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   transform: scale(1.02);
 }
 
@@ -774,8 +767,8 @@ body {
   font-size: 12px;
   font-family: 'fix', sans-serif;
   letter-spacing: 0.5px;
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   border: none;
   cursor: pointer;
   text-decoration: none;
@@ -788,7 +781,7 @@ body {
 }
 
 .sh-btn-sm.sh-btn-danger {
-  background: var(--sohub-danger);
+  background: #ff4d4d;
   color: #fff;
 }
 
@@ -799,7 +792,7 @@ body {
 .sh-empty-state {
   text-align: center;
   padding: 60px 20px;
-  color: var(--sohub-grey);
+  color: #a5abad;
 }
 
 .sh-empty-state i {
@@ -831,9 +824,6 @@ body {
   background: rgba(255,255,255,0.3);
 }
 
-/* ==========================================
-   MEDIA QUERIES E RESPONSIVIDADE
-========================================== */
 @media (max-width: 992px) {
   .sh-login-wrapper {
     grid-template-columns: 1fr;
@@ -878,7 +868,7 @@ body {
     flex-direction: row;
     align-items: center;
     padding: 0 12px;
-    background: var(--sohub-black);
+    background: #0c1016;
     border-top: 1px solid rgba(255,255,255,0.06);
     z-index: 1000;
     transform: translateY(0);
@@ -924,7 +914,7 @@ body {
   }
   .sh-admin-sidebar .sh-admin-nav-link.active {
     background: rgba(255,255,255,0.1);
-    color: var(--sohub-white);
+    color: #f0f6f8;
   }
   .sh-admin-sidebar .sh-admin-nav-link:hover {
     background: rgba(255,255,255,0.05);
@@ -944,6 +934,9 @@ body {
   }
   .sh-stat-card h3 {
     font-size: 32px;
+  }
+  .sh-stat-card{
+    max-width: 90%;
   }
   .sh-table-wrapper {
     border-radius: 16px;
@@ -1092,12 +1085,12 @@ body {
 .sh-recent-posts,
 .sh-table-wrapper,
 .sh-form-container {
-  transition: background var(--transition-speed), color var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+  transition: background 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.4s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-theme-toggle {
-  background: var(--sohub-black);
-  color: var(--sohub-white);
+  background: #0c1016;
+  color: #f0f6f8;
   border: none;
   border-radius: 50%;
   width: 40px;
@@ -1106,7 +1099,7 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition-speed), color var(--transition-speed);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background 0.4s cubic-bezier(0.22, 1, 0.36, 1), color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .sh-theme-toggle:hover {
