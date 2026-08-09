@@ -793,6 +793,21 @@ useEffect(() => {
       </motion.div>
     </motion.div>
   )}
+  <motion.a
+        href="https://portfoliobackend-production-a9ba.up.railway.app/" //href="https://api.luxjson-is-a.dev"
+        rel="noopener noreferrer"
+        className="sh-api-float-btn"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        aria-label="View API"
+      >
+        <span className="sh-api-text">API</span>
+        <div className="sh-circle-icon sh-api-icon-wrap">
+          <i className="material-icons">arrow_forward</i>
+        </div>
+      </motion.a>
 </AnimatePresence>
 
       <style>{`

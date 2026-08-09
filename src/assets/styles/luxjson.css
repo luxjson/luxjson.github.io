@@ -1516,3 +1516,68 @@ html {
               gap: 30px;
             }
           }
+
+          .sh-api-float-btn {
+          position: fixed;
+          bottom: 30px;
+          right: 30px;
+          z-index: 1100;
+          background: var(--close-btn);
+          color: var(--close-btn-text);
+          padding: 6px;
+          border-radius: 100px;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3);
+          transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), background var(--transition-speed);
+          overflow: hidden;
+        }
+
+        .sh-api-text {
+          font-family: 'asgard', sans-serif;
+          font-size: 13px;
+          letter-spacing: 1px;
+          max-width: 0;
+          opacity: 0;
+          white-space: nowrap;
+          transition: max-width 0.4s ease, opacity 0.3s ease;
+        }
+
+        .sh-api-float-btn:hover .sh-api-text {
+          max-width: 50px;
+          padding-left: 20px;
+          padding-right: 40px;
+          opacity: 1;
+        }
+
+        .sh-api-icon-wrap {
+          background: var(--close-btn);
+          color: var(--close-btn-text);
+          width: 38px;
+          height: 38px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .sh-api-icon-wrap i {
+          font-size: 18px;
+          color: var(--close-btn-text);
+        }
+
+        @media (max-width: 768px) {
+          .sh-api-float-btn {
+            bottom: 100px;
+            right: 20px;
+
+          }
+          
+          .sh-api-text {
+            max-width: 50px;
+            opacity: 1;
+            padding-left: 20px;
+            padding-right: 40px;
+          }
+        }
