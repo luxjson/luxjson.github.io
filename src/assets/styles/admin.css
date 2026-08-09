@@ -1025,6 +1025,24 @@ body {
   .sh-recent-posts li span:last-child {
     font-size: 12px;
   }
+
+  .sh-mobile-logout {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
+    color: var(--sh-text-secondary);
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    transition: color 0.3s;
+    padding: 0;
+  }
+  .sh-mobile-logout:hover {
+    color: var(--sh-danger);
+  }
 }
 
 @media (max-width: 480px) {
@@ -1055,26 +1073,6 @@ body {
   .sh-btn-secondary {
     font-size: 13px;
     padding: 10px 20px;
-  }
-  .sh-admin-sidebar {
-    height: 56px;
-    padding: 0 12px;
-    bottom: 12px;
-    border-radius: 32px;
-  }
-  .sh-admin-sidebar .sh-admin-nav-link {
-    min-width: 38px;
-    min-height: 38px;
-    padding: 6px 8px;
-  }
-  .sh-admin-sidebar .sh-admin-nav-link i {
-    font-size: 18px;
-  }
-  .sh-admin-sidebar .sh-admin-logout {
-    min-width: 38px;
-    min-height: 38px;
-    padding: 6px 8px;
-    font-size: 18px;
   }
 }
 
