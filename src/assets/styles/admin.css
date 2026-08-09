@@ -12,6 +12,7 @@
   padding: 0;
   box-sizing: border-box;
   cursor: auto;
+  font-weight: normal;
   font-family: 'Asgard', sans-serif;
 }
 
@@ -408,6 +409,9 @@ body {
 
 .sh-admin-main {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-left: 260px;
   padding: 28px 36px 40px;
   transition: margin-left 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -439,6 +443,7 @@ body {
 
 .sh-admin-content {
   padding-top: 28px;
+  width: 90%;
 }
 
 .sh-dashboard-stats {
