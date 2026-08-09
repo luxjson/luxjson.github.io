@@ -10,7 +10,6 @@ export default function PostsList() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(null);
-  const [editing, setEditing] = useState(null);
 
   useEffect(() => {
     const cursor = document.createElement('div');
@@ -26,7 +25,6 @@ export default function PostsList() {
       const target = e.target.closest(
         'a, button, .sh-project-card, .sh-social-link, .card, [role="button"]'
       );
-
       if (target) {
         cursor.classList.add('active');
       } else {
@@ -40,7 +38,6 @@ export default function PostsList() {
     return () => {
       window.removeEventListener('mousemove', moveCursor);
       document.removeEventListener('mouseover', handleMouseOver);
-
       if (document.body.contains(cursor)) {
         document.body.removeChild(cursor);
       }
@@ -53,81 +50,37 @@ export default function PostsList() {
 
   const fetchPosts = async () => {
     setLoading(true);
-
     try {
-      const res = await api.get(
-        '/blog/posts?publishedOnly=false&limit=100'
-      );
-
+      const res = await api.get('/blog/posts?publishedOnly=false&limit=100');
       setPosts(res.data.posts || []);
     } catch (error) {
       console.error('Erro ao buscar posts:', error);
-
-      alert(
-        error.response?.data?.message ||
-        'Não foi possível carregar os posts.'
-      );
+      alert(error.response?.data?.message || 'Não foi possível carregar os posts.');
     } finally {
       setLoading(false);
     }
   };
 
-  const handleEdit = async (id) => {
-    if (editing === id) return;
-
-    setEditing(id);
-
-    try {
-      const res = await api.get(`/blog/posts/id/${id}`);
-
-      if (!res.data?.success || !res.data?.post) {
-        throw new Error('Post não encontrado.');
-      }
-      sessionStorage.setItem(
-        'editingPost',
-        JSON.stringify(res.data.post)
-      );
-
-      navigate(`/admin/posts/edit/${id}`);
-    } catch (error) {
-      console.error('Erro ao buscar post para edição:', error);
-
-      alert(
-        error.response?.data?.message ||
-        'Não foi possível carregar o post para edição.'
-      );
-    } finally {
-      setEditing(null);
-    }
+  const handleEdit = (id) => {
+    navigate(`/admin/posts/edit/${id}`);
   };
 
   const handleDelete = async (id) => {
-    if (!window.confirm('Tem certeza que deseja excluir este post?')) {
-      return;
-    }
-
+    if (!window.confirm('Tem certeza que deseja excluir este post?')) return;
     setDeleting(id);
-
     try {
       await api.delete(`/blog/posts/${id}`);
-
-      setPosts((currentPosts) =>
-        currentPosts.filter((post) => post.id !== id)
-      );
+      setPosts((current) => current.filter((post) => post.id !== id));
     } catch (error) {
       console.error('Erro ao excluir post:', error);
-
-      alert(
-        error.response?.data?.message ||
-        'Não foi possível excluir o post.'
-      );
+      alert(error.response?.data?.message || 'Não foi possível excluir o post.');
     } finally {
       setDeleting(null);
     }
   };
 
   if (loading) {
-    return <div>Carregando posts...</div>;
+    return <div className="sh-loading">Carregando posts...</div>;
   }
 
   return (
@@ -138,11 +91,7 @@ export default function PostsList() {
     >
       <div className="sh-list-header">
         <h2>Todos os Posts</h2>
-
-        <Link
-          to="/admin/posts/new"
-          className="sh-btn-primary"
-        >
+        <Link to="/admin/posts/new" className="sh-btn-primary">
           Adicionar Novo Post
         </Link>
       </div>
@@ -150,13 +99,8 @@ export default function PostsList() {
       {posts.length === 0 ? (
         <div className="sh-empty-state">
           <i className="material-icons">article</i>
-
           <p>Nenhum post criado ainda.</p>
-
-          <Link
-            to="/admin/posts/new"
-            className="sh-btn-primary"
-          >
+          <Link to="/admin/posts/new" className="sh-btn-primary">
             Criar Primeiro Post
           </Link>
         </div>
@@ -171,7 +115,6 @@ export default function PostsList() {
                 <th>Ações</th>
               </tr>
             </thead>
-
             <tbody>
               {posts.map((post) => (
                 <motion.tr
@@ -181,47 +124,26 @@ export default function PostsList() {
                   transition={{ duration: 0.3 }}
                 >
                   <td>{post.title}</td>
-
                   <td>
-                    <span
-                      className={`sh-status-badge ${
-                        post.published
-                          ? 'published'
-                          : 'draft'
-                      }`}
-                    >
-                      {post.published
-                        ? 'Publicado'
-                        : 'Rascunho'}
+                    <span className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}>
+                      {post.published ? 'Publicado' : 'Rascunho'}
                     </span>
                   </td>
-
-                  <td>
-                    {new Date(
-                      post.created_at
-                    ).toLocaleDateString('pt-BR')}
-                  </td>
-
+                  <td>{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
                   <td>
                     <div className="sh-actions">
-                      {/* <button
+                      <button
                         onClick={() => handleEdit(post.id)}
-                        className="sh-btn-sm sh-btn-primary"
-                        disabled={editing === post.id}
+                        className="sh-btn-sm"
                       >
-                        {editing === post.id
-                          ? 'Carregando...'
-                          : 'Editar'}
-                      </button> */}
-
+                        Editar
+                      </button>
                       <button
                         onClick={() => handleDelete(post.id)}
                         className="sh-btn-sm sh-btn-danger"
                         disabled={deleting === post.id}
                       >
-                        {deleting === post.id
-                          ? 'Excluindo...'
-                          : 'Excluir'}
+                        {deleting === post.id ? 'Excluindo...' : 'Excluir'}
                       </button>
                     </div>
                   </td>

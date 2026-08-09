@@ -1,12 +1,14 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 
 export default function PostForm() {
+  const { id } = useParams();
   const navigate = useNavigate();
   const { api } = useAuth();
   const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     title: '',
     content: '',
@@ -16,44 +18,82 @@ export default function PostForm() {
   });
   const [error, setError] = useState('');
 
-   useEffect(() => {
-      const cursor = document.createElement('div');
-      cursor.className = 'custom-cursor';
-      document.body.appendChild(cursor);
-  
-      const moveCursor = (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      const handleMouseOver = (e) => {
-        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-        if (target) {
-          cursor.classList.add('active');
-        } else {
-          cursor.classList.remove('active');
-        }
-      };
-  
-      window.addEventListener('mousemove', moveCursor);
-      document.addEventListener('mouseover', handleMouseOver);
-  
-      return () => {
-        window.removeEventListener('mousemove', moveCursor);
-        document.removeEventListener('mouseover', handleMouseOver);
-        if (document.body.contains(cursor)) document.body.removeChild(cursor);
-      };
-    }, []);
+  const isEditing = !!id;
+
+  useEffect(() => {
+    const cursor = document.createElement('div');
+    cursor.className = 'custom-cursor';
+    document.body.appendChild(cursor);
+
+    const moveCursor = (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    };
+
+    const handleMouseOver = (e) => {
+      const target = e.target.closest(
+        'a, button, .sh-project-card, .sh-social-link, .card, [role="button"]'
+      );
+      if (target) {
+        cursor.classList.add('active');
+      } else {
+        cursor.classList.remove('active');
+      }
+    };
+
+    window.addEventListener('mousemove', moveCursor);
+    document.addEventListener('mouseover', handleMouseOver);
+
+    return () => {
+      window.removeEventListener('mousemove', moveCursor);
+      document.removeEventListener('mouseover', handleMouseOver);
+      if (document.body.contains(cursor)) {
+        document.body.removeChild(cursor);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isEditing) {
+      loadPost();
+    }
+  }, [id]);
+
+  const loadPost = async () => {
+    setLoading(true);
+    try {
+      const res = await api.get(`/blog/posts/id/${id}`);
+      const post = res.data.post;
+      setFormData({
+        title: post.title || '',
+        content: post.content || '',
+        excerpt: post.excerpt || '',
+        cover_image: post.cover_image || '',
+        published: post.published ?? true,
+      });
+    } catch (error) {
+      console.error('Erro ao carregar post:', error);
+      setError('Não foi possível carregar o post para edição.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSaving(true);
     setError('');
     try {
-      await api.post('/blog/posts', formData);
-      navigate('/admin/posts');
-    } catch (error) {
-      setError(error.response?.data?.message || 'Erro ao criar post');
+      const endpoint = isEditing ? `/blog/posts/${id}` : '/blog/posts';
+      const method = isEditing ? 'put' : 'post';
+      const response = await api[method](endpoint, formData);
+      if (response.data.success) {
+        navigate('/admin/posts');
+      } else {
+        setError(response.data.message || 'Erro ao salvar post.');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'Erro ao salvar post.');
     } finally {
       setSaving(false);
     }
@@ -67,6 +107,10 @@ export default function PostForm() {
     }));
   };
 
+  if (loading) {
+    return <div className="sh-loading">Carregando post...</div>;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -74,7 +118,7 @@ export default function PostForm() {
       transition={{ duration: 0.4 }}
       className="sh-form-container"
     >
-      <h2 className="sh-form-title">Novo Post</h2>
+      <h2 className="sh-form-title">{isEditing ? 'Editar Post' : 'Novo Post'}</h2>
       {error && <div className="sh-form-error">{error}</div>}
       <form onSubmit={handleSubmit} className="sh-form">
         <div className="sh-input-group">
@@ -131,9 +175,20 @@ export default function PostForm() {
             required
           />
         </div>
+        <div className="sh-form-row">
+          <label className="sh-checkbox">
+            <input
+              type="checkbox"
+              name="published"
+              checked={formData.published}
+              onChange={handleChange}
+            />
+            Publicado
+          </label>
+        </div>
         <div className="sh-form-actions">
           <button type="submit" className="sh-btn-primary" disabled={saving}>
-            <span>{saving ? 'CRIANDO...' : 'CRIAR POST'}</span>
+            {saving ? 'SALVANDO...' : isEditing ? 'ATUALIZAR' : 'CRIAR'}
           </button>
           <button
             type="button"
