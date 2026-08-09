@@ -150,6 +150,10 @@ body {
   font-family: 'Asgard', sans-serif;
 }
 
+.sh-mobile-logout {
+    display:none
+  }
+
 .sh-login-form .sh-input-group input::placeholder {
   color: var(--sh-text-secondary);
   opacity: 0.6;
