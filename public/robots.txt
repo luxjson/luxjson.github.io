@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://luxjson.github.io/sitemap.xml
+Sitemap: https://luxjson.is-a.dev/sitemap.xml
