@@ -508,7 +508,7 @@ export default function Blog() {
                         <img src={user.avatar_url} alt="Avatar" style={{ width: '80px', borderRadius: '50%', marginBottom: '10px' }} />
                       )}
                       <div className="sh-simple-version">
-                        <span className="sh-simple-badge">v1.2</span>
+                        <span className="sh-simple-badge">v1.7</span>
                       </div>
                       <div className="sh-simple-heart">
                         {t('infoMade')} {user?.name || user?.login || 'luxjson'}
