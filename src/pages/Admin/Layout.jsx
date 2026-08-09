@@ -81,7 +81,7 @@ export default function AdminLayout() {
           <div className="sh-admin-user">
             {sidebarOpen && <span>{admin?.username || 'Admin'}</span>}
             <button onClick={handleLogout} className="sh-admin-logout" aria-label="Sair">
-              <i className="material-icons">logout</i>
+              <i class="fa-solid fa-right-from-bracket"></i>
             </button>
           </div>
         </div>
