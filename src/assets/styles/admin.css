@@ -261,7 +261,6 @@ body {
   bottom: 0;
   z-index: 1000;
   overflow: hidden;
-  box-shadow: 4px 0 20px rgba(0,0,0,0.05);
 }
 
 .sh-admin-sidebar.closed {
@@ -459,12 +458,10 @@ body {
   padding: 28px 24px;
   text-align: center;
   transition: background var(--transition-speed), transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s;
-  box-shadow: 0 4px 16px var(--sohub-shadow);
 }
 
 .sh-stat-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px var(--sohub-shadow);
 }
 
 .sh-stat-card h3 {
@@ -550,7 +547,6 @@ body {
   border-radius: 20px;
   background: var(--sohub-soft-grey);
   transition: background var(--transition-speed);
-  box-shadow: 0 4px 16px var(--sohub-shadow);
 }
 
 .sh-table {
@@ -613,12 +609,11 @@ body {
 }
 
 .sh-form-container {
-  background: var(--sohub-soft-grey);
+  background: var(--sohub-black);
   border-radius: 28px;
   padding: 40px 48px;
   transition: background var(--transition-speed);
   width: 90%;
-  box-shadow: 0 4px 16px var(--sohub-shadow);
 }
 
 .sh-form-title {
@@ -683,7 +678,6 @@ body {
 .sh-form .sh-input-group input:focus,
 .sh-form .sh-input-group textarea:focus {
   border-color: var(--sohub-black);
-  box-shadow: 0 0 0 4px rgba(var(--sohub-black-rgb), 0.1);
 }
 
 .sh-form .sh-input-group textarea {
@@ -741,12 +735,10 @@ body {
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), background var(--transition-speed), color var(--transition-speed), box-shadow 0.3s;
   border: none;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .sh-btn-primary:hover:not(:disabled) {
   transform: scale(1.03);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
 }
 
 .sh-btn-primary:disabled {
@@ -888,7 +880,6 @@ body {
     padding: 0 12px;
     background: var(--sohub-black);
     border-top: 1px solid rgba(255,255,255,0.06);
-    box-shadow: 0 -4px 20px rgba(0,0,0,0.1);
     z-index: 1000;
     transform: translateY(0);
     transition: transform 0.3s ease;
