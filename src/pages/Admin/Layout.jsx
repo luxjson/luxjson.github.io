@@ -53,7 +53,7 @@ export default function AdminLayout() {
     if (location.pathname === '/admin') return 'Dashboard';
     if (location.pathname === '/admin/posts') return 'Posts';
     if (location.pathname === '/admin/posts/new') return 'Novo Post';
-    if (location.pathname.startsWith('/admin/posts/edit/')) return 'Editar Post';
+    if (location.pathname.startsWith('/admin/posts/edit')) return 'Editar Post';
     return 'Painel';
   };
 
@@ -77,20 +77,16 @@ export default function AdminLayout() {
               {sidebarOpen && <span>{item.label}</span>}
             </Link>
           ))}
-          {/* Botão de logout como item da nav (visível em todas as telas) */}
-          <button
-            onClick={handleLogout}
-            className="sh-admin-nav-link"
-            style={{ background: 'none', border: 'none', width: '100%', cursor: 'pointer', textAlign: 'left' }}
-          >
-            <i className="material-icons">logout</i>
-            {sidebarOpen && <span>Sair</span>}
+          <button onClick={handleLogout} className="sh-mobile-logout" aria-label="Sair">
+            <i className="fa-solid fa-right-from-bracket"></i>
           </button>
         </nav>
         <div className="sh-admin-sidebar-footer">
           <div className="sh-admin-user">
             {sidebarOpen && <span>{admin?.username || 'Admin'}</span>}
-            {/* Logout duplicado para desktop, mas mantido para fallback */}
+            <button onClick={handleLogout} className="sh-admin-logout" aria-label="Sair">
+              <i className="fa-solid fa-right-from-bracket"></i>
+            </button>
           </div>
         </div>
       </aside>
