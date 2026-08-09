@@ -31,6 +31,7 @@ export default function Rotas() {
         <Route index element={<DashboardHome />} />
         <Route path="posts" element={<PostsList />} />
         <Route path="posts/new" element={<PostForm />} />
+        <Route path="posts/edit/:id" element={<PostForm />} />
         <Route path="settings" element={<div>Configurações (em breve)</div>} />
       </Route>
 
