@@ -102,17 +102,6 @@ export default function PostForm() {
             required
           />
         </div>
-        <div className="sh-form-row">
-          <label className="sh-checkbox">
-            <input
-              type="checkbox"
-              name="published"
-              checked={formData.published}
-              onChange={handleChange}
-            />
-            Publicar imediatamente
-          </label>
-        </div>
         <div className="sh-form-actions">
           <button type="submit" className="sh-btn-primary" disabled={saving}>
             <span>{saving ? 'CRIANDO...' : 'CRIAR POST'}</span>
