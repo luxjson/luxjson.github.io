@@ -12,7 +12,7 @@ export default function PostForm() {
     content: '',
     excerpt: '',
     cover_image: '',
-    published: false,
+    published: true,
   });
   const [error, setError] = useState('');
 
