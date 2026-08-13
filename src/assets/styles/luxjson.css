@@ -1572,18 +1572,16 @@ html {
           .sh-api-float-btn {
             bottom: 100px;
             right: 20px;
+          }
+          .deadsmile-logo-img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+          }
 
-            .deadsmile-logo-img {
-              width: 100%;
-              max-width: 200px;
-              height: auto;
-              object-fit: contain;
-            }
-
-            .deadsmile-content {
-              text-align: center;
-            }
-
+          .deadsmile-content {
+            text-align: center;
           }
           
           .sh-api-text {
