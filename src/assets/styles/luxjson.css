@@ -1426,7 +1426,6 @@ html {
   font-size: clamp(60px, 15vw, 200px);
   font-family: 'Asgard', sans-serif;
   letter-spacing: -8px;
-  width: 100%;
   color: var(--sohub-black);
   background: linear-gradient(135deg, var(--sohub-black) 0%, var(--sohub-grey) 100%);
   -webkit-background-clip: text;
