@@ -1573,6 +1573,17 @@ html {
             bottom: 100px;
             right: 20px;
 
+            .deadsmile-logo-img {
+              width: 100%;
+              max-width: 200px;
+              height: auto;
+              object-fit: contain;
+            }
+
+            .deadsmile-content {
+              text-align: center;
+            }
+
           }
           
           .sh-api-text {

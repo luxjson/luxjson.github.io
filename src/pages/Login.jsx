@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
-import svgLogo from '../assets/images/logo.jpg';
+import svgLogo from '../assets/images/logo.svg';
 import '../assets/styles/admin.css';
 
 export default function Login() {
