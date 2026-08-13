@@ -1423,7 +1423,7 @@ html {
 }
 
 .sh-boot-logo {
-  font-size: clamp(60px, 15vw, 250px);
+  font-size: clamp(60px, 15vw, 200px);
   font-family: 'Asgard', sans-serif;
   letter-spacing: -8px;
   color: var(--sohub-black);

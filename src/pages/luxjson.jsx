@@ -778,13 +778,13 @@ useEffect(() => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 10.5, ease: [0.22, 1, 0.36, 1] }}
     >
       <motion.div
         className="sh-boot-content"
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
-        transition={{ delay: 0.2, duration: 5.6, ease: [0.22, 1, 0.36, 1] }}
+        transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1 className="sh-boot-logo">LUXJSON</h1>
       </motion.div>
