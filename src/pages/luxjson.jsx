@@ -477,16 +477,15 @@ useEffect(() => {
           <div className="sh-container">
             <div 
               className="sh-service-card deadsmile-card" 
-              style={{ background: '#ff0000', color: '#ffd900' }}
             >
               <div className="deadsmile-content">
                 <h2 className="sh-service-title" style={{ fontSize: 'clamp(40px, 6vw, 100px)' }}>
                   {t('deadsmileTitle')}
                 </h2>
-                <p className="fix" style={{ color: '#ffd900', fontSize: 'clamp(16px, 2vw, 24px)', marginTop: '15px', letterSpacing: '1px' }}>
+                <p className="fix" style={{ fontSize: 'clamp(16px, 2vw, 24px)', marginTop: '15px', letterSpacing: '1px' }}>
                   {t('deadsmileSlogan')}
                 </p>
-                <p className="sh-service-desc" style={{ color: '#ffd900' }}>
+                <p className="sh-service-desc">
                   {t('deadsmileDesc')}
                 </p>
                 <div style={{ marginTop: '40px' }}>
@@ -495,7 +494,6 @@ useEffect(() => {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="sh-modal-btn-primary"
-                    style={{ background: '#ffd900', color: '#ff0000' }}
                   >
                     <i className="fab fa-github"></i> {t('deadsmileBtn')}
                   </a>
@@ -791,7 +789,7 @@ useEffect(() => {
     </motion.div>
   )}
   <motion.a
-        href="https://luxjson.vercel.app/" //href="https://api.luxjson-is-a.dev"
+        href="https://api.luxjson.is-a.dev" //href="https://api.luxjson-is-a.dev"
         rel="noopener noreferrer"
         className="sh-api-float-btn"
         initial={{ scale: 0.9, opacity: 0 }}
