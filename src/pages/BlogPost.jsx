@@ -261,7 +261,7 @@ export default function BlogPost() {
             tabIndex={0}
             style={{ cursor: 'pointer' }}
           >
-            LUXJSON
+            luxjson
           </a>
 
           <div className="sh-nav-links">

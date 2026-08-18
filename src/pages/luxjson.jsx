@@ -193,14 +193,14 @@ export default function Luxjson() {
 
   const renderMixedText = (text) => {
     if (!text) return '';
-    const parts = text.toUpperCase().split(/(\d+)/);
+    const parts = text.toLowerCase().split(/(\d+)/);
     return parts.map((part, i) =>
       /\d+/.test(part) ? <span key={i} className="fix">{part}</span> : part
     );
   };
 
   const [isLoading, setIsLoading] = useState(true);
-const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState(0);
 
 useEffect(() => {
   let interval;
@@ -324,7 +324,7 @@ useEffect(() => {
       tabIndex={0}
       style={{ cursor: 'pointer' }}
     >
-      LUXJSON
+      luxjson
     </a>
 
     <div className="sh-nav-links">
@@ -365,7 +365,7 @@ useEffect(() => {
                 transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
                 className="sh-giant-title"
               >
-                {renderMixedText('LUXJSON')}
+                {renderMixedText('luxjson')}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0 }}
@@ -537,9 +537,9 @@ useEffect(() => {
       </main>
 
       <footer className="sh-footer">
-        <div className="sh-footer-bg-text">{renderMixedText('LUXJSON')}</div>
+        <div className="sh-footer-bg-text">{renderMixedText('luxjson')}</div>
         <div className="sh-footer-main fundo-escuro">
-          <h2 className="sh-footer-title">© LUXJSON</h2>
+          <h2 className="sh-footer-title">© luxjson</h2>
           <span className="sh-footer-sub fix">{t('footerSub')}</span>
           <div className="sh-footer-socials">
             <a href="https://github.com/luxjson" target="_blank" rel="noopener noreferrer" className="sh-social-link" aria-label="GitHub">
@@ -786,12 +786,12 @@ useEffect(() => {
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
-        <h1 className="sh-boot-logo">LUXJSON</h1>
+        <h1 className="sh-boot-logo">luxjson</h1>
       </motion.div>
     </motion.div>
   )}
   <motion.a
-        href="https://api.luxjson.is-a.dev/" //href="https://api.luxjson-is-a.dev"
+        href="https://luxjson.vercel.app/" //href="https://api.luxjson-is-a.dev"
         rel="noopener noreferrer"
         className="sh-api-float-btn"
         initial={{ scale: 0.9, opacity: 0 }}

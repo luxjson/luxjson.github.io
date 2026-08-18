@@ -61,7 +61,7 @@ export default function AdminLayout() {
     <div className="sh-admin-layout">
       <aside className={`sh-admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
         <div className="sh-admin-sidebar-header">
-          <h2>{sidebarOpen && 'LUXJSON'}</h2>
+          <h2>{sidebarOpen && 'luxjson'}</h2>
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="sh-sidebar-toggle" aria-label="Menu">
             <i className="material-icons">{sidebarOpen ? 'chevron_left' : 'chevron_right'}</i>
           </button>

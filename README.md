@@ -7,13 +7,13 @@
    <!-- TODO: Get a job -->
    <img src="./src/assets/images/icon2.png" width="100px" height="100px" style="border-radius: 30%" align="left">
    
-   ### `LUXJSON`
+   ### `luxjson`
    
    ![Status](https://img.shields.io/badge/STATUS-OPERATIONAL-green)
    ![Version](https://img.shields.io/badge/VERSION-1.0-gold)
    ![OS](https://img.shields.io/badge/OS-WEB-red)
    
-   **LUXJSON** - An portfolio website.
+   **luxjson** - An portfolio website.
    
    <div flex="true">
      <a href="https://luxjson.github.io">

@@ -10,7 +10,7 @@
   "routes": {
     "public": {
       "/": {
-        "page": "Luxjson",
+        "page": "luxjson",
         "type": "page"
       },
       "/insomnia": {

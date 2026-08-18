@@ -200,7 +200,7 @@ export default function Blog() {
   }, []);
   const renderMixedText = (text) => {
     if (!text) return '';
-    const parts = text.toUpperCase().split(/(\d+)/);
+    const parts = text.toLowerCase().split(/(\d+)/);
     return parts.map((part, i) =>
       /\d+/.test(part) ? <span key={i} className="fix">{part}</span> : part
     );
@@ -247,7 +247,7 @@ export default function Blog() {
       <header className="sh-header">
         <div className="sh-nav-pill">
           <Link to="/" className="sh-logo-nav">
-            LUXJSON
+            luxjson
           </Link>
       
           <div className="sh-nav-links">
@@ -393,9 +393,9 @@ export default function Blog() {
       </main>
 
       <footer className="sh-footer">
-              <div className="sh-footer-bg-text">{renderMixedText('LUXJSON')}</div>
+              <div className="sh-footer-bg-text">{renderMixedText('luxjson')}</div>
               <div className="sh-footer-main fundo-escuro">
-                <h2 className="sh-footer-title">© LUXJSON</h2>
+                <h2 className="sh-footer-title">© luxjson</h2>
                 <span className="sh-footer-sub fix">{t('footerSub')}</span>
                 <div className="sh-footer-socials">
                   <a href="https://github.com/luxjson" target="_blank" rel="noopener noreferrer" className="sh-social-link" aria-label="GitHub">
@@ -544,7 +544,7 @@ export default function Blog() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h1 className="sh-boot-logo">LUXJSON</h1>
+              <h1 className="sh-boot-logo">luxjson</h1>
             </motion.div>
           </motion.div>
         )}

@@ -53,12 +53,12 @@
 }
 
 :root {
-  --sohub-white: #f0f6f8;
-  --sohub-black: #0c1016;
-  --sohub-grey: #a5abad;
-  --sohub-soft-grey: #d9e0e3;
+  --sohub-white: #fff;
+  --sohub-black: #0127c1;
+  --sohub-grey: #70a5ff;
+  --sohub-soft-grey: #c5ddf7;
   --transition-speed: 0.4s ease-in-out;
-  --close-btn: #141b2b;
+  --close-btn: #0127c1;
   --close-btn-text: #e8edf5;
 
   --sohub-cursor-bg: #ffffff;
@@ -66,7 +66,7 @@
   --sohub-overlay-text: #ffffff;
   --sohub-heart-color: #ff4d4d;
   --sohub-overlay-bg: rgba(0, 0, 0, 0.4);
-  --sohub-footer-bg-text: #242c3a;
+  --sohub-footer-bg-text: #70a5ff;
   --sohub-border-color: #333333;
   --sohub-black-rgb: 12, 16, 22;
   --sohub-white-rgb: 240, 246, 248;
@@ -75,11 +75,11 @@
 }
 
 [data-theme='dark'] {
-  --sohub-white: #0a0e17;
+  --sohub-white: #101116;
   --sohub-soft-grey: #141b2b;
-  --close-btn: #e8edf5;
+  --close-btn: #fff;
   --close-btn-text: #141b2b;
-  --sohub-black: #e8edf5;
+  --sohub-black: #fff;
   --sohub-grey: #8896a8;
   --sohub-cursor-bg: #ffffff;
   --sohub-circle-bg: #ffffff;
@@ -233,7 +233,7 @@
   font-size: clamp(100px, 22vw, 450px);
   line-height: 0.8;
   text-align: left;
-  letter-spacing: -48px;
+  letter-spacing: -18px;
   margin: 0;
 }
 
@@ -247,7 +247,7 @@
 
 .sh-hero-sub {
   font-size: clamp(20px, 3.5vw, 56px);
-  margin-top: 20px;
+  margin-top: 40px;
 }
 
 .sh-hero-render {
@@ -1208,7 +1208,7 @@ html {
   }
 
   .sh-logo-nav {
-    font-size: 16px;
+    font-size: 24px;
   }
 
 

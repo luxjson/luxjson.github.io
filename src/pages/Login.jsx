@@ -67,7 +67,7 @@ export default function Login() {
             className="sh-login-card"
           >
             <div className="sh-login-header">
-              <h1 style={{ fontSize: '4rem' }}>LUXJSON</h1>
+              <h1 style={{ fontSize: '4rem' }}>luxjson</h1>
             </div>
             <form onSubmit={handleSubmit} className="sh-login-form">
               <div className="sh-input-group">
