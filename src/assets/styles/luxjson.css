@@ -844,13 +844,13 @@
   cursor: pointer;
 }
 
+
+
 .sh-social-link:hover {
   transform: scale(1.1);
   background: var(--bg-card);
   color: var(--text-primary);
 }
-
-
 
 .sh-modal-overlay {
   position: fixed;
@@ -1629,5 +1629,143 @@ html {
   }
   * {
     cursor: auto !important;
+  }
+}
+
+.sh-app-banner {
+  padding: 80px 5%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto 80px;
+  text-align: center;
+  border: 2px solid var(--text-primary);
+  border-radius: 40px;
+  background: var(--bg-primary);
+  transition: background var(--transition-speed), border-color var(--transition-speed);
+}
+
+.sh-banner-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.sh-banner-title {
+  font-size: clamp(40px, 6vw, 60px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  background: var(--text-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.sh-banner-desc {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 30px;
+  line-height: 1.6;
+  font-family: 'fix', sans-serif;
+}
+
+.sh-banner-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 36px;
+  font-size: 18px;
+  border-radius: 60px;
+  background: var(--text-primary);
+  color: #fff;
+  text-decoration: none;
+  font-family: 'asgard', sans-serif;
+  border: none;
+  cursor: pointer;
+}
+
+.sh-banner-btn:hover {
+  background: var(--text-secondary);
+  color: var(--text-primary);
+}
+
+.sh-banner-btn i {
+  font-size: 24px;
+}
+
+@media (max-width: 1024px) {
+  .sh-app-banner {
+    width: 90%;
+    padding: 60px 4%;
+    margin: 0 auto 60px;
+  }
+  .sh-banner-title {
+    font-size: clamp(36px, 5vw, 48px);
+  }
+  .sh-banner-desc {
+    font-size: 16px;
+  }
+  .sh-banner-btn {
+    padding: 12px 30px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .sh-app-banner {
+    width: 92%;
+    padding: 50px 4%;
+    border-radius: 30px;
+    margin: 0 auto 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sh-app-banner {
+    width: 94%;
+    padding: 40px 20px;
+    border-radius: 24px;
+    margin: 0 auto 40px;
+    border-width: 1.5px;
+  }
+  .sh-banner-title {
+    font-size: clamp(28px, 8vw, 36px);
+    letter-spacing: -0.5px;
+  }
+  .sh-banner-desc {
+    font-size: 15px;
+    margin-bottom: 24px;
+  }
+  .sh-banner-btn {
+    padding: 12px 28px;
+    font-size: 15px;
+    width: 100%;
+    justify-content: center;
+  }
+  .sh-banner-btn i {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .sh-app-banner {
+    width: 96%;
+    padding: 30px 16px;
+    margin: 0 auto 30px;
+    border-radius: 20px;
+  }
+  .sh-banner-title {
+    font-size: 24px;
+  }
+  .sh-banner-desc {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .sh-banner-btn {
+    padding: 10px 20px;
+    font-size: 14px;
+    gap: 8px;
+  }
+  .sh-banner-btn i {
+    font-size: 18px;
   }
 }

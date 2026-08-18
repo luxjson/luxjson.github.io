@@ -70,6 +70,9 @@ export default function Luxjson() {
       deadsmileSlogan: 'Create worlds. Explore beyond.',
       deadsmileDesc: 'Estúdio de desenvolvimento de jogos indie focado em criar mundos imersivos e experiências marcantes para os jogadores.',
       deadsmileBtn: 'Ver Organização',
+      appBannerTitle: 'Baixe o aplicativo luxjson',
+      appBannerDesc: 'Baixe a versão mais recente do aplicativo luxjson para desktop e mobile.',
+      appBannerBtn: 'Baixar Última Versão',
     },
     en: {
       heroTitle: 'YOUR VISION BUILDS OUR HISTORY.',
@@ -111,6 +114,9 @@ export default function Luxjson() {
       deadsmileSlogan: 'Create worlds. Explore beyond.',
       deadsmileDesc: 'Indie game development studio focused on building immersive worlds and memorable experiences for players.',
       deadsmileBtn: 'View Organization',
+      appBannerTitle: 'Get luxjson App',
+      appBannerDesc: 'Download the latest version of luxjson app for desktop and mobile.',
+      appBannerBtn: 'Download Latest',
     },
   };
 
@@ -532,6 +538,23 @@ useEffect(() => {
             </div>
           </div>
         </section>
+
+        <section className="sh-app-banner">
+          <div className="sh-container">
+            <div className="sh-banner-content">
+              <h2 className="sh-banner-title">{t('appBannerTitle')}</h2>
+              <p className="sh-banner-desc">{t('appBannerDesc')}</p>
+              <a
+                href="https://github.com/luxjson/luxjson-app/releases/latest"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sh-modal-btn-primary sh-banner-btn"
+              >
+                <i className="material-icons">download</i> {t('appBannerBtn')}
+              </a>
+            </div>
+          </div>
+        </section>
       </main>
 
       <footer className="sh-footer">
@@ -785,6 +808,7 @@ useEffect(() => {
         transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
       >
         <h1 className="sh-boot-logo">luxjson</h1>
+        <div className="sh-boot-progress-bar" style={{ width: `${progress}%` }} />
       </motion.div>
     </motion.div>
   )}

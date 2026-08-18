@@ -58,7 +58,6 @@ export default function Login() {
   return (
     <div className="sh-login-page">
       <div className="sh-login-wrapper">
-        {/* Lado Esquerdo: Formulário */}
         <div className="sh-login-left">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -106,8 +105,6 @@ export default function Login() {
             </form>
           </motion.div>
         </div>
-
-        {/* Lado Direito: Imagem / Estúdio Deadsmile */}
         <div className="sh-login-right">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
