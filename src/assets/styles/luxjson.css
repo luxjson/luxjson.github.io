@@ -1126,7 +1126,7 @@
 }
 
 .sh-boot-logo {
-  font-size: clamp(70px, 15vw, 200px);
+  font-size: clamp(80px, 15vw, 200px);
   font-family: 'Asgard', sans-serif;
   letter-spacing: clamp(-8px, -2vw, -3px);
   color: var(--text-primary);
