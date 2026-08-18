@@ -16,9 +16,7 @@
   src: url('../fonts/Poppins-Bold.ttf') format('truetype');
 }
 
-/* ============================================
-   RESET & BASE STYLES
-   ============================================ */
+
 
 ::selection {
   background-color: var(--close-btn);
@@ -36,87 +34,81 @@
   cursor: none;
 }
 
-/* ============================================
-   COLOR PALETTE - LIGHT THEME (DEFAULT)
-   ============================================ */
+
 
 :root {
-  /* === BACKGROUNDS === */
+ 
   --bg-primary: #fff;
   --bg-card: #c5ddf7;
   --bg-button: #1e232c;
   
-  /* === TEXTS === */
+ 
   --text-primary: #0127c1;
   --text-secondary: #70a5ff;
   
-  /* === BUTTONS & CLOSE === */
+ 
   --close-btn: #0127c1;
   --close-btn-text: #e8edf5;
   
-  /* === CURSOR & VISUAL === */
+ 
   --cursor-bg: #ffffff;
   --heart-color: #ff4d4d;
   
-  /* === OVERLAY & BACKDROP === */
+ 
   --overlay-bg: rgba(0, 0, 0, 0.4);
   --overlay-text: #ffffff;
   
-  /* === BORDERS & SHADOWS === */
+ 
   --border-color: #333333;
   --shadow: rgba(0, 0, 0, 0.08);
   --footer-bg-text: #70a5ff;
   
-  /* === RGB VALUES (para rgba) === */
+ 
   --rgb-black: 12, 16, 22;
   --rgb-white: 240, 246, 248;
   
-  /* === TRANSITIONS === */
+ 
   --transition-speed: 0.4s ease-in-out;
 }
 
-/* ============================================
-   COLOR PALETTE - DARK THEME
-   ============================================ */
+
 
 [data-theme='dark'] {
-  /* === BACKGROUNDS === */
+ 
   --bg-primary: #101116;
   --bg-card: #fff;
   --bg-button: #2a3038;
   
-  /* === TEXTS === */
+ 
   --text-primary: #004cff;
   --text-secondary: #b9c3ff;
   
-  /* === BUTTONS & CLOSE === */
+ 
   --close-btn: #0f2fbc;
   --close-btn-text: #fff;
   
-  /* === CURSOR & VISUAL === */
+ 
   --cursor-bg: #ffffff;
   --heart-color: #ff6b6b;
   
-  /* === OVERLAY & BACKDROP === */
+ 
   --overlay-bg: rgba(10, 14, 23, 0.85);
   --overlay-text: #ffffff;
   
-  /* === BORDERS & SHADOWS === */
+ 
   --border-color: #2a3448;
   --shadow: rgba(255, 255, 255, 0.05);
   --footer-bg-text: #1b224d;
   
-  /* === RGB VALUES (para rgba) === */
+ 
   --rgb-black: 232, 237, 245;
   --rgb-white: 10, 14, 23;
   
-  /* === TRANSITIONS === */
+ 
   --transition-speed: 0.4s ease-in-out;
 }
 
-/* ============================================
-   CUSTOM CURSOR
-   ============================================ */
+
 
 .custom-cursor {
   position: fixed;
@@ -138,9 +130,7 @@
   transform: translate(-9px, -9px);
 }
 
-/* ============================================
-   ROOT CONTAINER
-   ============================================ */
+
 
 .sohub-root {
   background-color: var(--bg-primary);
@@ -148,9 +138,7 @@
   transition: background-color var(--transition-speed), color var(--transition-speed);
 }
 
-/* ============================================
-   FLOATING BUTTONS (Theme & Language Toggle)
-   ============================================ */
+
 
 .sh-float-buttons {
   position: fixed;
@@ -182,9 +170,7 @@
   transform: scale(1.1);
 }
 
-/* ============================================
-   HEADER & NAVIGATION
-   ============================================ */
+
 
 .sh-header {
   position: fixed;
@@ -258,9 +244,7 @@
   color: var(--close-btn-text);
 }
 
-/* ============================================
-   HERO SECTION
-   ============================================ */
+
 
 .sh-hero {
   height: 100vh;
@@ -306,9 +290,7 @@
   animation: float 6s infinite ease-in-out;
 }
 
-/* ============================================
-   WORK SECTION
-   ============================================ */
+
 
 .sh-work {
   padding: 120px 5%;
@@ -336,9 +318,7 @@
   animation: gradMove 5s infinite;
 }
 
-/* ============================================
-   PROJECTS GRID & CARDS
-   ============================================ */
+
 
 .sh-projects-grid {
   display: grid;
@@ -474,9 +454,7 @@
   font-size: 16px;
 }
 
-/* ============================================
-   SKELETON LOADING
-   ============================================ */
+
 
 .sh-project-skeleton {
   background: var(--bg-card);
@@ -548,9 +526,7 @@
   font-size: 18px;
 }
 
-/* ============================================
-   PROJECT MODAL
-   ============================================ */
+
 
 .sh-project-modal-overlay {
   position: fixed;
@@ -756,9 +732,7 @@
   font-family: 'fix', sans-serif;
 }
 
-/* ============================================
-   SERVICES SECTION
-   ============================================ */
+
 
 .sh-services {
   padding-bottom: 120px;
@@ -807,9 +781,7 @@
   font-size: 12px;
 }
 
-/* ============================================
-   FOOTER
-   ============================================ */
+
 
 .sh-footer {
   background-color: var(--bg-primary);
@@ -877,9 +849,7 @@
   color: var(--text-primary);
 }
 
-/* ============================================
-   CHAT MODAL
-   ============================================ */
+
 
 .sh-modal-overlay {
   position: fixed;
@@ -988,9 +958,7 @@
   transform: scale(1.05) translateX(10px);
 }
 
-/* ============================================
-   INFO DRAWER
-   ============================================ */
+
 
 .sh-info-drawer-simple {
   position: fixed;
@@ -1106,9 +1074,7 @@
   color: var(--text-primary);
 }
 
-/* ============================================
-   LANGUAGE & UTILITY
-   ============================================ */
+
 
 .sh-lang-text {
   font-family: 'fix', sans-serif;
@@ -1136,9 +1102,7 @@
   filter: invert(1);
 }
 
-/* ============================================
-   BOOT/SPLASH SCREEN
-   ============================================ */
+
 
 .sh-boot-overlay {
   position: fixed;
@@ -1171,10 +1135,10 @@
   background-clip: text;
   animation: bootPulse 1.8s ease-in-out infinite;
   margin: 0;
-  display: inline-block;      /* Respeita o tamanho real do conteúdo */
-overflow: visible;          /* Garante que nada fica cortado */
-padding: 0 10px;           /* Espaço lateral de segurança */
-max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
+  display: inline-block;     
+overflow: visible;         
+padding: 0 10px;          
+max-width: 90vw;          
 }
 
 .sh-boot-bar-container {
@@ -1201,9 +1165,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
   margin-top: 4px;
 }
 
-/* ============================================
-   API FLOAT BUTTON
-   ============================================ */
+
 
 .sh-api-float-btn {
           position: fixed;
@@ -1255,9 +1217,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
           color: var(--close-btn-text);
         }
 
-/* ============================================
-   DEADSMILE PROJECT CARD
-   ============================================ */
+
 
 .deadsmile-card {
   display: grid;
@@ -1284,9 +1244,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
   color: inherit;
 }
 
-/* ============================================
-   ANIMATIONS
-   ============================================ */
+
 
 @keyframes float {
   0%, 100% { transform: translateY(0); }
@@ -1340,9 +1298,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
   50% { opacity: 0.3; }
 }
 
-/* ============================================
-   RESPONSIVE - TABLET & SMALL DESKTOP
-   ============================================ */
+
 
 @media (max-width: 1024px) {
   .sh-giant-title {
@@ -1389,9 +1345,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
   }
 }
 
-/* ============================================
-   RESPONSIVE - MOBILE
-   ============================================ */
+
 
    @media (max-width: 768px) {
   .sh-api-float-btn {
@@ -1656,9 +1610,7 @@ max-width: 90vw;           /* Nunca ultrapassa 90% da tela */
   }
 }
 
-/* ============================================
-   MISC & UTILITY
-   ============================================ */
+
 
 html {
   scroll-behavior: smooth;
