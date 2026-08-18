@@ -67,7 +67,7 @@ export default function Luxjson() {
       headerChat: 'FALE COMIGO',
       headerBlog: 'BLOG',
       appBannerTitle: 'Baixe o aplicativo luxjson',
-      appBannerDesc: 'Baixe a versão mais recente do aplicativo luxjson para desktop e mobile.',
+      appBannerDesc: 'Baixe a versão mais recente do aplicativo luxjson para dispositivos móveis.',
       appBannerBtn: 'Baixar Última Versão',
     },
     en: {
@@ -107,7 +107,7 @@ export default function Luxjson() {
       headerChat: "LET'S CHAT",
       headerBlog: 'BLOG',
       appBannerTitle: 'Get luxjson App',
-      appBannerDesc: 'Download the latest version of luxjson app for desktop and mobile.',
+      appBannerDesc: 'Download the latest version of luxjson app for mobile devices.',
       appBannerBtn: 'Download Latest',
     },
   };
