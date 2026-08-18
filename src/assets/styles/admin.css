@@ -1,38 +1,29 @@
-/* ============================================================
-   ADMIN CSS – Alinhado com o visual do site luxjson
-   ============================================================ */
-
-/* ---------- VARIÁVEIS (herdam as cores do site) ---------- */
 :root {
-  /* Cores base do site (as mesmas usadas no layout público) */
   --bg-primary: #101116;
   --bg-card: #ffffff;
   --bg-button: #2a3038;
   --text-primary: #004cff;
   --text-secondary: #b9c3ff;
-  --border-color: #2a3448;
   --close-btn: #0f2fbc;
   --close-btn-text: #fff;
-  --shadow: rgba(255, 255, 255, 0.05);
+  --border-color: #2a3448;
+  --shadow: rgba(255,255,255,0.05);
   --footer-bg-text: #1b224d;
-
-  /* Tokens do admin (mantidos, mas com valores alinhados) */
-  --sh-bg-primary: var(--bg-primary);
+  --sh-bg-primary: #101116;
   --sh-bg-secondary: #1c1e24;
-  --sh-border: var(--border-color);
-  --sh-accent: var(--text-primary);
+  --sh-border: #2a3448;
+  --sh-accent: #004cff;
   --sh-text-primary: #ffffff;
-  --sh-text-secondary: var(--text-secondary);
+  --sh-text-secondary: #b9c3ff;
   --sh-danger: #ff4d4d;
   --sh-success: #22c55e;
   --sh-warning: #f59e0b;
   --sh-info: #3b82f6;
   --sh-radius: 12px;
   --sh-radius-lg: 20px;
-  --sh-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  --sh-shadow: 0 8px 24px rgba(0,0,0,0.4);
 }
 
-/* ---------- FONTES (iguais às do site) ---------- */
 @font-face {
   font-family: 'Asgard';
   src: url('../fonts/BOLD.ttf') format('truetype');
@@ -42,7 +33,6 @@
   src: url('../fonts/Poppins-Medium.ttf') format('truetype');
 }
 
-/* ---------- RESET E BASE ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -52,9 +42,7 @@
   font-family: 'Asgard', sans-serif;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background-color: var(--sh-bg-primary);
@@ -68,14 +56,12 @@ body {
   color: var(--sh-text-primary);
 }
 
-/* Classe utilitária (mesma do site) */
 .fix {
   font-family: 'fix', sans-serif !important;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
-/* ---------- LOADING ---------- */
 .sh-loading {
   display: flex;
   align-items: center;
@@ -87,19 +73,12 @@ body {
   letter-spacing: 2px;
   animation: pulseText 1.5s ease-in-out infinite;
 }
+
 @keyframes pulseText {
-  0%,
-  100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
 }
 
-/* ============================================================
-   LOGIN PAGE – centralizada, com card estilizado
-   ============================================================ */
 .sh-login-page {
   min-height: 100vh;
   display: flex;
@@ -111,7 +90,7 @@ body {
 
 .sh-login-wrapper {
   display: grid;
-  grid-template-columns: 1fr; /* sem coluna da direita */
+  grid-template-columns: 1fr;
   width: 100%;
   max-width: 500px;
   min-height: auto;
@@ -128,7 +107,7 @@ body {
 
 .sh-login-card {
   background: var(--sh-bg-secondary);
-  border-radius: 40px; /* igual aos cards do site */
+  border-radius: 40px;
   padding: 50px 40px 40px;
   max-width: 440px;
   width: 100%;
@@ -198,7 +177,7 @@ body {
   color: #fff;
   border: none;
   padding: 16px;
-  border-radius: 60px; /* pill style */
+  border-radius: 60px;
   font-size: 16px;
   font-family: 'fix', sans-serif;
   cursor: pointer;
@@ -225,23 +204,15 @@ body {
   animation: shake 0.4s ease;
 }
 @keyframes shake {
-  0%,
-  100% {
-    transform: translateX(0);
-  }
-  25% {
-    transform: translateX(-8px);
-  }
-  75% {
-    transform: translateX(8px);
-  }
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
 }
 
-/* ---------- BOTÃO SECUNDÁRIO NO LOGIN (BACK TO HOME) ---------- */
 .sh-btn-secondary {
   display: inline-block;
   padding: 12px 28px;
-  border-radius: 60px; /* pill */
+  border-radius: 60px;
   background: transparent;
   border: 1px solid var(--sh-border);
   color: var(--sh-text-secondary);
@@ -258,16 +229,12 @@ body {
   color: var(--sh-text-primary);
 }
 
-/* ============================================================
-   ADMIN LAYOUT – sidebar + conteúdo
-   ============================================================ */
 .sh-admin-layout {
   display: flex;
   min-height: 100vh;
   background: var(--sh-bg-primary);
 }
 
-/* ---------- SIDEBAR ---------- */
 .sh-admin-sidebar {
   width: 260px;
   background: var(--sh-bg-secondary);
@@ -352,11 +319,11 @@ body {
   white-space: nowrap;
 }
 .sh-admin-nav-link:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(255,255,255,0.06);
   color: var(--sh-text-primary);
 }
 .sh-admin-nav-link.active {
-  background: rgba(0, 76, 255, 0.15); /* tom do --text-primary */
+  background: rgba(0,76,255,0.15);
   color: var(--sh-accent);
 }
 .sh-admin-nav-link i {
@@ -413,7 +380,6 @@ body {
   display: none;
 }
 
-/* ---------- MAIN CONTENT ---------- */
 .sh-admin-main {
   flex: 1;
   margin-left: 260px;
@@ -451,7 +417,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ---------- DASHBOARD STATS ---------- */
 .sh-dashboard-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -481,7 +446,6 @@ body {
   letter-spacing: 1px;
 }
 
-/* ---------- RECENT POSTS ---------- */
 .sh-recent-posts {
   background: var(--sh-bg-secondary);
   border-radius: var(--sh-radius-lg);
@@ -498,7 +462,6 @@ body {
   font-weight: normal;
 }
 
-/* ---------- TABELAS (posts list) ---------- */
 .sh-list-header {
   display: flex;
   justify-content: space-between;
@@ -550,7 +513,7 @@ body {
   border-bottom: none;
 }
 .sh-table tr:hover td {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255,255,255,0.02);
 }
 
 .sh-table .sh-status-badge {
@@ -576,7 +539,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* ---------- FORMULÁRIOS (novo/editar post) ---------- */
 .sh-form-container {
   background: var(--sh-bg-secondary);
   border-radius: var(--sh-radius-lg);
@@ -594,13 +556,13 @@ body {
   font-weight: normal;
 }
 .sh-form-error {
-  background: rgba(255, 77, 77, 0.1);
+  background: rgba(255,77,77,0.1);
   color: var(--sh-danger);
   padding: 12px 20px;
   border-radius: var(--sh-radius);
   font-size: 14px;
   margin: 16px 0 8px;
-  border: 1px solid rgba(255, 77, 77, 0.2);
+  border: 1px solid rgba(255,77,77,0.2);
 }
 .sh-form {
   display: flex;
@@ -662,7 +624,7 @@ body {
   color: var(--sh-text-primary);
   cursor: pointer;
 }
-.sh-checkbox input[type='checkbox'] {
+.sh-checkbox input[type="checkbox"] {
   width: 20px;
   height: 20px;
   accent-color: var(--sh-accent);
@@ -677,7 +639,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* ---------- BOTÕES GENÉRICOS ---------- */
 .sh-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -685,7 +646,7 @@ body {
   background: var(--sh-accent);
   color: var(--sh-text-primary);
   padding: 12px 28px;
-  border-radius: 60px; /* pill style */
+  border-radius: 60px;
   text-decoration: none;
   font-size: 15px;
   font-family: 'fix', sans-serif;
@@ -706,7 +667,7 @@ body {
 
 .sh-btn-sm {
   padding: 6px 16px;
-  border-radius: 30px; /* pill */
+  border-radius: 30px;
   font-size: 12px;
   font-family: 'fix', sans-serif;
   letter-spacing: 0.5px;
@@ -729,7 +690,6 @@ body {
   background: #cc0000;
 }
 
-/* ---------- EMPTY STATE ---------- */
 .sh-empty-state {
   text-align: center;
   padding: 60px 20px;
@@ -746,7 +706,6 @@ body {
   margin: 0;
 }
 
-/* ---------- SCROLLBAR ---------- */
 .sh-admin-nav::-webkit-scrollbar {
   width: 4px;
 }
@@ -761,11 +720,6 @@ body {
   background: var(--sh-text-secondary);
 }
 
-/* ============================================================
-   RESPONSIVIDADE (mantida e ajustada)
-   ============================================================ */
-
-/* Telas médias (≤ 992px) */
 @media (max-width: 992px) {
   .sh-login-wrapper {
     grid-template-columns: 1fr;
@@ -795,7 +749,6 @@ body {
   }
 }
 
-/* Smartphones (≤ 768px) – sidebar vira barra inferior */
 @media (max-width: 768px) {
   .sh-admin-sidebar {
     position: fixed;
@@ -857,11 +810,11 @@ body {
     display: none !important;
   }
   .sh-admin-sidebar .sh-admin-nav-link.active {
-    background: rgba(0, 76, 255, 0.2);
+    background: rgba(0,76,255,0.2);
     color: var(--sh-accent);
   }
   .sh-admin-sidebar .sh-admin-nav-link:hover {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(255,255,255,0.05);
     transform: none !important;
   }
   .sh-admin-sidebar .sh-admin-logout {
@@ -881,7 +834,7 @@ body {
   }
   .sh-admin-sidebar .sh-admin-logout:hover {
     color: var(--sh-danger);
-    background: rgba(255, 77, 77, 0.1);
+    background: rgba(255,77,77,0.1);
   }
   .sh-admin-main {
     margin-left: 0 !important;
@@ -985,7 +938,6 @@ body {
   }
 }
 
-/* Smartphones pequenos (≤ 480px) */
 @media (max-width: 480px) {
   .sh-admin-main {
     padding: 12px 12px 90px;
@@ -1023,7 +975,6 @@ body {
   }
 }
 
-/* Muito pequenos (≤ 359px) */
 @media (max-width: 359px) {
   .sh-dashboard-stats {
     grid-template-columns: 1fr;
@@ -1053,16 +1004,9 @@ body {
   }
 }
 
-/* ---------- ANIMAÇÃO AUXILIAR ---------- */
 @keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 .sh-slide-in {
   animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
