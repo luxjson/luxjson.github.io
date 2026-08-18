@@ -1726,12 +1726,17 @@ html {
 
 @media (max-width: 768px) {
   .sh-app-banner {
-    width: 94%;
+    width: 90%;
     padding: 40px 20px;
     border-radius: 24px;
     margin: 0 auto 40px;
     border-width: 1.5px;
   }
+  .sh-banner-logo {
+    width:150px;
+    margin-bottom: 20px;
+  }
+
   .sh-banner-title {
     font-size: clamp(28px, 8vw, 36px);
     letter-spacing: -0.5px;
@@ -1753,10 +1758,14 @@ html {
 
 @media (max-width: 400px) {
   .sh-app-banner {
-    width: 96%;
+    width: 90%;
     padding: 30px 16px;
-    margin: 0 auto 30px;
+    margin: 0 auto 60px;
     border-radius: 20px;
+  }
+  .sh-banner-logo {
+    width:120px;
+    margin-bottom: 10px;
   }
   .sh-banner-title {
     font-size: 24px;
