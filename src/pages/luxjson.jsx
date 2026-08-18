@@ -149,20 +149,49 @@ export default function Luxjson() {
     const fetchData = async () => {
       try {
         const [userRes, reposRes] = await Promise.all([
-          fetch('https://api.github.com/users/luxjson'),
-          fetch('https://api.github.com/users/luxjson/repos?per_page=100&sort=pushed')
-        ]);
-        const userData = await userRes.json();
-        const reposData = await reposRes.json();
-        setUser(userData);
+  fetch('https://api.github.com/users/luxjson'),
+  fetch('https://api.github.com/users/luxjson/repos?per_page=100&sort=pushed')
+]);
 
-        const targets = ['analisai-express', 'react', 'light', 'insomnia', 'SENAI-MaryCario'];
-        const blacklist = ['lightoldwebsite'];
-        const filtered = reposData.filter(repo =>
-          targets.some(t => repo.name.toLowerCase().includes(t)) &&
-          !blacklist.some(b => repo.name.toLowerCase() === b)
-        );
-        setProjects(filtered);
+if (!userRes.ok) {
+  throw new Error(`GitHub user API: ${userRes.status}`);
+}
+
+if (!reposRes.ok) {
+  throw new Error(`GitHub repos API: ${reposRes.status}`);
+}
+
+const userData = await userRes.json();
+const reposData = await reposRes.json();
+
+if (!Array.isArray(reposData)) {
+  throw new Error('A API do GitHub não retornou uma lista de repositórios.');
+}
+
+setUser(userData);
+
+const targets = [
+  'analisai-express',
+  'react',
+  'light',
+  'insomnia',
+  'senai-marycario'
+];
+
+const blacklist = [
+  'lightoldwebsite'
+];
+
+const filtered = reposData.filter(repo => {
+  const name = String(repo.name || '').toLowerCase();
+
+  return (
+    targets.some(target => name.includes(target)) &&
+    !blacklist.some(item => name === item)
+  );
+});
+
+setProjects(filtered);
       } catch (error) {
         console.error('Erro ao buscar dados do GitHub:', error);
       } finally {
