@@ -1,19 +1,38 @@
+/* ============================================================
+   ADMIN CSS – Alinhado com o visual do site luxjson
+   ============================================================ */
+
+/* ---------- VARIÁVEIS (herdam as cores do site) ---------- */
 :root {
-  --sh-bg-primary: #15171c;
+  /* Cores base do site (as mesmas usadas no layout público) */
+  --bg-primary: #101116;
+  --bg-card: #ffffff;
+  --bg-button: #2a3038;
+  --text-primary: #004cff;
+  --text-secondary: #b9c3ff;
+  --border-color: #2a3448;
+  --close-btn: #0f2fbc;
+  --close-btn-text: #fff;
+  --shadow: rgba(255, 255, 255, 0.05);
+  --footer-bg-text: #1b224d;
+
+  /* Tokens do admin (mantidos, mas com valores alinhados) */
+  --sh-bg-primary: var(--bg-primary);
   --sh-bg-secondary: #1c1e24;
-  --sh-border: #1c2133;
-  --sh-accent: #5465cf;
+  --sh-border: var(--border-color);
+  --sh-accent: var(--text-primary);
   --sh-text-primary: #ffffff;
-  --sh-text-secondary: #a5abad;
+  --sh-text-secondary: var(--text-secondary);
   --sh-danger: #ff4d4d;
   --sh-success: #22c55e;
   --sh-warning: #f59e0b;
   --sh-info: #3b82f6;
   --sh-radius: 12px;
   --sh-radius-lg: 20px;
-  --sh-shadow: 0 8px 24px rgba(0,0,0,0.4);
+  --sh-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
 }
 
+/* ---------- FONTES (iguais às do site) ---------- */
 @font-face {
   font-family: 'Asgard';
   src: url('../fonts/BOLD.ttf') format('truetype');
@@ -23,6 +42,7 @@
   src: url('../fonts/Poppins-Medium.ttf') format('truetype');
 }
 
+/* ---------- RESET E BASE ---------- */
 * {
   margin: 0;
   padding: 0;
@@ -32,7 +52,9 @@
   font-family: 'Asgard', sans-serif;
 }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   background-color: var(--sh-bg-primary);
@@ -46,12 +68,14 @@ body {
   color: var(--sh-text-primary);
 }
 
+/* Classe utilitária (mesma do site) */
 .fix {
   font-family: 'fix', sans-serif !important;
   text-transform: uppercase;
   letter-spacing: 1.5px;
 }
 
+/* ---------- LOADING ---------- */
 .sh-loading {
   display: flex;
   align-items: center;
@@ -63,58 +87,72 @@ body {
   letter-spacing: 2px;
   animation: pulseText 1.5s ease-in-out infinite;
 }
-
 @keyframes pulseText {
-  0%, 100% { opacity: 0.6; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
+/* ============================================================
+   LOGIN PAGE – centralizada, com card estilizado
+   ============================================================ */
 .sh-login-page {
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   background: var(--sh-bg-primary);
-  padding: 0;
+  padding: 20px;
 }
 
 .sh-login-wrapper {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr; /* sem coluna da direita */
   width: 100%;
-  min-height: 100vh;
-  background: var(--sh-bg-primary);
-  overflow: hidden;
+  max-width: 500px;
+  min-height: auto;
+  background: transparent;
+  overflow: visible;
 }
 
 .sh-login-left {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 40px;
+  padding: 0;
 }
 
 .sh-login-card {
-  background: transparent;
-  border-radius: 0;
-  padding: 0;
+  background: var(--sh-bg-secondary);
+  border-radius: 40px; /* igual aos cards do site */
+  padding: 50px 40px 40px;
   max-width: 440px;
   width: 100%;
-  box-shadow: none;
+  box-shadow: var(--sh-shadow);
+  border: 1px solid var(--sh-border);
 }
 
 .sh-login-header h1 {
-  font-size: 48px;
-  letter-spacing: -2px;
+  font-size: 60px;
+  letter-spacing: -3px;
   color: var(--sh-text-primary);
+  background: linear-gradient(135deg, #fff 60%, var(--sh-text-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 4px;
 }
 
 .sh-login-header p {
   color: var(--sh-text-secondary);
-  margin-top: 6px;
   font-family: 'fix', sans-serif;
   letter-spacing: 1px;
   font-size: 15px;
+  margin-top: 0;
 }
 
 .sh-login-form {
@@ -129,16 +167,14 @@ body {
   flex-direction: column;
   gap: 8px;
 }
-
 .sh-login-form .sh-input-group label {
   font-size: 12px;
   color: var(--sh-text-secondary);
   letter-spacing: 2px;
   font-family: 'fix', sans-serif;
 }
-
 .sh-login-form .sh-input-group input {
-  background: var(--sh-bg-secondary);
+  background: var(--sh-bg-primary);
   border: 2px solid var(--sh-border);
   border-radius: var(--sh-radius);
   padding: 16px 20px;
@@ -149,39 +185,33 @@ body {
   width: 100%;
   font-family: 'Asgard', sans-serif;
 }
-
-.sh-mobile-logout {
-    display:none
-  }
-
 .sh-login-form .sh-input-group input::placeholder {
   color: var(--sh-text-secondary);
   opacity: 0.6;
 }
-
 .sh-login-form .sh-input-group input:focus {
   border-color: var(--sh-accent);
 }
 
 .sh-login-btn {
   background: var(--sh-accent);
-  color: var(--sh-text-primary);
+  color: #fff;
   border: none;
   padding: 16px;
-  border-radius: var(--sh-radius);
+  border-radius: 60px; /* pill style */
   font-size: 16px;
   font-family: 'fix', sans-serif;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
   letter-spacing: 2px;
   margin-top: 10px;
+  width: 100%;
 }
-
 .sh-login-btn:hover:not(:disabled) {
-  background: #4358b3;
+  background: var(--sh-text-secondary);
+  color: var(--sh-bg-primary);
   transform: scale(1.02);
 }
-
 .sh-login-btn:disabled {
   opacity: 0.6;
   cursor: not-allowed;
@@ -194,45 +224,50 @@ body {
   font-family: 'fix', sans-serif;
   animation: shake 0.4s ease;
 }
-
-.sh-login-right {
-  background: #ff0101;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  overflow: hidden;
-  padding: 40px;
-}
-
-.sh-login-right-content {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-  z-index: 2;
-}
-
-.sh-login-right-logo {
-  width: 100%;
-  max-width: 280px;
-  height: auto;
-  object-fit: contain;
-}
-
 @keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-8px); }
-  75% { transform: translateX(8px); }
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-8px);
+  }
+  75% {
+    transform: translateX(8px);
+  }
 }
 
+/* ---------- BOTÃO SECUNDÁRIO NO LOGIN (BACK TO HOME) ---------- */
+.sh-btn-secondary {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 60px; /* pill */
+  background: transparent;
+  border: 1px solid var(--sh-border);
+  color: var(--sh-text-secondary);
+  text-decoration: none;
+  font-size: 15px;
+  font-family: 'fix', sans-serif;
+  letter-spacing: 1px;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  cursor: pointer;
+  text-align: center;
+}
+.sh-btn-secondary:hover {
+  background: var(--sh-border);
+  color: var(--sh-text-primary);
+}
+
+/* ============================================================
+   ADMIN LAYOUT – sidebar + conteúdo
+   ============================================================ */
 .sh-admin-layout {
   display: flex;
   min-height: 100vh;
   background: var(--sh-bg-primary);
 }
 
+/* ---------- SIDEBAR ---------- */
 .sh-admin-sidebar {
   width: 260px;
   background: var(--sh-bg-secondary);
@@ -248,17 +283,14 @@ body {
   overflow: hidden;
   border-right: 1px solid var(--sh-border);
 }
-
 .sh-admin-sidebar.closed {
   width: 84px;
 }
-
 .sh-admin-sidebar.closed .sh-admin-nav-link span,
 .sh-admin-sidebar.closed .sh-admin-user span,
 .sh-admin-sidebar.closed .sh-admin-sidebar-header h2 {
   display: none;
 }
-
 .sh-admin-sidebar.closed .sh-admin-sidebar-header {
   justify-content: center;
   padding: 20px 12px;
@@ -272,7 +304,6 @@ body {
   border-bottom: 1px solid var(--sh-border);
   flex-shrink: 0;
 }
-
 .sh-admin-sidebar-header h2 {
   font-size: 20px;
   letter-spacing: -0.5px;
@@ -292,12 +323,10 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .sh-sidebar-toggle:hover {
   color: var(--sh-text-primary);
   transform: scale(1.1);
 }
-
 .sh-sidebar-toggle i {
   font-size: 24px;
 }
@@ -310,7 +339,6 @@ body {
   gap: 4px;
   overflow-y: auto;
 }
-
 .sh-admin-nav-link {
   display: flex;
   align-items: center;
@@ -323,24 +351,20 @@ body {
   font-size: 15px;
   white-space: nowrap;
 }
-
 .sh-admin-nav-link:hover {
-  background: rgba(255,255,255,0.06);
+  background: rgba(255, 255, 255, 0.06);
   color: var(--sh-text-primary);
 }
-
 .sh-admin-nav-link.active {
-  background: rgba(84,101,207,0.15);
+  background: rgba(0, 76, 255, 0.15); /* tom do --text-primary */
   color: var(--sh-accent);
 }
-
 .sh-admin-nav-link i {
   font-size: 24px;
   flex-shrink: 0;
   width: 28px;
   text-align: center;
 }
-
 .sh-admin-nav-link span {
   opacity: 1;
   transition: opacity 0.2s;
@@ -351,14 +375,12 @@ body {
   border-top: 1px solid var(--sh-border);
   flex-shrink: 0;
 }
-
 .sh-admin-user {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
 }
-
 .sh-admin-user span {
   font-size: 14px;
   font-family: 'fix', sans-serif;
@@ -368,7 +390,6 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-
 .sh-admin-logout {
   background: none;
   border: none;
@@ -380,16 +401,19 @@ body {
   align-items: center;
   justify-content: center;
 }
-
 .sh-admin-logout:hover {
   color: var(--sh-danger);
   transform: scale(1.1);
 }
-
 .sh-admin-logout i {
   font-size: 24px;
 }
 
+.sh-mobile-logout {
+  display: none;
+}
+
+/* ---------- MAIN CONTENT ---------- */
 .sh-admin-main {
   flex: 1;
   margin-left: 260px;
@@ -398,7 +422,6 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
 .sh-admin-sidebar.closed ~ .sh-admin-main {
   margin-left: 84px;
 }
@@ -414,7 +437,6 @@ body {
   margin-bottom: 32px;
   margin-top: 20px;
 }
-
 .sh-admin-topbar h1 {
   font-size: 35px;
   letter-spacing: -1px;
@@ -429,16 +451,14 @@ body {
   overflow-x: hidden;
 }
 
+/* ---------- DASHBOARD STATS ---------- */
 .sh-dashboard-stats {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 16px;
   margin-bottom: 40px;
   width: 100%;
-  max-width: 100%;
-  padding: 0;
 }
-
 .sh-stat-card {
   background: var(--sh-bg-secondary);
   border-radius: var(--sh-radius-lg);
@@ -446,19 +466,13 @@ body {
   text-align: center;
   border: 1px solid var(--sh-border);
   transition: transform 0.2s, box-shadow 0.2s;
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-  margin: 0 auto;
 }
-
 .sh-stat-card h3 {
   font-size: 36px;
   color: var(--sh-text-primary);
   margin: 0 0 4px 0;
   letter-spacing: -1px;
 }
-
 .sh-stat-card p {
   color: var(--sh-text-secondary);
   margin: 0;
@@ -467,6 +481,7 @@ body {
   letter-spacing: 1px;
 }
 
+/* ---------- RECENT POSTS ---------- */
 .sh-recent-posts {
   background: var(--sh-bg-secondary);
   border-radius: var(--sh-radius-lg);
@@ -475,7 +490,6 @@ body {
   width: 100%;
   overflow: hidden;
 }
-
 .sh-recent-posts h2 {
   font-size: 20px;
   color: var(--sh-text-primary);
@@ -484,38 +498,7 @@ body {
   font-weight: normal;
 }
 
-.sh-recent-posts ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sh-recent-posts li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0;
-  border-bottom: 1px solid var(--sh-border);
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.sh-recent-posts li:last-child {
-  border-bottom: none;
-}
-
-.sh-recent-posts li span:first-child {
-  color: var(--sh-text-primary);
-  word-break: break-word;
-}
-
-.sh-recent-posts li span:last-child {
-  font-size: 13px;
-  color: var(--sh-text-secondary);
-  font-family: 'fix', sans-serif;
-  white-space: nowrap;
-}
-
+/* ---------- TABELAS (posts list) ---------- */
 .sh-list-header {
   display: flex;
   justify-content: space-between;
@@ -525,7 +508,6 @@ body {
   margin-bottom: 24px;
   width: 100%;
 }
-
 .sh-list-header h2 {
   font-size: 22px;
   letter-spacing: -0.5px;
@@ -542,13 +524,11 @@ body {
   width: 100%;
   -webkit-overflow-scrolling: touch;
 }
-
 .sh-table {
   width: 100%;
   border-collapse: collapse;
   min-width: 600px;
 }
-
 .sh-table th {
   padding: 16px 20px;
   text-align: left;
@@ -560,20 +540,17 @@ body {
   text-transform: uppercase;
   border-bottom: 1px solid var(--sh-border);
 }
-
 .sh-table td {
   padding: 14px 20px;
   border-bottom: 1px solid var(--sh-border);
   color: var(--sh-text-primary);
   vertical-align: middle;
 }
-
 .sh-table tr:last-child td {
   border-bottom: none;
 }
-
 .sh-table tr:hover td {
-  background: rgba(255,255,255,0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .sh-table .sh-status-badge {
@@ -584,12 +561,10 @@ body {
   font-family: 'fix', sans-serif;
   letter-spacing: 0.5px;
 }
-
 .sh-table .sh-status-badge.published {
   background: var(--sh-success);
   color: var(--sh-text-primary);
 }
-
 .sh-table .sh-status-badge.draft {
   background: var(--sh-text-secondary);
   color: var(--sh-text-primary);
@@ -601,6 +576,7 @@ body {
   flex-wrap: wrap;
 }
 
+/* ---------- FORMULÁRIOS (novo/editar post) ---------- */
 .sh-form-container {
   background: var(--sh-bg-secondary);
   border-radius: var(--sh-radius-lg);
@@ -610,7 +586,6 @@ body {
   width: 100%;
   margin: 0 auto;
 }
-
 .sh-form-title {
   font-size: 26px;
   letter-spacing: -0.5px;
@@ -618,37 +593,32 @@ body {
   margin: 0 0 8px 0;
   font-weight: normal;
 }
-
 .sh-form-error {
-  background: rgba(255,77,77,0.1);
+  background: rgba(255, 77, 77, 0.1);
   color: var(--sh-danger);
   padding: 12px 20px;
   border-radius: var(--sh-radius);
   font-size: 14px;
   margin: 16px 0 8px;
-  border: 1px solid rgba(255,77,77,0.2);
+  border: 1px solid rgba(255, 77, 77, 0.2);
 }
-
 .sh-form {
   display: flex;
   flex-direction: column;
   gap: 24px;
   margin-top: 24px;
 }
-
 .sh-form .sh-input-group {
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
-
 .sh-form .sh-input-group label {
   font-size: 11px;
   color: var(--sh-text-secondary);
   letter-spacing: 2px;
   font-family: 'fix', sans-serif;
 }
-
 .sh-form .sh-input-group input,
 .sh-form .sh-input-group textarea {
   background: var(--sh-bg-primary);
@@ -662,18 +632,15 @@ body {
   transition: border-color 0.3s;
   width: 100%;
 }
-
 .sh-form .sh-input-group input::placeholder,
 .sh-form .sh-input-group textarea::placeholder {
   color: var(--sh-text-secondary);
   opacity: 0.5;
 }
-
 .sh-form .sh-input-group input:focus,
 .sh-form .sh-input-group textarea:focus {
   border-color: var(--sh-accent);
 }
-
 .sh-form .sh-input-group textarea {
   min-height: 200px;
   resize: vertical;
@@ -686,7 +653,6 @@ body {
   align-items: center;
   flex-wrap: wrap;
 }
-
 .sh-checkbox {
   display: flex;
   align-items: center;
@@ -696,8 +662,7 @@ body {
   color: var(--sh-text-primary);
   cursor: pointer;
 }
-
-.sh-checkbox input[type="checkbox"] {
+.sh-checkbox input[type='checkbox'] {
   width: 20px;
   height: 20px;
   accent-color: var(--sh-accent);
@@ -712,6 +677,7 @@ body {
   flex-wrap: wrap;
 }
 
+/* ---------- BOTÕES GENÉRICOS ---------- */
 .sh-btn-primary {
   display: inline-flex;
   align-items: center;
@@ -719,7 +685,7 @@ body {
   background: var(--sh-accent);
   color: var(--sh-text-primary);
   padding: 12px 28px;
-  border-radius: var(--sh-radius);
+  border-radius: 60px; /* pill style */
   text-decoration: none;
   font-size: 15px;
   font-family: 'fix', sans-serif;
@@ -728,41 +694,19 @@ body {
   border: none;
   cursor: pointer;
 }
-
 .sh-btn-primary:hover:not(:disabled) {
-  background: #4358b3;
+  background: var(--sh-text-secondary);
+  color: var(--sh-bg-primary);
   transform: scale(1.02);
 }
-
 .sh-btn-primary:disabled {
   opacity: 0.6;
   cursor: not-allowed;
 }
 
-.sh-btn-secondary {
-  display: inline-block;
-  padding: 12px 28px;
-  border-radius: var(--sh-radius);
-  background: transparent;
-  border: 1px solid var(--sh-border);
-  color: var(--sh-text-secondary);
-  text-decoration: none;
-  font-size: 15px;
-  font-family: 'fix', sans-serif;
-  letter-spacing: 1px;
-  transition: background 0.2s, color 0.2s, border-color 0.2s;
-  cursor: pointer;
-  text-align: center;
-}
-
-.sh-btn-secondary:hover {
-  background: var(--sh-border);
-  color: var(--sh-text-primary);
-}
-
 .sh-btn-sm {
   padding: 6px 16px;
-  border-radius: var(--sh-radius);
+  border-radius: 30px; /* pill */
   font-size: 12px;
   font-family: 'fix', sans-serif;
   letter-spacing: 0.5px;
@@ -774,68 +718,64 @@ body {
   display: inline-block;
   transition: background 0.2s;
 }
-
 .sh-btn-sm:hover {
   background: #4358b3;
 }
-
 .sh-btn-sm.sh-btn-danger {
   background: var(--sh-danger);
   color: var(--sh-text-primary);
 }
-
 .sh-btn-sm.sh-btn-danger:hover {
   background: #cc0000;
 }
 
+/* ---------- EMPTY STATE ---------- */
 .sh-empty-state {
   text-align: center;
   padding: 60px 20px;
   color: var(--sh-text-secondary);
 }
-
 .sh-empty-state i {
   font-size: 56px;
   opacity: 0.4;
   margin-bottom: 16px;
   display: block;
 }
-
 .sh-empty-state p {
   font-size: 18px;
   margin: 0;
 }
 
+/* ---------- SCROLLBAR ---------- */
 .sh-admin-nav::-webkit-scrollbar {
   width: 4px;
 }
-
 .sh-admin-nav::-webkit-scrollbar-track {
   background: transparent;
 }
-
 .sh-admin-nav::-webkit-scrollbar-thumb {
   background: var(--sh-border);
   border-radius: 4px;
 }
-
 .sh-admin-nav::-webkit-scrollbar-thumb:hover {
   background: var(--sh-text-secondary);
 }
 
+/* ============================================================
+   RESPONSIVIDADE (mantida e ajustada)
+   ============================================================ */
+
+/* Telas médias (≤ 992px) */
 @media (max-width: 992px) {
   .sh-login-wrapper {
     grid-template-columns: 1fr;
+    max-width: 100%;
   }
-  .sh-login-right {
-    display: none;
-  }
-  .sh-login-left {
-    min-height: 100vh;
-    padding: 20px;
+  .sh-login-card {
+    padding: 40px 30px;
   }
   .sh-admin-sidebar {
-    width: 84;
+    width: 84px;
   }
   .sh-admin-sidebar .sh-admin-nav-link span,
   .sh-admin-sidebar .sh-admin-user span,
@@ -855,6 +795,7 @@ body {
   }
 }
 
+/* Smartphones (≤ 768px) – sidebar vira barra inferior */
 @media (max-width: 768px) {
   .sh-admin-sidebar {
     position: fixed;
@@ -916,11 +857,11 @@ body {
     display: none !important;
   }
   .sh-admin-sidebar .sh-admin-nav-link.active {
-    background: rgba(84,101,207,0.2);
+    background: rgba(0, 76, 255, 0.2);
     color: var(--sh-accent);
   }
   .sh-admin-sidebar .sh-admin-nav-link:hover {
-    background: rgba(255,255,255,0.05);
+    background: rgba(255, 255, 255, 0.05);
     transform: none !important;
   }
   .sh-admin-sidebar .sh-admin-logout {
@@ -940,7 +881,7 @@ body {
   }
   .sh-admin-sidebar .sh-admin-logout:hover {
     color: var(--sh-danger);
-    background: rgba(255,77,77,0.1);
+    background: rgba(255, 77, 77, 0.1);
   }
   .sh-admin-main {
     margin-left: 0 !important;
@@ -956,7 +897,6 @@ body {
   .sh-dashboard-stats {
     grid-template-columns: 1fr;
     gap: 12px;
-    padding: 0;
   }
   .sh-stat-card {
     padding: 16px 12px;
@@ -1045,6 +985,7 @@ body {
   }
 }
 
+/* Smartphones pequenos (≤ 480px) */
 @media (max-width: 480px) {
   .sh-admin-main {
     padding: 12px 12px 90px;
@@ -1074,8 +1015,15 @@ body {
     font-size: 13px;
     padding: 10px 20px;
   }
+  .sh-login-card {
+    padding: 30px 20px;
+  }
+  .sh-login-header h1 {
+    font-size: 44px;
+  }
 }
 
+/* Muito pequenos (≤ 359px) */
 @media (max-width: 359px) {
   .sh-dashboard-stats {
     grid-template-columns: 1fr;
@@ -1099,17 +1047,23 @@ body {
   }
   .sh-admin-sidebar {
     height: 48px;
-    padding: 0 10px;
+    padding: 0 8px;
     bottom: 8px;
     border-radius: 24px;
   }
 }
 
+/* ---------- ANIMAÇÃO AUXILIAR ---------- */
 @keyframes slideIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
-
 .sh-slide-in {
   animation: slideIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }

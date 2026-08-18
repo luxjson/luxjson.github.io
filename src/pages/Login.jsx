@@ -105,19 +105,6 @@ export default function Login() {
             </form>
           </motion.div>
         </div>
-        <div className="sh-login-right">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-            className="sh-login-right-content"
-          >
-            <img src={svgLogo} alt="DEADSMILE Logo" className="sh-login-right-logo" />
-            <p className="fix" style={{ color: '#ffd900', fontSize: '2rem', letterSpacing: '2px', maxWidth: '400px' }}>
-              Create worlds. Explore beyond.
-            </p>
-          </motion.div>
-        </div>
       </div>
     </div>
   );

@@ -66,10 +66,6 @@ export default function Luxjson() {
       headerContact: 'CONTATO',
       headerChat: 'FALE COMIGO',
       headerBlog: 'BLOG',
-      deadsmileTitle: 'DEADSMILE',
-      deadsmileSlogan: 'Create worlds. Explore beyond.',
-      deadsmileDesc: 'Estúdio de desenvolvimento de jogos indie focado em criar mundos imersivos e experiências marcantes para os jogadores.',
-      deadsmileBtn: 'Ver Organização',
       appBannerTitle: 'Baixe o aplicativo luxjson',
       appBannerDesc: 'Baixe a versão mais recente do aplicativo luxjson para desktop e mobile.',
       appBannerBtn: 'Baixar Última Versão',
@@ -110,10 +106,6 @@ export default function Luxjson() {
       headerContact: 'CONTACT',
       headerChat: "LET'S CHAT",
       headerBlog: 'BLOG',
-      deadsmileTitle: 'DEADSMILE',
-      deadsmileSlogan: 'Create worlds. Explore beyond.',
-      deadsmileDesc: 'Indie game development studio focused on building immersive worlds and memorable experiences for players.',
-      deadsmileBtn: 'View Organization',
       appBannerTitle: 'Get luxjson App',
       appBannerDesc: 'Download the latest version of luxjson app for desktop and mobile.',
       appBannerBtn: 'Download Latest',
@@ -478,45 +470,6 @@ useEffect(() => {
             </div>
           </div>
         </section>
-
-        <section id="deadsmile" className="sh-services fundo-escuro" style={{ paddingTop: '0px' }}>
-          <div className="sh-container">
-            <div 
-              className="sh-service-card deadsmile-card" 
-            >
-              <div className="deadsmile-content">
-                <h2 className="sh-service-title" style={{ fontSize: 'clamp(40px, 6vw, 100px)' }}>
-                  {t('deadsmileTitle')}
-                </h2>
-                <p className="fix" style={{ fontSize: 'clamp(16px, 2vw, 24px)', marginTop: '15px', letterSpacing: '1px' }}>
-                  {t('deadsmileSlogan')}
-                </p>
-                <p className="sh-service-desc">
-                  {t('deadsmileDesc')}
-                </p>
-                <div style={{ marginTop: '40px' }}>
-                  <a
-                    href="https://github.com/teamdeadsmile"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="sh-modal-btn-primary"
-                  >
-                    <i className="fab fa-github"></i> {t('deadsmileBtn')}
-                  </a>
-                </div>
-              </div>
-
-              <div className="deadsmile-logo-container">
-                <img 
-                  src={svgLogo} 
-                  alt="DEADSMILE Logo" 
-                  className="deadsmile-logo-img"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
 
         <section id="about" className="sh-services fundo-escuro">
           <div className="sh-container">
