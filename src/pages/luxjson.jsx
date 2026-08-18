@@ -494,7 +494,7 @@ useEffect(() => {
 
         <section className="sh-app-banner">
           <div className="sh-container">
-            <img src="https://luxjson.is-a.dev/favicon.png" width="200px" style="margin-bottom: 30px;"></img>
+            <img src="https://luxjson.is-a.dev/favicon.png" className="sh-banner-logo" alt="Logo" />
             <div className="sh-banner-content">
               <h2 className="sh-banner-title">{t('appBannerTitle')}</h2>
               <p className="sh-banner-desc">{t('appBannerDesc')}</p>
