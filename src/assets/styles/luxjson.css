@@ -40,6 +40,7 @@
  
   --bg-primary: #fff;
   --bg-card: #c5ddf7;
+  --bg-card-2: #c5ddf7;
   --bg-button: #1e232c;
   
  
@@ -77,10 +78,11 @@
  
   --bg-primary: #101116;
   --bg-card: #fff;
+  --bg-card-2: #1e232c;
   --bg-button: #2a3038;
   
  
-  --text-primary: #004cff;
+  --text-primary: #0f2fbc;
   --text-secondary: #b9c3ff;
   
  
@@ -328,7 +330,7 @@
 }
 
 .sh-project-card {
-  background: var(--bg-card);
+  background: var(--bg-card-2);
   border-radius: 24px;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -406,6 +408,7 @@
   font-size: 20px;
   letter-spacing: -0.5px;
   color: var(--text-primary);
+  text-transform: uppercase;
   margin: 0;
   flex: 1;
   transition: color var(--transition-speed);
@@ -610,6 +613,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  text-transform: uppercase;
   flex-wrap: wrap;
 }
 

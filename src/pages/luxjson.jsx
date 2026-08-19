@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
 import { Link } from 'react-router-dom';
-import svgLogo from '../assets/images/logo.svg';
+
 export default function Luxjson() {
   const [projects, setProjects] = useState([]);
   const [user, setUser] = useState(null);
@@ -154,7 +154,7 @@ export default function Luxjson() {
         const reposData = await reposRes.json();
         setUser(userData);
 
-        const targets = ['analisai-express', 'react', 'light', 'insomnia', 'SENAI-MaryCario'];
+        const targets = ['analisai-express', 'react', 'light', 'insomnia', 'senai-marycario'];
         const blacklist = ['lightoldwebsite'];
         const filtered = reposData.filter(repo =>
           targets.some(t => repo.name.toLowerCase().includes(t)) &&
