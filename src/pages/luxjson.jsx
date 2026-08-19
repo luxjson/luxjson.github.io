@@ -154,7 +154,7 @@ export default function Luxjson() {
         const reposData = await reposRes.json();
         setUser(userData);
 
-        const targets = ['analisai-express', 'react', 'light', 'insomnia', 'senai-marycario'];
+        const targets = ['luxjson.github.io', 'analisai-express', 'react', 'light', 'insomnia', 'senai-marycario', 'luxjson-app', 'api', 'timesesi'];
         const blacklist = ['lightoldwebsite'];
         const filtered = reposData.filter(repo =>
           targets.some(t => repo.name.toLowerCase().includes(t)) &&

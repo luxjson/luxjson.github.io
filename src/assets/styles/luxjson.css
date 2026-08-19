@@ -52,9 +52,9 @@
   --bg-card: #fff;
   --bg-card-2: #1e232c;
   --bg-button: #2a3038;
-  --text-primary: #0f2fbc;
+  --text-primary: #3366ff;
   --text-secondary: #b9c3ff;
-  --close-btn: #0f2fbc;
+  --close-btn: #3366ff;
   --close-btn-text: #fff;
   --cursor-bg: #ffffff;
   --heart-color: #ff6b6b;
@@ -136,7 +136,7 @@
 }
 .sh-logo-nav {
   color: #fff;
-  font-size: 20px;
+  font-size: 25px;
   letter-spacing: -1px;
   text-decoration: none;
   font-family: "Asgard";
@@ -1165,8 +1165,8 @@
   }
 }
 @media (max-width: 768px) {
-  .sh-api-float-btn {
-    display: none;
+  .sh-api-float-btn{
+    display: none !important;
   }
   .sh-float-buttons {
     top: 20px;
