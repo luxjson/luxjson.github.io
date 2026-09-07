@@ -50,7 +50,7 @@ export default function Footer({ t, user, onInfoOpen }) {
         </div>
 
         {user && (
-          <div style={{ fontFamily: 'monospace', marginTop: '20px', color: 'var(--sohub-grey)', fontSize: '16px', display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center' }}>
+          <div style={{ fontFamily: 'monospace', marginTop: '20px', color: 'var(--sohub-grey)', fontSize: '13px', display: 'flex', alignItems: 'center', gap: '10px', justifyContent: 'center' }}>
               <GithubIcon size={22} /> · {user.public_repos} repositorys · {user.followers} followers
           </div>
         )}
