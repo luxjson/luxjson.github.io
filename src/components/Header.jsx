@@ -3,20 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Mail } from 'lucide-react';
 import brFlag from '../assets/images/br.svg';
 import ukFlag from '../assets/images/uk.svg';
-
 const iconBase = { strokeWidth: 2.5, 'aria-hidden': true };
-
-/**
- * Header compartilhado por luxjson, Blog e BlogPost.
- *
- * Props:
- *  - theme / toggleTheme
- *  - language / toggleLanguage
- *  - t (função de tradução)
- *  - onChatOpen (callback para abrir modal de contato)
- *  - homeLink: 'scroll' | 'link' (default: 'link')
- *  - showWorkLink: bool (false em BlogPost)
- */
 export default function Header({
   theme,
   toggleTheme,
@@ -49,7 +36,6 @@ export default function Header({
 
   return (
     <>
-      {/* Float buttons (fora do header para não interferir no layout) */}
       <div className="sh-float-buttons">
         <motion.button
           className="sh-theme-toggle"
@@ -57,7 +43,7 @@ export default function Header({
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           aria-label="Alternar tema"
-        >
+          >
           <AnimatePresence mode="wait">
             <motion.span
               key={theme}
@@ -65,8 +51,8 @@ export default function Header({
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               className="lucide-icon"
-              style={{ paddingtop: '5px'}}
-            >
+              style={{ paddingTop: '5px' }}
+              >
               {theme === 'light' ? (
                 <Moon {...iconBase} size={20} />
               ) : (
