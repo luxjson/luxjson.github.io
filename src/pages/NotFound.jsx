@@ -44,7 +44,7 @@ export default function NotFound() {
               >
                 <span>Back to Home</span>
                 <div className="sh-circle-icon">
-                  <ArrowLeft {...iconBase} size={18} />
+                  <ArrowLeft style={{ color: '#fff' }} size={18} />
                 </div>
               </button>
             </div>
