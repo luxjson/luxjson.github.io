@@ -912,11 +912,7 @@
   width: 32px;
   height: 32px;
   object-fit: contain;
-  filter: invert(1);
   transition: filter 0.3s ease;
-}
-[data-theme='light'] .sh-lang-flag-img {
-  filter: invert(1);
 }
 .sh-boot-overlay {
   position: fixed;

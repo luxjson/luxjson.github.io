@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Moon, Sun, Mail } from 'lucide-react';
-import brFlag from '../assets/images/br.svg';
-import ukFlag from '../assets/images/uk.svg';
+import { LiaFlagUsaSolid } from "react-icons/lia";
+import { GiBrazilFlag } from "react-icons/gi";
 const iconBase = { strokeWidth: 2.5, 'aria-hidden': true };
 export default function Header({
   theme,
@@ -69,11 +69,11 @@ export default function Header({
           whileTap={{ scale: 0.9 }}
           aria-label="Alternar idioma"
         >
-          <img
-            src={language === 'pt' ? brFlag : ukFlag}
-            alt={language === 'pt' ? 'Português' : 'English'}
-            className="sh-lang-flag-img"
-          />
+          {language === 'pt' ? (
+            <GiBrazilFlag className="sh-lang-flag-img" size={20} />
+          ) : (
+            <LiaFlagUsaSolid className="sh-lang-flag-img" size={20} />
+          )}
         </motion.button>
       </div>
 
