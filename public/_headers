@@ -1,5 +1,4 @@
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
-  Strict-Transport-Security: max-age=31556952; includeSubDomains; preload
+X-Frame-Options: DENY
+X-Content-Type-Options: nosniff
+Permissions-Policy: geolocation=(), microphone=(), camera=(), payment=(), usb=()
+Strict-Transport-Security: max-age=31556952; includeSubDomains; preload
