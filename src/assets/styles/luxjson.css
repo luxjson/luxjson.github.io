@@ -1307,6 +1307,7 @@
     letter-spacing: -2px;
     line-height: 0.9;
     max-width: 100%;
+    font-size: 2.3rem;
     word-break: break-word;
   }
   .sh-service-desc {
