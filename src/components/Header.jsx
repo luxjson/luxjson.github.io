@@ -65,6 +65,7 @@ export default function Header({
               animate={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               className="lucide-icon"
+              style={{ paddingtop: '5px'}}
             >
               {theme === 'light' ? (
                 <Moon {...iconBase} size={20} />
