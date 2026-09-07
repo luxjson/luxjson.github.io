@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Eye, Inbox, Clock } from 'lucide-react';
 import { FileText } from 'lucide-react';
@@ -16,7 +16,6 @@ import useThemeLang from '../hooks/useThemeLang';
 import useBootLoader from '../hooks/useBootLoader';
 
 import { createT } from '../utils/translations';
-import renderMixedText from '../utils/renderMixedText';
 
 import '../assets/styles/blog.css';
 import '../assets/styles/luxjson.css';

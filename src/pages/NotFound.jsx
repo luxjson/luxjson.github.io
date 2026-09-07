@@ -5,11 +5,8 @@ import useThemeLang from '../hooks/useThemeLang';
 import renderMixedText from '../utils/renderMixedText';
 import '../assets/styles/blog.css';
 
-const iconBase = { strokeWidth: 2.5, 'aria-hidden': true };
-
 export default function NotFound() {
   const navigate = useNavigate();
-  // theme aplicado globalmente via hook
   useThemeLang();
   useCursor();
 
