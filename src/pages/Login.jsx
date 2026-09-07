@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useAuth } from '../context/AuthContext';
-import svgLogo from '../assets/images/logo.svg';
+import useCursor from '../hooks/useCursor';
+import useThemeLang from '../hooks/useThemeLang';
 import '../assets/styles/admin.css';
 
 export default function Login() {
@@ -12,35 +13,8 @@ export default function Login() {
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
-
-   useEffect(() => {
-      const cursor = document.createElement('div');
-      cursor.className = 'custom-cursor';
-      document.body.appendChild(cursor);
-  
-      const moveCursor = (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      const handleMouseOver = (e) => {
-        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-        if (target) {
-          cursor.classList.add('active');
-        } else {
-          cursor.classList.remove('active');
-        }
-      };
-  
-      window.addEventListener('mousemove', moveCursor);
-      document.addEventListener('mouseover', handleMouseOver);
-  
-      return () => {
-        window.removeEventListener('mousemove', moveCursor);
-        document.removeEventListener('mouseover', handleMouseOver);
-        if (document.body.contains(cursor)) document.body.removeChild(cursor);
-      };
-    }, []);
+  useCursor();
+  useThemeLang(); // aplica tema salvo globalmente
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -68,37 +42,46 @@ export default function Login() {
             <div className="sh-login-header">
               <h1 style={{ fontSize: '4rem' }}>luxjson</h1>
             </div>
+
             <form onSubmit={handleSubmit} className="sh-login-form">
               <div className="sh-input-group">
-                <label className="fix">USERNAME</label>
+                <label className="fix" htmlFor="login-user">USERNAME</label>
                 <input
                   type="text"
+                  id="login-user"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
                   placeholder="admin"
                   required
+                  autoComplete="username"
                 />
               </div>
               <div className="sh-input-group">
-                <label className="fix">PASSWORD</label>
+                <label className="fix" htmlFor="login-pass">PASSWORD</label>
                 <input
                   type="password"
+                  id="login-pass"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
                   required
+                  autoComplete="current-password"
                 />
               </div>
-              {error && <div className="sh-login-error">{error}</div>}
+
+              {error && (
+                <div className="sh-login-error" role="alert">{error}</div>
+              )}
+
               <button type="submit" className="sh-login-btn" disabled={loading}>
-                {loading ? 'ACESSING...' : 'LOGIN'}
+                {loading ? 'ACESSANDO...' : 'LOGIN'}
               </button>
 
               <button
                 type="button"
                 onClick={() => navigate('/')}
                 className="sh-btn-secondary"
-                style={{ width: '100%', marginTop: '12px', textAlign: 'center', justifyContent: 'center' }}
+                style={{ width: '100%', marginTop: 12, textAlign: 'center', justifyContent: 'center' }}
               >
                 BACK TO HOME
               </button>

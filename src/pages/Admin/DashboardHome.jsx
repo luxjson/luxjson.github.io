@@ -1,73 +1,50 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
+import { FileText, Eye, BookOpen } from 'lucide-react';
+import useCursor from '../../hooks/useCursor';
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
+};
+const itemVariants = {
+  hidden: { y: 20, opacity: 0 },
+  visible: { y: 0, opacity: 1 },
+};
+
+const STAT_CONFIG = [
+  { key: 'published', label: 'Posts Publicados', icon: BookOpen },
+  { key: 'views',     label: 'Visualizações',   icon: Eye },
+  { key: 'posts',     label: 'Total de Posts',   icon: FileText },
+];
 
 export default function DashboardHome() {
   const { api } = useAuth();
+  useCursor();
+
   const [stats, setStats] = useState({ posts: 0, views: 0, published: 0 });
   const [recentPosts, setRecentPosts] = useState([]);
   const [loading, setLoading] = useState(true);
 
-   useEffect(() => {
-      const cursor = document.createElement('div');
-      cursor.className = 'custom-cursor';
-      document.body.appendChild(cursor);
-  
-      const moveCursor = (e) => {
-        cursor.style.left = `${e.clientX}px`;
-        cursor.style.top = `${e.clientY}px`;
-      };
-  
-      const handleMouseOver = (e) => {
-        const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-        if (target) {
-          cursor.classList.add('active');
-        } else {
-          cursor.classList.remove('active');
-        }
-      };
-  
-      window.addEventListener('mousemove', moveCursor);
-      document.addEventListener('mouseover', handleMouseOver);
-  
-      return () => {
-        window.removeEventListener('mousemove', moveCursor);
-        document.removeEventListener('mouseover', handleMouseOver);
-        if (document.body.contains(cursor)) document.body.removeChild(cursor);
-      };
-    }, []);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const [statsRes, postsRes] = await Promise.all([
-          api.get('/blog/stats'),
-          api.get('/blog/posts?limit=5&publishedOnly=false'),
-        ]);
-        setStats(statsRes.data);
-        setRecentPosts(postsRes.data.posts || []);
-      } catch (error) {
-        console.error('Erro ao carregar dados:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchData();
+  const fetchData = useCallback(async () => {
+    try {
+      const [statsRes, postsRes] = await Promise.all([
+        api.get('/blog/stats'),
+        api.get('/blog/posts?limit=5&publishedOnly=false'),
+      ]);
+      setStats(statsRes.data);
+      setRecentPosts(postsRes.data.posts || []);
+    } catch (error) {
+      console.error('Erro ao carregar dados:', error);
+    } finally {
+      setLoading(false);
+    }
   }, [api]);
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
-  };
+  useEffect(() => { fetchData(); }, [fetchData]);
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: { y: 0, opacity: 1 },
-  };
-
-  if (loading) {
-    return <div className="sh-loading">Carregando...</div>;
-  }
+  if (loading) return <div className="sh-loading">Carregando...</div>;
 
   return (
     <motion.div
@@ -77,26 +54,21 @@ export default function DashboardHome() {
       className="sh-dashboard-home"
     >
       <motion.div variants={itemVariants} className="sh-dashboard-stats">
-        <div className="sh-stat-card">
-          <h3 className="fix">{stats.published}</h3>
-          <p>Posts Publicados</p>
-        </div>
-        <div className="sh-stat-card">
-          <h3 className="fix">{stats.views}</h3>
-          <p>Visualizações</p>
-        </div>
-        <div className="sh-stat-card">
-          <h3 className="fix">{stats.posts}</h3>
-          <p>Total de Posts</p>
-        </div>
+        {STAT_CONFIG.map(({ key, label, icon: Icon }) => (
+          <div key={key} className="sh-stat-card">
+            <Icon size={24} strokeWidth={2} style={{ marginBottom: 8, opacity: 0.7 }} />
+            <h3 className="fix">{stats[key]}</h3>
+            <p>{label}</p>
+          </div>
+        ))}
       </motion.div>
 
       <motion.div variants={itemVariants} className="sh-recent-posts">
         <h2>Posts Recentes</h2>
         {recentPosts.length === 0 ? (
-          <p>Nenhum post encontrado.</p>
+          <p style={{ marginTop: 16, opacity: 0.6 }}>Nenhum post encontrado.</p>
         ) : (
-          <div className="sh-table-wrapper" style={{ marginTop: '20px' }}>
+          <div className="sh-table-wrapper" style={{ marginTop: 20 }}>
             <table className="sh-table">
               <thead>
                 <tr>
@@ -115,11 +87,15 @@ export default function DashboardHome() {
                   >
                     <td>{post.title}</td>
                     <td>
-                      <span className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}>
+                      <span
+                        className={`sh-status-badge ${post.published ? 'published' : 'draft'}`}
+                      >
                         {post.published ? 'Publicado' : 'Rascunho'}
                       </span>
                     </td>
-                    <td className="fix">{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
+                    <td className="fix">
+                      {new Date(post.created_at).toLocaleDateString('pt-BR')}
+                    </td>
                   </motion.tr>
                 ))}
               </tbody>

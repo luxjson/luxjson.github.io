@@ -1,91 +1,89 @@
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
+import {
+  LayoutDashboard,
+  FileText,
+  FilePlus,
+  ChevronLeft,
+  ChevronRight,
+  LogOut,
+} from 'lucide-react';
+import useCursor from '../../hooks/useCursor';
+
+const iconBase = { strokeWidth: 2.5, size: 20, 'aria-hidden': true };
+
+const NAV_ITEMS = [
+  { path: '/admin', icon: LayoutDashboard, label: 'Dashboard' },
+  { path: '/admin/posts', icon: FileText, label: 'Posts' },
+  { path: '/admin/posts/new', icon: FilePlus, label: 'Novo Post' },
+];
+
+const PAGE_TITLES = {
+  '/admin': 'Dashboard',
+  '/admin/posts': 'Posts',
+  '/admin/posts/new': 'Novo Post',
+};
 
 export default function AdminLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const { admin, logout } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
-
-  useEffect(() => {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-
-    const handleMouseOver = (e) => {
-      const target = e.target.closest('a, button, .sh-project-card, .sh-social-link, .card, [role="button"]');
-      if (target) {
-        cursor.classList.add('active');
-      } else {
-        cursor.classList.remove('active');
-      }
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-    document.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      document.removeEventListener('mouseover', handleMouseOver);
-      if (document.body.contains(cursor)) document.body.removeChild(cursor);
-    };
-  }, []);
+  useCursor();
 
   const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
-  const navItems = [
-    { path: '/admin', icon: 'dashboard', label: 'Dashboard' },
-    { path: '/admin/posts', icon: 'article', label: 'Posts' },
-    { path: '/admin/posts/new', icon: 'add_circle', label: 'Novo Post' },
-  ];
-
   const getPageTitle = () => {
-    if (location.pathname === '/admin') return 'Dashboard';
-    if (location.pathname === '/admin/posts') return 'Posts';
-    if (location.pathname === '/admin/posts/new') return 'Novo Post';
     if (location.pathname.startsWith('/admin/posts/edit')) return 'Editar Post';
-    return 'Painel';
+    return PAGE_TITLES[location.pathname] || 'Painel';
   };
 
   return (
     <div className="sh-admin-layout">
       <aside className={`sh-admin-sidebar ${sidebarOpen ? 'open' : 'closed'}`}>
         <div className="sh-admin-sidebar-header">
-          <h2>{sidebarOpen && 'luxjson'}</h2>
-          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="sh-sidebar-toggle" aria-label="Menu">
-            <i className="material-icons">{sidebarOpen ? 'chevron_left' : 'chevron_right'}</i>
+          {sidebarOpen && <h2>luxjson</h2>}
+          <button
+            onClick={() => setSidebarOpen((v) => !v)}
+            className="sh-sidebar-toggle"
+            aria-label={sidebarOpen ? 'Fechar menu' : 'Abrir menu'}
+          >
+            {sidebarOpen ? (
+              <ChevronLeft {...iconBase} />
+            ) : (
+              <ChevronRight {...iconBase} />
+            )}
           </button>
         </div>
-        <nav className="sh-admin-nav">
-          {navItems.map((item) => (
+
+        <nav className="sh-admin-nav" aria-label="Navegação admin">
+          {NAV_ITEMS.map(({ path, icon: Icon, label }) => (
             <Link
-              key={item.path}
-              to={item.path}
-              className={`sh-admin-nav-link ${location.pathname === item.path ? 'active' : ''}`}
+              key={path}
+              to={path}
+              className={`sh-admin-nav-link ${location.pathname === path ? 'active' : ''}`}
+              aria-current={location.pathname === path ? 'page' : undefined}
             >
-              <i className="material-icons">{item.icon}</i>
-              {sidebarOpen && <span>{item.label}</span>}
+              <Icon {...iconBase} />
+              {sidebarOpen && <span>{label}</span>}
             </Link>
           ))}
-          <button onClick={handleLogout} className="sh-mobile-logout" aria-label="Sair">
-            <i className="fa-solid fa-right-from-bracket"></i>
-          </button>
         </nav>
+
         <div className="sh-admin-sidebar-footer">
           <div className="sh-admin-user">
             {sidebarOpen && <span>{admin?.username || 'Admin'}</span>}
-            <button onClick={handleLogout} className="sh-admin-logout" aria-label="Sair">
-              <i className="fa-solid fa-right-from-bracket"></i>
+            <button
+              onClick={handleLogout}
+              className="sh-admin-logout"
+              aria-label="Sair"
+            >
+              <LogOut {...iconBase} />
             </button>
           </div>
         </div>

@@ -1,0 +1,1 @@
+export { SiGithub as GithubIcon, SiInstagram as InstagramIcon } from 'react-icons/si';

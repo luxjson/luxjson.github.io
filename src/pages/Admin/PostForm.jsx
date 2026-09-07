@@ -1,65 +1,34 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
+import { Save, X } from 'lucide-react';
+import useCursor from '../../hooks/useCursor';
+
+const iconBase = { strokeWidth: 2.5, size: 16, 'aria-hidden': true };
+
+const INITIAL_FORM = {
+  title: '',
+  content: '',
+  excerpt: '',
+  cover_image: '',
+  published: true,
+};
 
 export default function PostForm() {
   const { id } = useParams();
   const navigate = useNavigate();
   const { api } = useAuth();
-  const [saving, setSaving] = useState(false);
-  const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({
-    title: '',
-    content: '',
-    excerpt: '',
-    cover_image: '',
-    published: true,
-  });
-  const [error, setError] = useState('');
+  useCursor();
 
   const isEditing = !!id;
 
-  useEffect(() => {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+  const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(INITIAL_FORM);
+  const [error, setError] = useState('');
 
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-
-    const handleMouseOver = (e) => {
-      const target = e.target.closest(
-        'a, button, .sh-project-card, .sh-social-link, .card, [role="button"]'
-      );
-      if (target) {
-        cursor.classList.add('active');
-      } else {
-        cursor.classList.remove('active');
-      }
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-    document.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      document.removeEventListener('mouseover', handleMouseOver);
-      if (document.body.contains(cursor)) {
-        document.body.removeChild(cursor);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isEditing) {
-      loadPost();
-    }
-  }, [id]);
-
-  const loadPost = async () => {
+  const loadPost = useCallback(async () => {
     setLoading(true);
     try {
       const res = await api.get(`/blog/posts/id/${id}`);
@@ -71,12 +40,24 @@ export default function PostForm() {
         cover_image: post.cover_image || '',
         published: post.published ?? true,
       });
-    } catch (error) {
-      console.error('Erro ao carregar post:', error);
+    } catch (err) {
+      console.error('Erro ao carregar post:', err);
       setError('Não foi possível carregar o post para edição.');
     } finally {
       setLoading(false);
     }
+  }, [api, id]);
+
+  useEffect(() => {
+    if (isEditing) loadPost();
+  }, [isEditing, loadPost]);
+
+  const handleChange = (e) => {
+    const { name, value, type, checked } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === 'checkbox' ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -99,17 +80,7 @@ export default function PostForm() {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value, type, checked } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: type === 'checkbox' ? checked : value,
-    }));
-  };
-
-  if (loading) {
-    return <div className="sh-loading">Carregando post...</div>;
-  }
+  if (loading) return <div className="sh-loading">Carregando post...</div>;
 
   return (
     <motion.div
@@ -119,15 +90,14 @@ export default function PostForm() {
       className="sh-form-container"
     >
       <h2 className="sh-form-title">{isEditing ? 'Editar Post' : 'Novo Post'}</h2>
-      {error && <div className="sh-form-error">{error}</div>}
+      {error && <div className="sh-form-error" role="alert">{error}</div>}
+
       <form onSubmit={handleSubmit} className="sh-form">
         <div className="sh-input-group">
-          <label className="fix" htmlFor="title">
-            TÍTULO
-          </label>
+          <label className="fix" htmlFor="pf-title">TÍTULO</label>
           <input
             type="text"
-            id="title"
+            id="pf-title"
             name="title"
             value={formData.title}
             onChange={handleChange}
@@ -135,48 +105,59 @@ export default function PostForm() {
             required
           />
         </div>
+
         <div className="sh-input-group">
-          <label className="fix" htmlFor="excerpt">
-            RESUMO
-          </label>
+          <label className="fix" htmlFor="pf-excerpt">RESUMO</label>
           <input
             type="text"
-            id="excerpt"
+            id="pf-excerpt"
             name="excerpt"
             value={formData.excerpt}
             onChange={handleChange}
             placeholder="Breve resumo do post"
           />
         </div>
+
         <div className="sh-input-group">
-          <label className="fix" htmlFor="cover_image">
-            URL DA IMAGEM DE CAPA
-          </label>
+          <label className="fix" htmlFor="pf-cover">URL DA IMAGEM DE CAPA</label>
           <input
             type="url"
-            id="cover_image"
+            id="pf-cover"
             name="cover_image"
             value={formData.cover_image}
             onChange={handleChange}
             placeholder="https://exemplo.com/imagem.jpg"
           />
         </div>
+
         <div className="sh-input-group">
-          <label className="fix" htmlFor="content">
-            CONTEÚDO
-          </label>
+          <label className="fix" htmlFor="pf-content">CONTEÚDO (HTML)</label>
           <textarea
-            id="content"
+            id="pf-content"
             name="content"
             value={formData.content}
             onChange={handleChange}
-            rows="10"
-            placeholder="Escreva o conteúdo do post..."
+            rows="15"
+            placeholder="Escreva o conteúdo do post (HTML é suportado)..."
             required
           />
         </div>
+
+        <div className="sh-input-group sh-checkbox-group">
+          <label className="sh-checkbox-label">
+            <input
+              type="checkbox"
+              name="published"
+              checked={formData.published}
+              onChange={handleChange}
+            />
+            <span>Publicar imediatamente</span>
+          </label>
+        </div>
+
         <div className="sh-form-actions">
           <button type="submit" className="sh-btn-primary" disabled={saving}>
+            <Save {...iconBase} />
             {saving ? 'SALVANDO...' : isEditing ? 'ATUALIZAR' : 'CRIAR'}
           </button>
           <button
@@ -184,7 +165,7 @@ export default function PostForm() {
             className="sh-btn-secondary"
             onClick={() => navigate('/admin/posts')}
           >
-            CANCELAR
+            <X {...iconBase} /> CANCELAR
           </button>
         </div>
       </form>

@@ -1,23 +1,17 @@
-import Rotas from "./routes"
-import AuthProvider from "./context/AuthContext"
-import { useEffect } from "react"
+import Rotas from './routes';
+import AuthProvider from './context/AuthContext';
 
+/**
+ * O useEffect de URL redirect foi removido.
+ * O React Router já lida com isso nativamente via <Route path="/insomnia">.
+ * Aquele código substituía a URL manualmente, o que causava um flash no histórico.
+ */
 function App() {
-
-  useEffect(() => {
-    const search = window.location.search;
-    if (search.includes('/insomnia')) {
-      window.history.replaceState(null, null, '/insomnia');
-    }
-  }, []);
-  
-
   return (
-      <AuthProvider>
-        <Rotas />
-      </AuthProvider>
+    <AuthProvider>
+      <Rotas />
+    </AuthProvider>
   );
-
 }
 
-export default App
+export default App;

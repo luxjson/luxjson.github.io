@@ -1,76 +1,43 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
+import { Pencil, Trash2, FilePlus, FileText } from 'lucide-react';
+import useCursor from '../../hooks/useCursor';
+
+const iconBase = { strokeWidth: 2.5, size: 16, 'aria-hidden': true };
 
 export default function PostsList() {
   const { api } = useAuth();
   const navigate = useNavigate();
+  useCursor();
 
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [deleting, setDeleting] = useState(null);
 
-  useEffect(() => {
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
-
-    const moveCursor = (e) => {
-      cursor.style.left = `${e.clientX}px`;
-      cursor.style.top = `${e.clientY}px`;
-    };
-
-    const handleMouseOver = (e) => {
-      const target = e.target.closest(
-        'a, button, .sh-project-card, .sh-social-link, .card, [role="button"]'
-      );
-      if (target) {
-        cursor.classList.add('active');
-      } else {
-        cursor.classList.remove('active');
-      }
-    };
-
-    window.addEventListener('mousemove', moveCursor);
-    document.addEventListener('mouseover', handleMouseOver);
-
-    return () => {
-      window.removeEventListener('mousemove', moveCursor);
-      document.removeEventListener('mouseover', handleMouseOver);
-      if (document.body.contains(cursor)) {
-        document.body.removeChild(cursor);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    fetchPosts();
-  }, []);
-
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     setLoading(true);
     try {
       const res = await api.get('/blog/posts?publishedOnly=false&limit=100');
       setPosts(res.data.posts || []);
     } catch (error) {
       console.error('Erro ao buscar posts:', error);
+      // Substituir alert por estado de erro no futuro
       alert(error.response?.data?.message || 'Não foi possível carregar os posts.');
     } finally {
       setLoading(false);
     }
-  };
+  }, [api]);
 
-  const handleEdit = (id) => {
-    navigate(`/admin/posts/edit/${id}`);
-  };
+  useEffect(() => { fetchPosts(); }, [fetchPosts]);
 
   const handleDelete = async (id) => {
     if (!window.confirm('Tem certeza que deseja excluir este post?')) return;
     setDeleting(id);
     try {
       await api.delete(`/blog/posts/${id}`);
-      setPosts((current) => current.filter((post) => post.id !== id));
+      setPosts((curr) => curr.filter((p) => p.id !== id));
     } catch (error) {
       console.error('Erro ao excluir post:', error);
       alert(error.response?.data?.message || 'Não foi possível excluir o post.');
@@ -79,9 +46,7 @@ export default function PostsList() {
     }
   };
 
-  if (loading) {
-    return <div className="sh-loading">Carregando posts...</div>;
-  }
+  if (loading) return <div className="sh-loading">Carregando posts...</div>;
 
   return (
     <motion.div
@@ -92,13 +57,13 @@ export default function PostsList() {
       <div className="sh-list-header">
         <h2>Todos os Posts</h2>
         <Link to="/admin/posts/new" className="sh-btn-primary">
-          Adicionar Novo Post
+          <FilePlus size={16} strokeWidth={2.5} /> Adicionar Novo Post
         </Link>
       </div>
 
       {posts.length === 0 ? (
         <div className="sh-empty-state">
-          <i className="material-icons">article</i>
+          <FileText size={28} strokeWidth={2} />
           <p>Nenhum post criado ainda.</p>
           <Link to="/admin/posts/new" className="sh-btn-primary">
             Criar Primeiro Post
@@ -129,20 +94,25 @@ export default function PostsList() {
                       {post.published ? 'Publicado' : 'Rascunho'}
                     </span>
                   </td>
-                  <td>{new Date(post.created_at).toLocaleDateString('pt-BR')}</td>
+                  <td className="fix">
+                    {new Date(post.created_at).toLocaleDateString('pt-BR')}
+                  </td>
                   <td>
                     <div className="sh-actions">
                       <button
-                        onClick={() => handleEdit(post.id)}
+                        onClick={() => navigate(`/admin/posts/edit/${post.id}`)}
                         className="sh-btn-sm"
+                        aria-label={`Editar: ${post.title}`}
                       >
-                        Editar
+                        <Pencil {...iconBase} /> Editar
                       </button>
                       <button
                         onClick={() => handleDelete(post.id)}
                         className="sh-btn-sm sh-btn-danger"
                         disabled={deleting === post.id}
+                        aria-label={`Excluir: ${post.title}`}
                       >
+                        <Trash2 {...iconBase} />
                         {deleting === post.id ? 'Excluindo...' : 'Excluir'}
                       </button>
                     </div>
