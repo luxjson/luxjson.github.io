@@ -235,15 +235,11 @@ export default function Luxjson() {
               </h2>
               <p className="sh-service-desc">{t('aboutDesc')}</p>
               {user && (
-                <div className="sh-about-user">
-                  <img
-                    src={user.avatar_url}
-                    alt={`Avatar de ${user.name || user.login}`}
-                    style={{ width: 60, borderRadius: '50%' }}
-                  />
+                <div style={{ marginTop: '40px', display: 'flex', alignItems: 'center', gap: '20px' }}>
+                  <img src={user.avatar_url} alt="Avatar" style={{ width: '60px', borderRadius: '50%' }} />
                   <div>
-                    <p style={{ fontSize: 18 }}>{user.name || user.login}</p>
-                    <p style={{ color: 'var(--sohub-grey)', fontSize: 14 }}>{user.bio}</p>
+                    <p style={{ fontSize: '18px' }}>{user.name || user.login}</p>
+                    <p style={{ color: 'var(--sohub-grey)', fontSize: '14px' }}>{user.bio}</p>
                   </div>
                 </div>
               )}
